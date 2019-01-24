@@ -23,6 +23,8 @@ private slots:
 
     void on_settingPushButton_clicked();
 
+    void on_checkingPushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     settingDialog *sDialog;

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>426</width>
-    <height>286</height>
+    <width>325</width>
+    <height>203</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
-     <item>
-      <widget class="QLabel" name="timeLabel">
+     <item alignment="Qt::AlignRight">
+      <widget class="QLabel" name="productNumberLabel">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
          <horstretch>0</horstretch>
@@ -29,13 +29,25 @@
          <family>微軟正黑體</family>
         </font>
        </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="lineWidth">
+        <number>1</number>
+       </property>
        <property name="text">
-        <string>產品名稱:</string>
+        <string>產品序號:</string>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::AutoText</enum>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
       </widget>
      </item>
-     <item>
-      <widget class="QLineEdit" name="timeLineEdit">
+     <item alignment="Qt::AlignHCenter">
+      <widget class="QLineEdit" name="productNumberLineEdit">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -54,9 +66,13 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_3">
+      <widget class="QToolButton" name="productNumberToolButton">
        <property name="text">
-        <string>PushButton</string>
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../1f05e7c00ded54620d167b6136365b1df353.jpg</normaloff>../1f05e7c00ded54620d167b6136365b1df353.jpg</iconset>
        </property>
       </widget>
      </item>
@@ -64,8 +80,8 @@
    </item>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_3">
-     <item>
-      <widget class="QLabel" name="productLabel">
+     <item alignment="Qt::AlignRight">
+      <widget class="QLabel" name="weightLabel">
        <property name="font">
         <font>
          <family>微軟正黑體</family>
@@ -74,10 +90,13 @@
        <property name="text">
         <string>權重:</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
       </widget>
      </item>
-     <item>
-      <widget class="QLineEdit" name="productLineEdit">
+     <item alignment="Qt::AlignHCenter">
+      <widget class="QLineEdit" name="weightLineEdit">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -96,9 +115,13 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_4">
+      <widget class="QToolButton" name="weightToolButton">
        <property name="text">
-        <string>PushButton</string>
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../1f05e7c00ded54620d167b6136365b1df353.jpg</normaloff>../1f05e7c00ded54620d167b6136365b1df353.jpg</iconset>
        </property>
       </widget>
      </item>
@@ -106,8 +129,14 @@
    </item>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_4">
-     <item>
-      <widget class="QLabel" name="amountLabel">
+     <item alignment="Qt::AlignRight">
+      <widget class="QLabel" name="settingLabel">
+       <property name="maximumSize">
+        <size>
+         <width>27</width>
+         <height>16777215</height>
+        </size>
+       </property>
        <property name="font">
         <font>
          <family>微軟正黑體</family>
@@ -116,10 +145,13 @@
        <property name="text">
         <string>設定:</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
       </widget>
      </item>
-     <item>
-      <widget class="QLineEdit" name="amountLineEdit">
+     <item alignment="Qt::AlignHCenter">
+      <widget class="QLineEdit" name="settingLineEdit">
        <property name="minimumSize">
         <size>
          <width>200</width>
@@ -129,9 +161,13 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_5">
+      <widget class="QToolButton" name="settingToolButton">
        <property name="text">
-        <string>PushButton</string>
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../1f05e7c00ded54620d167b6136365b1df353.jpg</normaloff>../1f05e7c00ded54620d167b6136365b1df353.jpg</iconset>
        </property>
       </widget>
      </item>
@@ -139,20 +175,24 @@
    </item>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_5">
-     <item>
-      <widget class="QLabel" name="NGLabel">
+     <item alignment="Qt::AlignRight">
+      <widget class="QLabel" name="dateLabel">
        <property name="font">
         <font>
          <family>微軟正黑體</family>
+         <kerning>true</kerning>
         </font>
        </property>
        <property name="text">
         <string>Data:</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
       </widget>
      </item>
-     <item>
-      <widget class="QLineEdit" name="NGLineEdit">
+     <item alignment="Qt::AlignHCenter">
+      <widget class="QLineEdit" name="dataLineEdit">
        <property name="minimumSize">
         <size>
          <width>200</width>
@@ -165,18 +205,25 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_6">
+      <widget class="QToolButton" name="dataToolButton">
        <property name="text">
-        <string>PushButton</string>
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../1f05e7c00ded54620d167b6136365b1df353.jpg</normaloff>../1f05e7c00ded54620d167b6136365b1df353.jpg</iconset>
        </property>
       </widget>
      </item>
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout">
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0">
      <property name="spacing">
       <number>20</number>
+     </property>
+     <property name="sizeConstraint">
+      <enum>QLayout::SetDefaultConstraint</enum>
      </property>
      <property name="leftMargin">
       <number>40</number>
@@ -191,12 +238,18 @@
       <number>0</number>
      </property>
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="confirmPushButton">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>30</height>
+        </size>
        </property>
        <property name="text">
         <string>確定</string>
@@ -204,12 +257,18 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="cancelPushButton">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>30</height>
+        </size>
        </property>
        <property name="text">
         <string>取消</string>

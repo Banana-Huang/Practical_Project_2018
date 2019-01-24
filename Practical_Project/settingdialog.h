@@ -15,6 +15,9 @@ public:
     explicit settingDialog(QWidget *parent = nullptr);
     ~settingDialog();
 
+private slots:
+    void on_cancelPushButton_clicked();
+
 private:
     Ui::settingDialog *ui;
 };

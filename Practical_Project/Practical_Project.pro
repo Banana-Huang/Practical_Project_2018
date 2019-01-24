@@ -35,7 +35,8 @@ HEADERS += \
 
 FORMS += \
         mainwindow.ui \
-    settingdialog.ui
+    settingdialog.ui \
+    checkingdialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
