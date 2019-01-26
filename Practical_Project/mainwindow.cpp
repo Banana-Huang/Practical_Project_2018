@@ -8,6 +8,18 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->stackedWidget->setCurrentIndex(0);
     sDialog = new settingDialog(this);
+    cDialag = new checkingDialog(this);
+
+    //set tableWidgetColumnWidth
+    ui->tableWidget->setColumnWidth(1, 65);
+    ui->tableWidget->setColumnWidth(2, 65);
+    ui->tableWidget->setColumnWidth(3, 65);
+
+    //set lineEdit readOnly
+    ui->timeLineEdit->setReadOnly(1);
+    ui->productLineEdit->setReadOnly(1);
+    ui->amountLineEdit->setReadOnly(1);
+    ui->NGLineEdit->setReadOnly(1);
 }
 
 MainWindow::~MainWindow()
@@ -36,5 +48,5 @@ void MainWindow::on_settingPushButton_clicked()
 //when click the checkingPushButton
 void MainWindow::on_checkingPushButton_clicked()
 {
-
+    cDialag->show();
 }

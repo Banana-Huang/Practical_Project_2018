@@ -16,6 +16,10 @@
   <property name="windowTitle">
    <string>產線智動檢測系統</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../14650616_1373983492625534_4218606715525314813_n.jpg</normaloff>../14650616_1373983492625534_4218606715525314813_n.jpg</iconset>
+  </property>
   <property name="autoFillBackground">
    <bool>false</bool>
   </property>
@@ -204,8 +208,8 @@
      <widget class="QPushButton" name="backToHomePagePushButton">
       <property name="geometry">
        <rect>
-        <x>1270</x>
-        <y>600</y>
+        <x>968</x>
+        <y>595</y>
         <width>75</width>
         <height>23</height>
        </rect>
@@ -318,10 +322,10 @@
      <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
-        <x>1120</x>
-        <y>0</y>
-        <width>221</width>
-        <height>181</height>
+        <x>990</x>
+        <y>50</y>
+        <width>291</width>
+        <height>221</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
@@ -488,9 +492,9 @@
      <widget class="QTableWidget" name="tableWidget">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>50</y>
-        <width>400</width>
+        <x>1045</x>
+        <y>360</y>
+        <width>297</width>
         <height>271</height>
        </rect>
       </property>
@@ -533,6 +537,16 @@
        </property>
       </column>
      </widget>
+     <widget class="QTableView" name="tableView">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1042</width>
+        <height>595</height>
+       </rect>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>
@@ -551,7 +565,7 @@
     <enum>TopToolBarArea</enum>
    </attribute>
    <attribute name="toolBarBreak">
-    <bool>true</bool>
+    <bool>false</bool>
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>

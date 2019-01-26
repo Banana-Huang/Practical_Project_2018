@@ -22,4 +22,4 @@ private:
     Ui::settingDialog *ui;
 };
 
-#endif // SETTINGDIALOG_H
+#endif // DIALOG_H

@@ -27,10 +27,12 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    settingdialog.cpp
+    settingdialog.cpp \
+    checkingdialog.cpp
 
 HEADERS += \
         mainwindow.h \
+    checkingdialog.h \
     settingdialog.h
 
 FORMS += \

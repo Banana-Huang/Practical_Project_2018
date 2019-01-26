@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>變數系統參數設定</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../14650616_1373983492625534_4218606715525314813_n.jpg</normaloff>../14650616_1373983492625534_4218606715525314813_n.jpg</iconset>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
