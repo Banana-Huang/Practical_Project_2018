@@ -229,7 +229,7 @@
         <x>0</x>
         <y>600</y>
         <width>611</width>
-        <height>31</height>
+        <height>41</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -245,6 +245,24 @@
        <property name="bottomMargin">
         <number>0</number>
        </property>
+       <item>
+        <widget class="QPushButton" name="checkingPushButton">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <family>微軟正黑體</family>
+          </font>
+         </property>
+         <property name="text">
+          <string>查看數據</string>
+         </property>
+        </widget>
+       </item>
        <item>
         <widget class="QPushButton" name="startTestingPushButton">
          <property name="sizePolicy">
@@ -299,33 +317,15 @@
          </property>
         </widget>
        </item>
-       <item>
-        <widget class="QPushButton" name="checkingPushButton">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="font">
-          <font>
-           <family>微軟正黑體</family>
-          </font>
-         </property>
-         <property name="text">
-          <string>查看數據</string>
-         </property>
-        </widget>
-       </item>
       </layout>
      </widget>
      <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
-        <x>990</x>
-        <y>50</y>
-        <width>291</width>
-        <height>221</height>
+        <x>1060</x>
+        <y>20</y>
+        <width>271</width>
+        <height>251</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
@@ -556,7 +556,7 @@
      <x>0</x>
      <y>0</y>
      <width>1350</width>
-     <height>22</height>
+     <height>24</height>
     </rect>
    </property>
   </widget>
@@ -568,7 +568,6 @@
     <bool>false</bool>
    </attribute>
   </widget>
-  <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
