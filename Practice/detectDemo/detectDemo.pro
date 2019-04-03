@@ -23,12 +23,12 @@ DEFINES += QT_DEPRECATED_WARNINGS OPENCV CUDNN _TIMESPEC_DEFINED \
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-INCLUDEPATH += "C:\Users\tai75\OneDrive\Desktop\Practice\detectDemo\3rdparty\include"
+INCLUDEPATH += "E:\College\Junior\Practical_Project\Practical_Project_2018\Practice\detectDemo\3rdparty\include"
 INCLUDEPATH += "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\include"
-INCLUDEPATH += C:\Users\tai75\OneDrive\Desktop\Practice\detectDemo\yolo_src
+INCLUDEPATH += E:\College\Junior\Practical_Project\Practical_Project_2018\Practice\detectDemo\yolo_src
 INCLUDEPATH += C:\opencv_3.0\opencv\build\include
 
-LIBS += -LC:\Users\tai75\OneDrive\Desktop\Practice\detectDemo\3rdparty\lib\x64
+LIBS += -LE:\College\Junior\Practical_Project\Practical_Project_2018\Practice\detectDemo\3rdparty\lib\x64
 LIBS += -L"C:\opencv_3.0\opencv\build\x64\vc15\lib"
 LIBS += -lpthreadVC2
 LIBS += -lkernel32 \

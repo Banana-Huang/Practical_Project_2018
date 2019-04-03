@@ -10,11 +10,15 @@ dataTableModel::dataTableModel(QObject *parent, QSqlDatabase db)
 }
 
 QVariant dataTableModel::data(const QModelIndex& index, int role )const{
-
-    if( index.column() == 4 && role == Qt::BackgroundRole )
+    if( role == Qt::BackgroundColorRole )
     {
-        if( !QSqlTableModel::data(index, role).toInt() )
-            return QColor(Qt::red);
+        QModelIndex rowItem = QSqlTableModel::index( index.row(), 4, index.parent() );
+        if( QSqlTableModel::data(rowItem, Qt::DisplayRole).toInt() )
+        {
+            return QColor(Qt::white);
+        } else {
+            return QColor(255,0,0,127);
+        }
     }
 
     if( index.column() == 4 && role == Qt::DisplayRole )

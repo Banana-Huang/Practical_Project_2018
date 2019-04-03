@@ -3,6 +3,7 @@
 Detect::Detect( QLabel* view, char* datacfg, char * cfgfile, char * weightfile,
                float thresh, float hier_thresh, int cam_index, QObject *parent ): QObject(parent)
 {
+    product_count = 0;
     stop = false;
     frame = view;
 #ifndef GPU
@@ -28,7 +29,7 @@ Detect::Detect( QLabel* view, char* datacfg, char * cfgfile, char * weightfile,
     demo_thresh = thresh;
     demo_ext_output = 1;
     frame_skip = 0;
-    printf("Demo\n");
+    // printf("Demo\n");
     net = parse_network_cfg_custom(cfgfile, 1);    // set batch=1
     if(weightfile){
        load_weights(&net, weightfile);
@@ -38,7 +39,7 @@ Detect::Detect( QLabel* view, char* datacfg, char * cfgfile, char * weightfile,
     calculate_binary_weights(net);
     srand(2222222);
 
-    printf("Webcam index: %d\n", cam_index);
+    // printf("Webcam index: %d\n", cam_index);
     cpp_video_capture = 1;
     cap = get_capture_webcam(cam_index);
     if (!cap) {
@@ -128,7 +129,7 @@ bool Detect::fetch()
         in_s = get_image_from_stream_resize(cap, net.w, net.h, net.c, &in_img, cpp_video_capture, dont_close_stream);
     if(!in_s.data){
         //error("Stream closed.");
-        qDebug() << "Stream closed.";
+        // qDebug() << "Stream closed.";
         flag_exit = 1;
         return false;
     }
@@ -161,15 +162,16 @@ bool Detect::detect()
     if (nms) do_nms_sort(dets, nboxes, l.classes, nms);
 
 
-    printf("\033[2J");
-    printf("\033[1;1H");
-    printf("\nFPS: %.1f", fps );
-    printf("Objects:\n\n");
+    // printf("\033[2J");
+    // printf("\033[1;1H");
+    // printf("\nFPS: %.1f", fps );
+    // printf("Objects:\n\n");
 
     ipl_images[demo_index] = det_img;
     det_img = ipl_images[(demo_index + FRAMES / 2 + 1) % FRAMES];
     demo_index = (demo_index + 1)%FRAMES;
     draw_detections_cv_v3(det_img, dets, nboxes, demo_thresh, demo_names, demo_alphabet, demo_classes, demo_ext_output);
+    countDetections( det_img ,dets, nboxes, demo_thresh, demo_names, demo_classes  );
     free_detections(dets, nboxes);
 
     return true;
@@ -217,4 +219,83 @@ void Detect::process() {
 void Detect::Stop()
 {
     stop = true;
+}
+
+void Detect::countDetections( IplImage* show_img ,detection* dets, int num, float thresh, char **names, int classes )
+{
+    int i, j;
+    for (i = 0; i < num; ++i) {
+        char labelstr[4096] = { 0 };
+        int class_id = -1;
+        for (j = 0; j < classes; ++j) {
+            if (dets[i].prob[j] > thresh) {
+                if (class_id < 0) {
+                    class_id = j;
+                }
+            }
+        }
+        if (class_id >= 0) {
+            int width = show_img->height * .006;
+
+            //if(0){
+            //width = pow(prob, 1./2.)*10+1;
+            //alphabet = 0;
+            //}
+
+            //printf("%d %s: %.0f%%\n", i, names[class_id], prob*100);
+
+            box b = dets[i].bbox;
+            b.w = (b.w < 1) ? b.w : 1;
+            b.h = (b.h < 1) ? b.h : 1;
+            b.x = (b.x < 1) ? b.x : 1;
+            b.y = (b.y < 1) ? b.y : 1;
+            //printf("%f %f %f %f\n", b.x, b.y, b.w, b.h);
+
+            int left = (b.x - b.w / 2.)*show_img->width;
+            int right = (b.x + b.w / 2.)*show_img->width;
+            int top = (b.y - b.h / 2.)*show_img->height;
+            int bot = (b.y + b.h / 2.)*show_img->height;
+
+            if (left < 0) left = 0;
+            if (right > show_img->width - 1) right = show_img->width - 1;
+            if (top < 0) top = 0;
+            if (bot > show_img->height - 1) bot = show_img->height - 1;
+
+            int b_x_center = (left + right) / 2;
+            int b_y_center = (top + bot) / 2;
+            //int b_width = right - left;
+            //int b_height = bot - top;
+            //sprintf(labelstr, "%d x %d - w: %d, h: %d", b_x_center, b_y_center, b_width, b_height);
+
+
+            // you should create directory: result_img
+            //static int copied_frame_id = -1;
+            //static IplImage* copy_img = NULL;
+            //if (copied_frame_id != frame_id) {
+            //    copied_frame_id = frame_id;
+            //    if(copy_img == NULL) copy_img = cvCreateImage(cvSize(show_img->width, show_img->height), show_img->depth, show_img->nChannels);
+            //    cvCopy(show_img, copy_img, 0);
+            //}
+            //static int img_id = 0;
+            //img_id++;
+            //char image_name[1024];
+            //sprintf(image_name, "result_img/img_%d_%d_%d.jpg", frame_id, img_id, class_id);
+            //CvRect rect = cvRect(pt1.x, pt1.y, pt2.x - pt1.x, pt2.y - pt1.y);
+            //cvSetImageROI(copy_img, rect);
+            //cvSaveImage(image_name, copy_img, 0);
+            //cvResetImageROI(copy_img);
+            if( class_id == 1 ) {
+                cvCircle(show_img, cvPoint(b_x_center,b_y_center), 5, CV_RGB(255,0,0), 3, CV_FILLED, 0 );
+                if( show_img->width/2 - 5 < b_x_center && b_x_center < show_img->width/2 + 5) {
+                    cvLine(show_img,cvPoint(show_img->width/2,0),cvPoint(show_img->width/2,show_img->height),CV_RGB(255,0,0),3,8,0);
+                    product_count++;
+                    printf("\nCurrent Product count: %d", product_count );
+                } else {
+                    cvLine(show_img,cvPoint(show_img->width/2,0),cvPoint(show_img->width/2,show_img->height),CV_RGB(0,255,0),3,8,0);
+                }
+            }
+
+        }
+    }
+
 }

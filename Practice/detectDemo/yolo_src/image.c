@@ -498,7 +498,7 @@ void draw_detections_cv_v3(IplImage* show_img, detection *dets, int num, float t
                     strcat(labelstr, ", ");
                     strcat(labelstr, names[j]);
                 }
-                printf("%s: %.0f%% ", names[j], dets[i].prob[j] * 100);
+                // printf("%s: %.0f%% ", names[j], dets[i].prob[j] * 100);
             }
         }
         if (class_id >= 0) {
@@ -579,11 +579,11 @@ void draw_detections_cv_v3(IplImage* show_img, detection *dets, int num, float t
             //cvResetImageROI(copy_img);
 
             cvRectangle(show_img, pt1, pt2, color, width, 8, 0);
-            if (ext_output)
+            /*if (ext_output)
                 printf("\t(left_x: %4.0f   top_y: %4.0f   width: %4.0f   height: %4.0f)\n",
                     (float)left, (float)top, b.w*show_img->width, b.h*show_img->height);
             else
-                printf("\n");
+                printf("\n");*/
 
             cvRectangle(show_img, pt_text_bg1, pt_text_bg2, color, width, 8, 0);
             cvRectangle(show_img, pt_text_bg1, pt_text_bg2, color, CV_FILLED, 8, 0);    // filled
@@ -594,6 +594,7 @@ void draw_detections_cv_v3(IplImage* show_img, detection *dets, int num, float t
             cvPutText(show_img, labelstr, pt_text, &font, black_color);
         }
     }
+        cvLine(show_img,cvPoint(show_img->width/2,0),cvPoint(show_img->width/2,show_img->height),CV_RGB(0,255,0),3,8,0);
     if (ext_output) {
         fflush(stdout);
     }

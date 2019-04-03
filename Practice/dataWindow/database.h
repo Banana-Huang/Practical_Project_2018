@@ -5,7 +5,10 @@
 #include <QMap>
 #include <QtSql>
 #include <QStringList>
+#include <QDateTime>
+#include <QDebug>
 #include <QStringListModel>
+#include <QMessageBox>
 #include "datatablemodel.h"
 
 class Database: public QObject
@@ -15,10 +18,13 @@ public:
     explicit Database(QObject *parent = nullptr);
     bool connectDB( QMap<QString, QString> &config );
     QStringList getProduct();
+    QString getProductName( QString );
     dataTableModel* getProductDataModel();
+    QSqlRecord getRecord( QModelIndex );
 signals:
 
 public slots:
+    void setCondiction( QString ,QDateTime, QDateTime, QString );
 private:
     QSqlDatabase productDB;
     QStringListModel product;

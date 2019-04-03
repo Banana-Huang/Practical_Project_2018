@@ -29,13 +29,15 @@ SOURCES += \
         datawindow.cpp \
     databasesetdialog.cpp \
     database.cpp \
-    datatablemodel.cpp
+    datatablemodel.cpp \
+    defectwindow.cpp
 
 HEADERS += \
         datawindow.h \
     databasesetdialog.h \
     database.h \
-    datatablemodel.h
+    datatablemodel.h \
+    defectwindow.h
 
 FORMS += \
         datawindow.ui

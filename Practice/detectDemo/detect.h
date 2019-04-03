@@ -45,7 +45,9 @@ public:
     bool detect();
     double get_wall_time();
     void updateView();
+    void countDetections( IplImage* show_img ,detection* dets, int num, float thresh, char **names, int classes  );
 private:
+    int product_count;
     QTimer *timer;
     char **demo_names;
     image **demo_alphabet;

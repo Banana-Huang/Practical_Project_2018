@@ -734,10 +734,10 @@ network parse_network_cfg_custom(char *filename, int batch)
     n = n->next;
     int count = 0;
     free_section(s);
-    fprintf(stderr, "layer     filters    size              input                output\n");
+    // fprintf(stderr, "layer     filters    size              input                output\n");
     while(n){
         params.index = count;
-        fprintf(stderr, "%4d ", count);
+        // fprintf(stderr, "%4d ", count);
         s = (section *)n->val;
         options = s->options;
         layer l = {0};
@@ -796,7 +796,7 @@ network parse_network_cfg_custom(char *filename, int batch)
             l.delta_gpu = net.layers[count-1].delta_gpu;
 #endif
         }else{
-            fprintf(stderr, "Type not recognized: %s\n", s->type);
+            // fprintf(stderr, "Type not recognized: %s\n", s->type);
         }
         l.onlyforward = option_find_int_quiet(options, "onlyforward", 0);
         l.stopbackward = option_find_int_quiet(options, "stopbackward", 0);
@@ -819,7 +819,7 @@ network parse_network_cfg_custom(char *filename, int batch)
     free_list(sections);
     net.outputs = get_network_output_size(net);
     net.output = get_network_output(net);
-    printf("Total BFLOPS %5.3f \n", bflops);
+    // printf("Total BFLOPS %5.3f \n", bflops);
     if(workspace_size){
         //printf("%ld\n", workspace_size);
 #ifdef GPU
@@ -971,7 +971,7 @@ void save_weights_upto(network net, char *filename, int cutoff)
         cuda_set_device(net.gpu_index);
     }
 #endif
-    fprintf(stderr, "Saving weights to %s\n", filename);
+    // fprintf(stderr, "Saving weights to %s\n", filename);
     FILE *fp = fopen(filename, "wb");
     if(!fp) file_error(filename);
 
@@ -1118,7 +1118,7 @@ void load_convolutional_weights(layer l, FILE *fp)
         fread(l.rolling_mean, sizeof(float), l.n, fp);
         fread(l.rolling_variance, sizeof(float), l.n, fp);
         if(0){
-            int i;
+            /* int i;
             for(i = 0; i < l.n; ++i){
                 printf("%g, ", l.rolling_mean[i]);
             }
@@ -1126,7 +1126,7 @@ void load_convolutional_weights(layer l, FILE *fp)
             for(i = 0; i < l.n; ++i){
                 printf("%g, ", l.rolling_variance[i]);
             }
-            printf("\n");
+            printf("\n");*/
         }
         if(0){
             fill_cpu(l.n, 0, l.rolling_mean, 1);
@@ -1158,7 +1158,7 @@ void load_weights_upto(network *net, char *filename, int cutoff)
         cuda_set_device(net->gpu_index);
     }
 #endif
-    fprintf(stderr, "Loading weights from %s...", filename);
+    // fprintf(stderr, "Loading weights from %s...", filename);
     fflush(stdout);
     FILE *fp = fopen(filename, "rb");
     if(!fp) file_error(filename);
@@ -1170,13 +1170,13 @@ void load_weights_upto(network *net, char *filename, int cutoff)
     fread(&minor, sizeof(int), 1, fp);
     fread(&revision, sizeof(int), 1, fp);
     if ((major * 10 + minor) >= 2) {
-        printf("\n seen 64 \n");
+        // printf("\n seen 64 \n");
         uint64_t iseen = 0;
         fread(&iseen, sizeof(uint64_t), 1, fp);
         *net->seen = iseen;
     }
     else {
-        printf("\n seen 32 \n");
+        // printf("\n seen 32 \n");
         fread(net->seen, sizeof(int), 1, fp);
     }
     int transpose = (major > 1000) || (minor > 1000);
@@ -1224,7 +1224,7 @@ void load_weights_upto(network *net, char *filename, int cutoff)
 #endif
         }
     }
-    fprintf(stderr, "Done!\n");
+    // fprintf(stderr, "Done!\n");
     fclose(fp);
 }
 
