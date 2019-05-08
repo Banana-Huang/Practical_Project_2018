@@ -41,16 +41,17 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect( sDialog, SIGNAL(submitConfig(QMap<QString,QString>)), this, SLOT(updateConfig( QMap<QString,QString> )));
     ui->pausePushButton->setEnabled(false);
-    sDialog->show();
+    //sDialog->show();
 
     connect( timer, SIGNAL(timeout()), this, SLOT(updateCurrentTime()));
     timer->start(1000);
-    thread = new QThread(this);
+
     detector = new Detect(ui->detectView, config["dataFile"], config["configFile"], config["weightFile"],
-                          0.9, 0.5, config["cameraIndex"].toInt() );
+                          0.8, 0.5, 0 );
+    connect(detector, SIGNAL(detectionSignal()), this, SLOT(updateData()));
     thread = new QThread(this);
     detector->moveToThread(thread);
-    connect(detector, SIGNAL(detectionSignal()), this, SLOT(updateData()));
+
     detector->Stop();
     connect(thread, SIGNAL(started()), detector, SLOT(process()));
     thread->start();
