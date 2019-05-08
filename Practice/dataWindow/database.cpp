@@ -4,6 +4,7 @@ Database::Database(QObject *parent) : QObject(parent)
 {
     productDB = QSqlDatabase::addDatabase("QMYSQL");
     stuffDataModel = new dataTableModel( this, productDB );
+    productErrorModel = new QSqlRelationalTableModel( this, productDB );
 }
 
 bool Database::connectDB(QMap<QString, QString> &config)
@@ -22,8 +23,24 @@ bool Database::connectDB(QMap<QString, QString> &config)
         stuffDataModel->setHeaderData(2, Qt::Horizontal, "product time");
         stuffDataModel->setHeaderData(3, Qt::Horizontal, "image");
         stuffDataModel->setHeaderData(4, Qt::Horizontal, "status");
+
+        //productErrorModel->setJoinMode(QSqlRelationalTableModel::LeftJoin);
+        productErrorModel->setHeaderData(0, Qt::Horizontal, "eid");
+        productErrorModel->setHeaderData(1, Qt::Horizontal, "name");
+        productErrorModel->setHeaderData(2, Qt::Horizontal, "describe");
+        productErrorModel->setHeaderData(3, Qt::Horizontal, "image");
+        productErrorModel->setHeaderData(4, Qt::Horizontal, "number");
+        productErrorModel->setHeaderData(5, Qt::Horizontal, "checked");
         return true;
     } else
+        return false;
+}
+
+bool Database::isConnect()
+{
+    if( productDB.isOpen() )
+        return true;
+    else
         return false;
 }
 
@@ -93,5 +110,33 @@ QString Database::getProductName( QString pid )
         return query.value(0).toString();
     } else {
         return QString("None");
+    }
+}
+
+QMap<QString, int> Database::getStuffErrors( QString sid )
+{
+    QSqlQuery query("select eid, number from stuff_have_error where sid = '"+ sid +"';",productDB);
+    QMap<QString, int> error;
+    if(query.exec())
+    {
+        while( query.next() )
+        {
+            error.insert( query.value(0).toString(), query.value(1).toInt() );
+        }
+        return error;
+    } else {
+        return error;
+    }
+}
+
+QSqlQueryModel* Database::getProductError( QString pid )
+{
+    if( productDB.isOpen() )
+    {
+        QString query("select error.eid as eid, name,describle,image from product_have_error, error where product_have_error.eid = error.eid and pid ='" + pid + "'");
+        productErrorModel->setQuery( query, productDB );
+        return productErrorModel;
+    } else {
+        return nullptr;
     }
 }

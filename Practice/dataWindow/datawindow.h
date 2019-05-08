@@ -3,6 +3,7 @@
 
 #include "database.h"
 #include "databasesetdialog.h"
+#include "defectwindow.h"
 #include <QMainWindow>
 #include <QMessageBox>
 #include <QDate>
@@ -40,6 +41,7 @@ private:
     QStringListModel *product;
     DatabaseSetDialog* setDialog;
     Database *database;
+    DefectWindow *defectWindow;
     QSqlQuery sqlQuery;
 private slots:
     void setDBconfig();

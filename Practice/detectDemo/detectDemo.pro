@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -50,17 +50,17 @@ LIBS += -lcublas \
         -lcurand \
         -lcudart
 
-LIBS += "E:\College\Junior\Practical_Project\Practical_Project_2018\DetectWindow\cuda\activation_kernels.cu.obj" \
-    "E:\College\Junior\Practical_Project\Practical_Project_2018\DetectWindow\cuda\avgpool_layer_kernels.cu.obj" \
-    "E:\College\Junior\Practical_Project\Practical_Project_2018\DetectWindow\cuda\blas_kernels.cu.obj" \
-    "E:\College\Junior\Practical_Project\Practical_Project_2018\DetectWindow\cuda\col2im_kernels.cu.obj" \
-    "E:\College\Junior\Practical_Project\Practical_Project_2018\DetectWindow\cuda\convolutional_kernels.cu.obj" \
-    "E:\College\Junior\Practical_Project\Practical_Project_2018\DetectWindow\cuda\crop_layer_kernels.cu.obj" \
-    "E:\College\Junior\Practical_Project\Practical_Project_2018\DetectWindow\cuda\deconvolutional_kernels.cu.obj" \
-    "E:\College\Junior\Practical_Project\Practical_Project_2018\DetectWindow\cuda\dropout_layer_kernels.cu.obj" \
-    "E:\College\Junior\Practical_Project\Practical_Project_2018\DetectWindow\cuda\im2col_kernels.cu.obj" \
-    "E:\College\Junior\Practical_Project\Practical_Project_2018\DetectWindow\cuda\maxpool_layer_kernels.cu.obj" \
-    "E:\College\Junior\Practical_Project\Practical_Project_2018\DetectWindow\cuda\network_kernels.cu.obj"
+LIBS += "E:\College\Junior\Practical_Project\Practical_Project_2018\Practice\detectDemo\cuda\activation_kernels.cu.obj" \
+    "E:\College\Junior\Practical_Project\Practical_Project_2018\Practice\detectDemo\cuda\avgpool_layer_kernels.cu.obj" \
+    "E:\College\Junior\Practical_Project\Practical_Project_2018\Practice\detectDemo\cuda\blas_kernels.cu.obj" \
+    "E:\College\Junior\Practical_Project\Practical_Project_2018\Practice\detectDemo\cuda\col2im_kernels.cu.obj" \
+    "E:\College\Junior\Practical_Project\Practical_Project_2018\Practice\detectDemo\cuda\convolutional_kernels.cu.obj" \
+    "E:\College\Junior\Practical_Project\Practical_Project_2018\Practice\detectDemo\cuda\crop_layer_kernels.cu.obj" \
+    "E:\College\Junior\Practical_Project\Practical_Project_2018\Practice\detectDemo\cuda\deconvolutional_kernels.cu.obj" \
+    "E:\College\Junior\Practical_Project\Practical_Project_2018\Practice\detectDemo\cuda\dropout_layer_kernels.cu.obj" \
+    "E:\College\Junior\Practical_Project\Practical_Project_2018\Practice\detectDemo\cuda\im2col_kernels.cu.obj" \
+    "E:\College\Junior\Practical_Project\Practical_Project_2018\Practice\detectDemo\cuda\maxpool_layer_kernels.cu.obj" \
+    "E:\College\Junior\Practical_Project\Practical_Project_2018\Practice\detectDemo\cuda\network_kernels.cu.obj"
 
 CONFIG += c++11
 

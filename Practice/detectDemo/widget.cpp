@@ -1,21 +1,28 @@
 #include "widget.h"
 #include "ui_widget.h"
-#include <string>
+#include <QList>
 
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Widget)
 {
     ui->setupUi(this);
-    std::string datacfg = "E:/dataset/Project/cfg/project.data";
-    std::string cfgfile = "E:/dataset/Project/cfg/yolov3-tiny.cfg";
-    std::string weightfile = "E:/dataset/Project/weights/yolov3-tiny_127100.weights";
-    detector = new Detect( ui->labelView, const_cast<char*>(datacfg.c_str()), const_cast<char*>(cfgfile.c_str()),
-        const_cast<char*>(weightfile.c_str()), 0.8, 0.5, 0 );
+    QList<QCameraInfo> cameras = QCameraInfo::availableCameras();
+    foreach( const QCameraInfo &info, cameras )
+    {
+        ui->comboBox->addItem(info.description());
+    }
+    ui->comboBox->setCurrentIndex(0);
+    QString datacfg = "E:/dataset/Project/cfg/project.data";
+    QString cfgfile = "E:/dataset/Project/cfg/yolov3-tiny.cfg";
+    QString weightfile = "E:/dataset/Project/weights/yolov3-tiny_127100.weights";
+    detector = new Detect( ui->labelView );
+    detector->loadConfig(datacfg,cfgfile,weightfile,0.8,ui->comboBox->currentIndex());
     thread = new QThread(this);
-    connect( thread, SIGNAL(started()), detector, SLOT(process()));
+
     detector->moveToThread(thread);
     thread->start();
+    ui->pushButton_2->setEnabled(false);
 }
 
 Widget::~Widget()
@@ -24,4 +31,31 @@ Widget::~Widget()
     thread->quit();
     delete detector;
     delete ui;
+}
+
+void Widget::on_pushButton_clicked()
+{
+    detector->Start();
+    ui->pushButton->setEnabled(false);
+    ui->pushButton_2->setEnabled(true);
+    ui->reloadPushButton->setEnabled(false);
+}
+
+
+
+void Widget::on_pushButton_2_clicked()
+{
+    detector->Stop();
+    ui->pushButton->setEnabled(true);
+    ui->pushButton_2->setEnabled(false);
+    ui->reloadPushButton->setEnabled(true);
+}
+
+void Widget::on_reloadPushButton_clicked()
+{
+    detector->freeConfig();
+    QString datacfg = "E:/dataset/Project/cfg/project.data";
+    QString cfgfile = "E:/dataset/Project/cfg/yolov3-tiny.cfg";
+    QString weightfile = "E:/dataset/Project/weights/yolov3-tiny_127100.weights";
+    detector->loadConfig(datacfg,cfgfile,weightfile,0.8,ui->comboBox->currentIndex());
 }

@@ -12,6 +12,7 @@ DataWindow::DataWindow(QWidget *parent) :
     ui->statusBar->setStyleSheet("background-color: rgb(255, 0, 0);");
     setDialog = new DatabaseSetDialog(this);
     database = new Database(this);
+    defectWindow = new DefectWindow(this);
     product = new QStringListModel(this);
 
     initDBConfig();
@@ -244,5 +245,13 @@ void DataWindow::on_imageChoser_clicked()
 
 void DataWindow::on_statusPushButton_clicked()
 {
+    if( database->isConnect() ) {
+        if( ui->statusPushButton->text() == QStringLiteral("良好") )
+            defectWindow->setStatus(1,nullptr);
+        else
+            defectWindow->setStatus(0,database->getProductError(ui->comboBox->currentText()));
+        defectWindow->exec();
+    } else
+        QMessageBox::critical(this,"Fatal Error","Databases doesn't connect!");
 
 }

@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<product product_id='p00001'>
+    <component id='c00001' name='床'>
+    </component>
+    <component id='c00002' name='盒子'>
+    </component>
+    <component id='c00003' name='桌子'>
+    </component>
+    <component id='c00004' name='椅子'>
+    </component>
+    <component id='c00005' name='衣櫥'>
+    </component>
+    <component id='c00006' name='地毯'>
+    </component>
+    <component id='c00007' name='恐龍'>
+    </component>
+</product>

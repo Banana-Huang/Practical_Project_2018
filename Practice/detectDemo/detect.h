@@ -6,6 +6,9 @@
 #include <QTimer>
 #include <QLabel>
 #include <QImage>
+#include <QMessageBox>
+#include <QList>
+#include <QQueue>
 #include "opencv2/opencv.hpp"
 #include "opencv2/highgui/highgui_c.h"
 #include "opencv2/imgproc/imgproc_c.h"
@@ -33,20 +36,62 @@
 #include "yolo_src/image.h"
 #include "yolo_src/layer.h"
 #include "yolo_src/http_stream.h"
+class Component
+{
+public:
+    Component( int classes, QString name, int top, int bottom, int left, int right ) {
+        this->classes = classes;
+        this->name = name;
+        this->top = top;
+        this->bottom = bottom;
+        this->left = left;
+        this->right = right;
+    }
+
+    ~Component() {}
+
+    int getCenter_x() const
+    {
+        return ( right + left ) / 2;
+    }
+
+    int getCenter_y() const
+    {
+        return ( top + bottom ) / 2;
+    }
+
+    bool isBelongto( Component another ) const
+    {
+        if( left < another.getCenter_x() && another.getCenter_x() < right  && top < another.getCenter_y() && another.getCenter_y() < bottom )
+            return true;
+        else
+            return false;
+    }
+
+    QString toString() const
+    {
+        return QString( name + " top:" + QString::number(top) + " left:" + QString::number(left) + " right:" + QString::number(right) + " bottom:" + QString::number(bottom));
+    }
+private:
+    int classes;
+    QString name;
+    int top, bottom, left, right;
+};
 
 class Detect : public QObject
 {
     Q_OBJECT
 public:
-    explicit Detect( QLabel* view,char* datacfg, char *cfgfile, char *weightfile,
-                    float thresh, float hier_thresh, int cam_index, QObject *parent = nullptr);
+    explicit Detect( QLabel* view, QObject *parent = nullptr);
     ~Detect();
     bool fetch();
     bool detect();
-    double get_wall_time();
-    void updateView();
-    void countDetections( IplImage* show_img ,detection* dets, int num, float thresh, char **names, int classes  );
+    double get_wall_time();  
+    void loadConfig( QString, QString, QString, float, int );
+    void freeConfig();
+    void getDetections( IplImage* show_img, detection *dets, int num, float thresh, char **names, image **alphabet, int classes, int container_num  );
 private:
+    bool counted = false;
     int product_count;
     QTimer *timer;
     char **demo_names;
@@ -82,7 +127,9 @@ private:
 signals:
 
 public slots:
+    void updateView();
     void process();
+    void Start();
     void Stop();
 };
 

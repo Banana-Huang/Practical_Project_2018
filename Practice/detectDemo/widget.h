@@ -2,6 +2,7 @@
 #define WIDGET_H
 #include <QWidget>
 #include <QThread>
+#include <QCameraInfo>
 #include "detect.h"
 namespace Ui {
 class Widget;
@@ -14,6 +15,13 @@ class Widget : public QWidget
 public:
     explicit Widget(QWidget *parent = nullptr);
     ~Widget();
+
+private slots:
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_reloadPushButton_clicked();
 
 private:
     Ui::Widget *ui;
