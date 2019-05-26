@@ -30,6 +30,7 @@ DataWindow::DataWindow(QWidget *parent,Database *db ) :
     defectWindow->setTableWidget();
     defectWindow->setGoodChecked();
 
+
     ui->startDateTimeEdit->setDate(QDate::currentDate());
     ui->endDateTimeEdit->setDate(QDate::currentDate());
     ui->startDateTimeEdit->setTime(QTime(0,0,0));

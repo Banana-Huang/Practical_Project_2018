@@ -186,14 +186,14 @@ double Detect::get_wall_time()
 }
 
 void Detect::updateView() {
-    cv::Mat img = cv::cvarrToMat(show_img);
+    /*cv::Mat img = cv::cvarrToMat(show_img);
     cv::cvtColor(img, img, CV_BGR2RGB);
     cv::resize(img,img,cv::Size(frame->width(),frame->height()),0,0,cv::INTER_LINEAR);
-    frame->setPixmap(QPixmap::fromImage(QImage(img.data, img.cols, img.rows, img.step, QImage::Format_RGB888)));
-    /*cvCvtColor(show_img,show_img,CV_BGR2RGB);
+    frame->setPixmap(QPixmap::fromImage(QImage(img.data, img.cols, img.rows, img.step, QImage::Format_RGB888)));*/
+    cvCvtColor(show_img,show_img,CV_BGR2RGB);
 
     uchar *imgData=(uchar *)show_img->imageData;
-    frame->setPixmap(QPixmap::fromImage(QImage(imgData,show_img->width,show_img->height,QImage::Format_RGB888)));*/
+    frame->setPixmap(QPixmap::fromImage(QImage(imgData,show_img->width,show_img->height,QImage::Format_RGB888)).scaled(frame->width(),frame->height()));
 
 }
 
@@ -210,14 +210,13 @@ void Detect::process() {
             if( !stop ) {
             fetch();
             detect();
-
+            //updateView();
             cvReleaseImage(&show_img);
             if( delay == 0 )
                 show_img = det_img;
-            updateView();
             det_img = in_img;
             det_s = in_s;
-
+            updateView();
             --delay;
             if(delay < 0){
                 delay = frame_skip;
@@ -362,6 +361,7 @@ void Detect::getDetections( IplImage* show_img, detection *dets, int num, float 
                 cvLine(show_img,cvPoint(show_img->width/2,0),cvPoint(show_img->width/2,show_img->height),CV_RGB(0,255,0),3,8,0);
         }
     }
+
     if( !Group.isEmpty() )
     {
         while( !component.isEmpty() )
@@ -378,7 +378,6 @@ void Detect::getDetections( IplImage* show_img, detection *dets, int num, float 
         detectedImgQueue.enqueue(QImage(img.data, img.cols, img.rows, img.step, QImage::Format_RGB888));*/
         emit detectionSignal();
     }
-
 }
 
 QList<Component> Detect::getComponents() const

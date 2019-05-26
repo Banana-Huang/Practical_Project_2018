@@ -267,8 +267,8 @@ QList<int> Database::getCounting( QDate currentDate, QString pid )
     int i = 0;
     QList<int> count;
     count << 0 << 0;
-    QString str("select status,COUNT(status) from stuff where product_time between '%1 00:00:00.000' and '%1 23:59:59.999' and pid = '%2' group by status");
-    str.arg(currentDate.toString("yyyy-MM-dd"),pid);
+    QString str("select status,COUNT(status) from stuff where date(product_time) = curdate()  and pid = '%1' group by status");
+    str.arg(pid);
     QSqlQuery query(str,productDB);
     if(query.exec())
     {

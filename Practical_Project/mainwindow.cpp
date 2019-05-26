@@ -25,16 +25,15 @@ MainWindow::MainWindow(QMap<QString,QString> config,QWidget *parent) :
     ui->NGLineEdit->setReadOnly(true);
     ui->renderLabel->setStyleSheet("QLabel {font-weight:bold; font-size: 20px;background-color : yellow; color : black; }");
     ui->renderLabel->setText(QStringLiteral("    停止"));
-
+    this->config = config;
     /*initNetworkConfig();
     sDialog->update_camera();
     sDialog->setProductComboBox(dataWindow->getProductIds());
     updateConfig(sDialog->getConfig());*/
     errorTable = database->getErrorTable(config["pid"]);
+     ui->productLineEdit->setText(database->getProductName(config["pid"]));
     QList<int> count = database->getCounting( QDate::currentDate() ,config["pid"]);
     setAmount(count[0],count[1]);
-
-    this->config = config;
 
     componentInfo = database->getComponentSetting(config["pid"]);
     setTableWidget();
@@ -293,7 +292,7 @@ void MainWindow::insertDatabase() {
         record.setValue("status",0);
     } else {
         ui->renderLabel->setText(QStringLiteral("生產序號:")+ sid + QStringLiteral(" 狀態: 良好 生產時間: ") + currentTime.toString("yyyy-MM-dd HH:mm:ss.zzz") );
-        ui->renderLabel->setStyleSheet("QLabel {font-weight:bold; font-size: 20px;background-color : green; color : black; }");
+        ui->renderLabel->setStyleSheet("QLabel {font-weight:bold; font-size: 20px;background-color : #00FF00; color : black; }");
         record.setValue("status",1);
     }
 
