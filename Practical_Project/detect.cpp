@@ -64,7 +64,7 @@ Detect::Detect( QLabel* view, QString datacfg, QString cfgfile, QString weightfi
        getchar();
        exit(0);
     }
-    flag_exit = 0;
+    // flag_exit = 0;
 
     fetch();
     det_img = in_img;
@@ -82,11 +82,10 @@ Detect::Detect( QLabel* view, QString datacfg, QString cfgfile, QString weightfi
         det_s = in_s;
     }
 
-    count = 0;
-    before = get_wall_time();
     /* timer = new QTimer;
     connect( timer,SIGNAL(timeout()),this,SLOT(process()));
     timer->start(33); */
+    before = get_wall_time();
 }
 
 Detect::~Detect()
@@ -191,24 +190,37 @@ void Detect::updateView() {
     cv::cvtColor(img, img, CV_BGR2RGB);
     cv::resize(img,img,cv::Size(frame->width(),frame->height()),0,0,cv::INTER_LINEAR);
     frame->setPixmap(QPixmap::fromImage(QImage(img.data, img.cols, img.rows, img.step, QImage::Format_RGB888)));
+    /*cvCvtColor(show_img,show_img,CV_BGR2RGB);
+
+    uchar *imgData=(uchar *)show_img->imageData;
+    frame->setPixmap(QPixmap::fromImage(QImage(imgData,show_img->width,show_img->height,QImage::Format_RGB888)));*/
+
+}
+
+QImage Detect::getDetectedImage() {
+    return detectedImgQueue.dequeue();
+}
+
+QImage Detect::getImage() {
+    return imgQueue.dequeue();
 }
 
 void Detect::process() {
     while( true ) {
             if( !stop ) {
-            ++count;
             fetch();
             detect();
+
             cvReleaseImage(&show_img);
             if( delay == 0 )
                 show_img = det_img;
+            updateView();
             det_img = in_img;
             det_s = in_s;
-            updateView();
+
             --delay;
             if(delay < 0){
                 delay = frame_skip;
-
                 double after = get_wall_time();
                 float curr = 1./(after - before);
                 fps = curr;
@@ -350,10 +362,6 @@ void Detect::getDetections( IplImage* show_img, detection *dets, int num, float 
                 cvLine(show_img,cvPoint(show_img->width/2,0),cvPoint(show_img->width/2,show_img->height),CV_RGB(0,255,0),3,8,0);
         }
     }
-
-
-
-
     if( !Group.isEmpty() )
     {
         while( !component.isEmpty() )
@@ -362,7 +370,12 @@ void Detect::getDetections( IplImage* show_img, detection *dets, int num, float 
             if(Group.front().isBelongto(temp))
                 Group.append(temp);
         }
-
+        /*cv::Mat img = cv::cvarrToMat(show_img);
+        cv::cvtColor(img, img, CV_BGR2RGB);
+        imgQueue.enqueue(QImage(img.data, img.cols, img.rows, img.step, QImage::Format_RGB888));
+        img = cv::cvarrToMat(det_img);
+        cv::cvtColor(img, img, CV_BGR2RGB);
+        detectedImgQueue.enqueue(QImage(img.data, img.cols, img.rows, img.step, QImage::Format_RGB888));*/
         emit detectionSignal();
     }
 

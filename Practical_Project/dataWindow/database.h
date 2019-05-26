@@ -9,11 +9,8 @@
 #include <QDebug>
 #include <QStringListModel>
 #include <QMessageBox>
-#include <QList>
 #include "datatablemodel.h"
 #include "product.h"
-#include <QDateTime>
-#include <QDate>
 
 class Database: public QObject
 {
@@ -24,19 +21,25 @@ public:
     bool connectDB( QMap<QString, QString> &config );
     QStringList getProduct();
     QString getProductName( QString );
-    QMap<QString,int> getStuffErrors( QString );
-    QMap<QString, ComponentInfo> getComponentSetting( QString );
     dataTableModel* getProductDataModel();
     QSqlRecord getRecord( QModelIndex );
-    QSqlQueryModel* getProductError( QString );
+    QMap<QString,ErrorInfo> getProductError( QString );
+    QMap<QString,int> getStuffError( QString );
+    QMap<QString, ComponentInfo> getComponentSetting( QString );
     QList<int> getCounting( QDate, QString );
+    QString getSid( QString, QDateTime );
+    QMap<QString, QString> getErrorTable( QString );
 public slots:
+    bool deleteRecords( QModelIndexList );
+    bool modifyRecord( int row,QSqlRecord& record, QMap<QString,int> errors, QString preSid );
+    bool createRecord( QSqlRecord& record, QMap<QString,int> errors );
+    bool createRecord( QSqlRecord& record, QMap<QString, ComponentInfo> componentInfo );
+    bool insertErrors( QString sid, QMap<QString, int> errors );
     void setCondiction( QString ,QDateTime, QDateTime, QString );
 private:
     QSqlDatabase productDB;
     QStringListModel product;
     dataTableModel *stuffDataModel;
-    QSqlQueryModel *productErrorModel;
 };
 
 #endif // DATABASE_H

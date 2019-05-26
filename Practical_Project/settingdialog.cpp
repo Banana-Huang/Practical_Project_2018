@@ -12,6 +12,8 @@ settingDialog::settingDialog(QWidget *parent) :
     ui->weightLineEdit->setReadOnly(1);
     ui->settingLineEdit->setReadOnly(1);
     ui->dataLineEdit->setReadOnly(1);
+    ui->productComboBox->addItem("p00001");
+    ui->productComboBox->setCurrentIndex(0);
 }
 
 settingDialog::~settingDialog()
@@ -86,7 +88,7 @@ QMap<QString,QString> settingDialog::getConfig()
     config.insert("weightFile",ui->weightLineEdit->text());
     config.insert("configFile",ui->settingLineEdit->text());
     config.insert("dataFile", ui->dataLineEdit->text());
-    config.insert("cameraIndex",QString(ui->cameraComboBox->currentIndex()));
+    config.insert("cameraIndex",QString::number(ui->cameraComboBox->currentIndex()));
     return config;
 }
 

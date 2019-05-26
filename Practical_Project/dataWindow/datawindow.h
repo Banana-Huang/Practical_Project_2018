@@ -4,6 +4,7 @@
 #include "database.h"
 #include "databasesetdialog.h"
 #include "defectwindow.h"
+#include "imageviewer.h"
 #include <QMainWindow>
 #include <QMessageBox>
 #include <QDate>
@@ -32,6 +33,9 @@ public:
     QString getProductName( QString );
 public slots:
     void setStuffData( QModelIndex );
+    void clearStuffData();
+    void updateDefect();
+    void setStatusButton();
 private:
     void initDBConfig();
     void storeDBConfig();
@@ -40,11 +44,15 @@ private:
     Ui::DataWindow *ui;
     QTimer *updateTimer;
     QMap<QString, QString> config;
+    QMap<QString, int> errors;
     QStringListModel *product;
     DatabaseSetDialog* setDialog;
     Database *database;
     DefectWindow *defectWindow;
+    ImageViewer *imageViewer;
     QSqlQuery sqlQuery;
+    QModelIndex index;
+    int mode = 0; // create mode
 private slots:
     void setDBconfig();
     void updateCurrentTime();
@@ -57,6 +65,14 @@ private slots:
     void on_defectRadioButton_clicked();
     void on_imageChoser_clicked();
     void on_statusPushButton_clicked();
+    void on_imagePlusViewButton_clicked();
+    void on_detectImagePlusViewButton_clicked();
+    void on_detectedImageChoser_clicked();
+    void on_actionadd_triggered();
+    void on_pushButton_clicked();
+    void on_pushButton_2_clicked();
+    void on_pidComboBox_currentIndexChanged(const QString &arg1);
+    void on_actionminus_triggered();
 };
 
 #endif // DATAWINDOW_H

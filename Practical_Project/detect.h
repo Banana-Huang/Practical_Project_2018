@@ -7,6 +7,7 @@
 #include <QLabel>
 #include <QImage>
 #include <QSet>
+#include <QQueue>
 #include <QMessageBox>
 #include <QList>
 #include <QQueue>
@@ -50,6 +51,8 @@ public:
     bool fetch();
     bool detect();
     double get_wall_time();
+    QImage getDetectedImage();
+    QImage getImage();
     void updateView();
     void getDetections( IplImage* show_img, detection *dets, int num, float thresh, char **names, image **alphabet, int classes, int container_num  );
     QList<Component> getComponents() const;
@@ -88,6 +91,8 @@ private:
     double before;
     QLabel *frame;
     bool stop;
+    QQueue<QImage> imgQueue;
+    QQueue<QImage> detectedImgQueue;
     QQueue<Component> component;
     QList<Component> Group;
 signals:

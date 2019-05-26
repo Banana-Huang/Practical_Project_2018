@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[20];
-    char stringdata0[379];
+    QByteArrayData data[17];
+    char stringdata0[292];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -41,30 +41,24 @@ QT_MOC_LITERAL(5, 50, 10), // "updateData"
 QT_MOC_LITERAL(6, 61, 14), // "dataProcessing"
 QT_MOC_LITERAL(7, 76, 16), // "QList<Component>"
 QT_MOC_LITERAL(8, 93, 10), // "components"
-QT_MOC_LITERAL(9, 104, 28), // "on_testingPushButton_clicked"
-QT_MOC_LITERAL(10, 133, 35), // "on_backToHomePagePushButton_c..."
-QT_MOC_LITERAL(11, 169, 28), // "on_settingPushButton_clicked"
-QT_MOC_LITERAL(12, 198, 33), // "on_startTestingPushButton_cli..."
-QT_MOC_LITERAL(13, 232, 26), // "on_pausePushButton_clicked"
-QT_MOC_LITERAL(14, 259, 17), // "updateCurrentTime"
-QT_MOC_LITERAL(15, 277, 29), // "on_checkingPushButton_clicked"
-QT_MOC_LITERAL(16, 307, 12), // "updateConfig"
-QT_MOC_LITERAL(17, 320, 21), // "QMap<QString,QString>"
-QT_MOC_LITERAL(18, 342, 17), // "initNetworkConfig"
-QT_MOC_LITERAL(19, 360, 18) // "storeNetworkConfig"
+QT_MOC_LITERAL(9, 104, 14), // "insertDatabase"
+QT_MOC_LITERAL(10, 119, 28), // "on_testingPushButton_clicked"
+QT_MOC_LITERAL(11, 148, 33), // "on_startTestingPushButton_cli..."
+QT_MOC_LITERAL(12, 182, 26), // "on_pausePushButton_clicked"
+QT_MOC_LITERAL(13, 209, 17), // "updateCurrentTime"
+QT_MOC_LITERAL(14, 227, 29), // "on_checkingPushButton_clicked"
+QT_MOC_LITERAL(15, 257, 12), // "updateConfig"
+QT_MOC_LITERAL(16, 270, 21) // "QMap<QString,QString>"
 
     },
     "MainWindow\0setTableWidget\0\0setAmount\0"
     "updateAmount\0updateData\0dataProcessing\0"
-    "QList<Component>\0components\0"
+    "QList<Component>\0components\0insertDatabase\0"
     "on_testingPushButton_clicked\0"
-    "on_backToHomePagePushButton_clicked\0"
-    "on_settingPushButton_clicked\0"
     "on_startTestingPushButton_clicked\0"
     "on_pausePushButton_clicked\0updateCurrentTime\0"
     "on_checkingPushButton_clicked\0"
-    "updateConfig\0QMap<QString,QString>\0"
-    "initNetworkConfig\0storeNetworkConfig"
+    "updateConfig\0QMap<QString,QString>"
 };
 #undef QT_MOC_LITERAL
 
@@ -74,7 +68,7 @@ static const uint qt_meta_data_MainWindow[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      15,   14, // methods
+      12,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -82,21 +76,18 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   89,    2, 0x0a /* Public */,
-       3,    2,   90,    2, 0x0a /* Public */,
-       4,    0,   95,    2, 0x0a /* Public */,
-       5,    0,   96,    2, 0x0a /* Public */,
-       6,    1,   97,    2, 0x0a /* Public */,
-       9,    0,  100,    2, 0x08 /* Private */,
-      10,    0,  101,    2, 0x08 /* Private */,
-      11,    0,  102,    2, 0x08 /* Private */,
-      12,    0,  103,    2, 0x08 /* Private */,
-      13,    0,  104,    2, 0x08 /* Private */,
-      14,    0,  105,    2, 0x08 /* Private */,
-      15,    0,  106,    2, 0x08 /* Private */,
-      16,    1,  107,    2, 0x08 /* Private */,
-      18,    0,  110,    2, 0x08 /* Private */,
-      19,    0,  111,    2, 0x08 /* Private */,
+       1,    0,   74,    2, 0x0a /* Public */,
+       3,    2,   75,    2, 0x0a /* Public */,
+       4,    0,   80,    2, 0x0a /* Public */,
+       5,    0,   81,    2, 0x0a /* Public */,
+       6,    1,   82,    2, 0x0a /* Public */,
+       9,    0,   85,    2, 0x0a /* Public */,
+      10,    0,   86,    2, 0x08 /* Private */,
+      11,    0,   87,    2, 0x08 /* Private */,
+      12,    0,   88,    2, 0x08 /* Private */,
+      13,    0,   89,    2, 0x08 /* Private */,
+      14,    0,   90,    2, 0x08 /* Private */,
+      15,    1,   91,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -110,10 +101,7 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 17,    2,
-    QMetaType::Void,
-    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 16,    2,
 
        0        // eod
 };
@@ -129,16 +117,13 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 2: _t->updateAmount(); break;
         case 3: _t->updateData(); break;
         case 4: _t->dataProcessing((*reinterpret_cast< QList<Component>(*)>(_a[1]))); break;
-        case 5: _t->on_testingPushButton_clicked(); break;
-        case 6: _t->on_backToHomePagePushButton_clicked(); break;
-        case 7: _t->on_settingPushButton_clicked(); break;
-        case 8: _t->on_startTestingPushButton_clicked(); break;
-        case 9: _t->on_pausePushButton_clicked(); break;
-        case 10: _t->updateCurrentTime(); break;
-        case 11: _t->on_checkingPushButton_clicked(); break;
-        case 12: _t->updateConfig((*reinterpret_cast< QMap<QString,QString>(*)>(_a[1]))); break;
-        case 13: _t->initNetworkConfig(); break;
-        case 14: _t->storeNetworkConfig(); break;
+        case 5: _t->insertDatabase(); break;
+        case 6: _t->on_testingPushButton_clicked(); break;
+        case 7: _t->on_startTestingPushButton_clicked(); break;
+        case 8: _t->on_pausePushButton_clicked(); break;
+        case 9: _t->updateCurrentTime(); break;
+        case 10: _t->on_checkingPushButton_clicked(); break;
+        case 11: _t->updateConfig((*reinterpret_cast< QMap<QString,QString>(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -169,13 +154,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 15)
+        if (_id < 12)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 15;
+        _id -= 12;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 15)
+        if (_id < 12)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 15;
+        _id -= 12;
     }
     return _id;
 }

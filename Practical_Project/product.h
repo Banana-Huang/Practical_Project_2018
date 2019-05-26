@@ -2,6 +2,9 @@
 #define PRODUCT_H
 #include <QSet>
 #include <QString>
+#include <QCheckBox>
+#include <QSpinBox>
+
 class Component
 {
 public:
@@ -68,15 +71,20 @@ public:
 
     void initInfo() {
         producedQuantity = 0;
-        errorStatus.clear();
+        errors.clear();
     }
 
     void increasePQ() {
         producedQuantity++;
     }
 
-    void addErrorStatus( QString& status ) {
-        errorStatus.insert(status);
+    void addErrorStatus( QString status ) {
+        if( errors.find(status) != errors.end() ){
+            errors.insert(status,1);
+        } else {
+            int c = errors[status];
+            errors[status] = ++c;
+        }
     }
     QString getCid() const {
         return cid;
@@ -94,15 +102,104 @@ public:
         return producedQuantity;
     }
 
-    QSet<QString> getErrorStatus() const {
-        return errorStatus;
+    QMap<QString,int> getErrors() const {
+        return errors;
     }
 
+    void insertError( QString name )
+    {
+        if( errors.contains(name)) {
+            int temp = errors[name];
+            temp++;
+            errors[name] = temp;
+        } else {
+            errors.insert(name,1);
+        }
+    }
+
+    void setLessError( QString e ) {
+        lessError = e;
+    }
+
+    QString getLessError() const {
+        return lessError;
+    }
+
+    void setredundantError( QString e ) {
+        redundantError = e;
+    }
+
+    QString getredundantError() const {
+        return redundantError;
+    }
 private:
     QString cid;
     QString name;
+    QString lessError;
+    QString redundantError;
     int orderedQuantity;
     int producedQuantity;
-    QSet<QString> errorStatus;
+    QMap<QString,int> errors;
+};
+
+class ErrorInfo
+{
+public:
+    ErrorInfo( QString eid, QString name, QString describe ) {
+        this->eid = eid;
+        this->name = name;
+        this->describe = describe;
+        checkBox = nullptr;
+        spinbox = nullptr;
+    }
+
+    ~ErrorInfo() {
+    }
+
+    QString getEid() const {
+        return eid;
+    }
+
+    QString getName() const {
+        return name;
+    }
+
+    QString getDescribe() const {
+        return describe;
+    }
+
+    void setCheckButton( QCheckBox* checkBox ) {
+        this->checkBox = checkBox;
+    }
+
+    void setSpinBox( QSpinBox* spinbox ) {
+        this->spinbox = spinbox;
+        // spinbox->setMinimum(0);
+    }
+
+    void reset() {
+        checkBox->setChecked(false);
+        spinbox->setValue(0);
+    }
+
+    bool isChecked() const {
+        if( checkBox == nullptr )
+            return false;
+        else if( checkBox->isChecked() )
+            return true;
+        else
+            return false;
+    }
+
+    int errorQuantity() const {
+        return spinbox->value();
+    }
+private:
+    QString eid;
+    QString name;
+    QString describe;
+    QCheckBox* checkBox;
+    QSpinBox* spinbox;
+
 };
 #endif // PRODUCT_H

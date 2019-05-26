@@ -70,6 +70,7 @@ SOURCES += \
     dataWindow/datatablemodel.cpp \
     dataWindow/datawindow.cpp \
     dataWindow/defectwindow.cpp \
+    dataWindow/imageviewer.cpp \
     detect.cpp \
         main.cpp \
         mainwindow.cpp \
@@ -149,6 +150,7 @@ HEADERS += \
     dataWindow/datatablemodel.h \
     dataWindow/datawindow.h \
     dataWindow/defectwindow.h \
+    dataWindow/imageviewer.h \
     detect.h \
         mainwindow.h \
     product.h \

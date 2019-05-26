@@ -21,6 +21,7 @@
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStackedWidget>
+#include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTableWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -45,8 +46,6 @@ public:
     QPushButton *checkingPushButton;
     QPushButton *startTestingPushButton;
     QPushButton *pausePushButton;
-    QPushButton *settingPushButton;
-    QPushButton *backToHomePagePushButton;
     QWidget *layoutWidget1;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout_3;
@@ -62,6 +61,7 @@ public:
     QLabel *NGLabel;
     QLineEdit *NGLineEdit;
     QMenuBar *menuBar;
+    QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -204,25 +204,6 @@ public:
 
         horizontalLayout_2->addWidget(pausePushButton);
 
-        settingPushButton = new QPushButton(layoutWidget);
-        settingPushButton->setObjectName(QStringLiteral("settingPushButton"));
-        sizePolicy1.setHeightForWidth(settingPushButton->sizePolicy().hasHeightForWidth());
-        settingPushButton->setSizePolicy(sizePolicy1);
-        settingPushButton->setFont(font1);
-
-        horizontalLayout_2->addWidget(settingPushButton);
-
-        backToHomePagePushButton = new QPushButton(layoutWidget);
-        backToHomePagePushButton->setObjectName(QStringLiteral("backToHomePagePushButton"));
-        QSizePolicy sizePolicy3(QSizePolicy::Preferred, QSizePolicy::Preferred);
-        sizePolicy3.setHorizontalStretch(0);
-        sizePolicy3.setVerticalStretch(0);
-        sizePolicy3.setHeightForWidth(backToHomePagePushButton->sizePolicy().hasHeightForWidth());
-        backToHomePagePushButton->setSizePolicy(sizePolicy3);
-        backToHomePagePushButton->setFont(font1);
-
-        horizontalLayout_2->addWidget(backToHomePagePushButton);
-
         layoutWidget1 = new QWidget(testingPage);
         layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
         layoutWidget1->setGeometry(QRect(1050, 60, 281, 231));
@@ -238,6 +219,9 @@ public:
         horizontalLayout_3->setContentsMargins(0, -1, -1, -1);
         timeLabel = new QLabel(layoutWidget1);
         timeLabel->setObjectName(QStringLiteral("timeLabel"));
+        QSizePolicy sizePolicy3(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy3.setHorizontalStretch(0);
+        sizePolicy3.setVerticalStretch(0);
         sizePolicy3.setHeightForWidth(timeLabel->sizePolicy().hasHeightForWidth());
         timeLabel->setSizePolicy(sizePolicy3);
         timeLabel->setFont(font1);
@@ -331,6 +315,9 @@ public:
         menuBar->setObjectName(QStringLiteral("menuBar"));
         menuBar->setGeometry(QRect(0, 0, 1385, 24));
         MainWindow->setMenuBar(menuBar);
+        statusBar = new QStatusBar(MainWindow);
+        statusBar->setObjectName(QStringLiteral("statusBar"));
+        MainWindow->setStatusBar(statusBar);
 
         retranslateUi(MainWindow);
 
@@ -358,8 +345,6 @@ public:
         checkingPushButton->setText(QApplication::translate("MainWindow", "\346\237\245\347\234\213\346\225\270\346\223\232", nullptr));
         startTestingPushButton->setText(QApplication::translate("MainWindow", "\351\226\213\345\247\213\346\252\242\346\270\254", nullptr));
         pausePushButton->setText(QApplication::translate("MainWindow", "\346\232\253\345\201\234", nullptr));
-        settingPushButton->setText(QApplication::translate("MainWindow", "\350\250\255\345\256\232", nullptr));
-        backToHomePagePushButton->setText(QApplication::translate("MainWindow", "\345\233\236\345\210\260\351\201\270\345\226\256", nullptr));
         timeLabel->setText(QApplication::translate("MainWindow", "\346\231\202\351\226\223:     ", nullptr));
         dateEdit->setDisplayFormat(QApplication::translate("MainWindow", "yyyy/M/d hh:mm:ss", nullptr));
         productLabel->setText(QApplication::translate("MainWindow", "\345\223\201\345\220\215:     ", nullptr));

@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui xml sql
+QT       += core gui xml sql charts
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -25,6 +25,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    imageviewer.cpp \
         main.cpp \
         datawindow.cpp \
     databasesetdialog.cpp \
@@ -37,7 +38,9 @@ HEADERS += \
     databasesetdialog.h \
     database.h \
     datatablemodel.h \
-    defectwindow.h
+    defectwindow.h \
+    imageviewer.h \
+    product.h
 
 FORMS += \
         datawindow.ui

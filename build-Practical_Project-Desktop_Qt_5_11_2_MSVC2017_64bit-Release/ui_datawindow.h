@@ -79,21 +79,26 @@ public:
     QGroupBox *groupBox_2;
     QVBoxLayout *verticalLayout_5;
     QGridLayout *gridLayout_2;
-    QLabel *productName;
-    QLineEdit *productNameLineEdit;
-    QPushButton *statusPushButton;
-    QLabel *label;
-    QLineEdit *sidLineEdit;
-    QLabel *pictureView;
-    QLabel *imageNameLabel;
     QComboBox *pidComboBox;
-    QDateTimeEdit *stuffProductTime;
-    QLabel *pidLabel;
+    QLabel *label;
+    QLabel *productName;
+    QHBoxLayout *horizontalLayout_8;
+    QLineEdit *detectedImageLineEdit;
+    QPushButton *detectedImageChoser;
+    QPushButton *detectImagePlusViewButton;
+    QLineEdit *sidLineEdit;
     QLabel *sidLabel;
+    QPushButton *statusPushButton;
     QLabel *statusLabel;
+    QLabel *imageNameLabel;
+    QLabel *label_5;
+    QLineEdit *productNameLineEdit;
+    QLabel *pidLabel;
     QHBoxLayout *horizontalLayout_10;
     QLineEdit *imageLineEdit;
     QPushButton *imageChoser;
+    QPushButton *imagePlusViewButton;
+    QDateTimeEdit *stuffProductTime;
     QHBoxLayout *horizontalLayout_9;
     QPushButton *pushButton;
     QPushButton *pushButton_2;
@@ -170,7 +175,7 @@ public:
 
         groupBox = new QGroupBox(centralWidget);
         groupBox->setObjectName(QStringLiteral("groupBox"));
-        QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Fixed);
+        QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy1.setHorizontalStretch(0);
         sizePolicy1.setVerticalStretch(0);
         sizePolicy1.setHeightForWidth(groupBox->sizePolicy().hasHeightForWidth());
@@ -301,11 +306,8 @@ public:
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
         statusChoose = new QGroupBox(page);
         statusChoose->setObjectName(QStringLiteral("statusChoose"));
-        QSizePolicy sizePolicy5(QSizePolicy::Fixed, QSizePolicy::Fixed);
-        sizePolicy5.setHorizontalStretch(0);
-        sizePolicy5.setVerticalStretch(0);
-        sizePolicy5.setHeightForWidth(statusChoose->sizePolicy().hasHeightForWidth());
-        statusChoose->setSizePolicy(sizePolicy5);
+        sizePolicy1.setHeightForWidth(statusChoose->sizePolicy().hasHeightForWidth());
+        statusChoose->setSizePolicy(sizePolicy1);
         horizontalLayout_7 = new QHBoxLayout(statusChoose);
         horizontalLayout_7->setSpacing(6);
         horizontalLayout_7->setContentsMargins(11, 11, 11, 11);
@@ -331,11 +333,9 @@ public:
 
         groupBox_2 = new QGroupBox(page);
         groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
-        QSizePolicy sizePolicy6(QSizePolicy::Preferred, QSizePolicy::Preferred);
-        sizePolicy6.setHorizontalStretch(0);
-        sizePolicy6.setVerticalStretch(0);
-        sizePolicy6.setHeightForWidth(groupBox_2->sizePolicy().hasHeightForWidth());
-        groupBox_2->setSizePolicy(sizePolicy6);
+        sizePolicy3.setHeightForWidth(groupBox_2->sizePolicy().hasHeightForWidth());
+        groupBox_2->setSizePolicy(sizePolicy3);
+        groupBox_2->setMinimumSize(QSize(350, 0));
         verticalLayout_5 = new QVBoxLayout(groupBox_2);
         verticalLayout_5->setSpacing(6);
         verticalLayout_5->setContentsMargins(11, 11, 11, 11);
@@ -343,98 +343,129 @@ public:
         gridLayout_2 = new QGridLayout();
         gridLayout_2->setSpacing(6);
         gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
-        productName = new QLabel(groupBox_2);
-        productName->setObjectName(QStringLiteral("productName"));
+        pidComboBox = new QComboBox(groupBox_2);
+        pidComboBox->setObjectName(QStringLiteral("pidComboBox"));
 
-        gridLayout_2->addWidget(productName, 6, 0, 1, 1);
-
-        productNameLineEdit = new QLineEdit(groupBox_2);
-        productNameLineEdit->setObjectName(QStringLiteral("productNameLineEdit"));
-
-        gridLayout_2->addWidget(productNameLineEdit, 6, 1, 1, 1);
-
-        statusPushButton = new QPushButton(groupBox_2);
-        statusPushButton->setObjectName(QStringLiteral("statusPushButton"));
-
-        gridLayout_2->addWidget(statusPushButton, 8, 1, 1, 1);
+        gridLayout_2->addWidget(pidComboBox, 3, 1, 1, 1);
 
         label = new QLabel(groupBox_2);
         label->setObjectName(QStringLiteral("label"));
 
-        gridLayout_2->addWidget(label, 7, 0, 1, 1);
+        gridLayout_2->addWidget(label, 5, 0, 1, 1);
+
+        productName = new QLabel(groupBox_2);
+        productName->setObjectName(QStringLiteral("productName"));
+
+        gridLayout_2->addWidget(productName, 4, 0, 1, 1);
+
+        horizontalLayout_8 = new QHBoxLayout();
+        horizontalLayout_8->setSpacing(6);
+        horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
+        detectedImageLineEdit = new QLineEdit(groupBox_2);
+        detectedImageLineEdit->setObjectName(QStringLiteral("detectedImageLineEdit"));
+        QSizePolicy sizePolicy5(QSizePolicy::Expanding, QSizePolicy::Fixed);
+        sizePolicy5.setHorizontalStretch(100);
+        sizePolicy5.setVerticalStretch(0);
+        sizePolicy5.setHeightForWidth(detectedImageLineEdit->sizePolicy().hasHeightForWidth());
+        detectedImageLineEdit->setSizePolicy(sizePolicy5);
+
+        horizontalLayout_8->addWidget(detectedImageLineEdit);
+
+        detectedImageChoser = new QPushButton(groupBox_2);
+        detectedImageChoser->setObjectName(QStringLiteral("detectedImageChoser"));
+        QSizePolicy sizePolicy6(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy6.setHorizontalStretch(10);
+        sizePolicy6.setVerticalStretch(0);
+        sizePolicy6.setHeightForWidth(detectedImageChoser->sizePolicy().hasHeightForWidth());
+        detectedImageChoser->setSizePolicy(sizePolicy6);
+        detectedImageChoser->setMinimumSize(QSize(10, 0));
+
+        horizontalLayout_8->addWidget(detectedImageChoser);
+
+        detectImagePlusViewButton = new QPushButton(groupBox_2);
+        detectImagePlusViewButton->setObjectName(QStringLiteral("detectImagePlusViewButton"));
+        sizePolicy6.setHeightForWidth(detectImagePlusViewButton->sizePolicy().hasHeightForWidth());
+        detectImagePlusViewButton->setSizePolicy(sizePolicy6);
+        detectImagePlusViewButton->setMinimumSize(QSize(10, 0));
+
+        horizontalLayout_8->addWidget(detectImagePlusViewButton);
+
+
+        gridLayout_2->addLayout(horizontalLayout_8, 1, 1, 1, 1);
 
         sidLineEdit = new QLineEdit(groupBox_2);
         sidLineEdit->setObjectName(QStringLiteral("sidLineEdit"));
 
-        gridLayout_2->addWidget(sidLineEdit, 4, 1, 1, 1);
-
-        pictureView = new QLabel(groupBox_2);
-        pictureView->setObjectName(QStringLiteral("pictureView"));
-        sizePolicy.setHeightForWidth(pictureView->sizePolicy().hasHeightForWidth());
-        pictureView->setSizePolicy(sizePolicy);
-        pictureView->setStyleSheet(QStringLiteral(""));
-
-        gridLayout_2->addWidget(pictureView, 0, 0, 1, 2);
-
-        imageNameLabel = new QLabel(groupBox_2);
-        imageNameLabel->setObjectName(QStringLiteral("imageNameLabel"));
-
-        gridLayout_2->addWidget(imageNameLabel, 1, 0, 1, 1);
-
-        pidComboBox = new QComboBox(groupBox_2);
-        pidComboBox->setObjectName(QStringLiteral("pidComboBox"));
-
-        gridLayout_2->addWidget(pidComboBox, 5, 1, 1, 1);
-
-        stuffProductTime = new QDateTimeEdit(groupBox_2);
-        stuffProductTime->setObjectName(QStringLiteral("stuffProductTime"));
-
-        gridLayout_2->addWidget(stuffProductTime, 7, 1, 1, 1);
-
-        pidLabel = new QLabel(groupBox_2);
-        pidLabel->setObjectName(QStringLiteral("pidLabel"));
-
-        gridLayout_2->addWidget(pidLabel, 5, 0, 1, 1);
+        gridLayout_2->addWidget(sidLineEdit, 2, 1, 1, 1);
 
         sidLabel = new QLabel(groupBox_2);
         sidLabel->setObjectName(QStringLiteral("sidLabel"));
 
-        gridLayout_2->addWidget(sidLabel, 4, 0, 1, 1);
+        gridLayout_2->addWidget(sidLabel, 2, 0, 1, 1);
+
+        statusPushButton = new QPushButton(groupBox_2);
+        statusPushButton->setObjectName(QStringLiteral("statusPushButton"));
+
+        gridLayout_2->addWidget(statusPushButton, 6, 1, 1, 1);
 
         statusLabel = new QLabel(groupBox_2);
         statusLabel->setObjectName(QStringLiteral("statusLabel"));
 
-        gridLayout_2->addWidget(statusLabel, 8, 0, 1, 1);
+        gridLayout_2->addWidget(statusLabel, 6, 0, 1, 1);
+
+        imageNameLabel = new QLabel(groupBox_2);
+        imageNameLabel->setObjectName(QStringLiteral("imageNameLabel"));
+
+        gridLayout_2->addWidget(imageNameLabel, 0, 0, 1, 1);
+
+        label_5 = new QLabel(groupBox_2);
+        label_5->setObjectName(QStringLiteral("label_5"));
+
+        gridLayout_2->addWidget(label_5, 1, 0, 1, 1);
+
+        productNameLineEdit = new QLineEdit(groupBox_2);
+        productNameLineEdit->setObjectName(QStringLiteral("productNameLineEdit"));
+
+        gridLayout_2->addWidget(productNameLineEdit, 4, 1, 1, 1);
+
+        pidLabel = new QLabel(groupBox_2);
+        pidLabel->setObjectName(QStringLiteral("pidLabel"));
+
+        gridLayout_2->addWidget(pidLabel, 3, 0, 1, 1);
 
         horizontalLayout_10 = new QHBoxLayout();
         horizontalLayout_10->setSpacing(6);
         horizontalLayout_10->setObjectName(QStringLiteral("horizontalLayout_10"));
         imageLineEdit = new QLineEdit(groupBox_2);
         imageLineEdit->setObjectName(QStringLiteral("imageLineEdit"));
-        QSizePolicy sizePolicy7(QSizePolicy::Expanding, QSizePolicy::Fixed);
-        sizePolicy7.setHorizontalStretch(100);
-        sizePolicy7.setVerticalStretch(0);
-        sizePolicy7.setHeightForWidth(imageLineEdit->sizePolicy().hasHeightForWidth());
-        imageLineEdit->setSizePolicy(sizePolicy7);
+        sizePolicy5.setHeightForWidth(imageLineEdit->sizePolicy().hasHeightForWidth());
+        imageLineEdit->setSizePolicy(sizePolicy5);
 
         horizontalLayout_10->addWidget(imageLineEdit);
 
         imageChoser = new QPushButton(groupBox_2);
         imageChoser->setObjectName(QStringLiteral("imageChoser"));
-        QSizePolicy sizePolicy8(QSizePolicy::Preferred, QSizePolicy::Fixed);
-        sizePolicy8.setHorizontalStretch(10);
-        sizePolicy8.setVerticalStretch(0);
-        sizePolicy8.setHeightForWidth(imageChoser->sizePolicy().hasHeightForWidth());
-        imageChoser->setSizePolicy(sizePolicy8);
+        sizePolicy6.setHeightForWidth(imageChoser->sizePolicy().hasHeightForWidth());
+        imageChoser->setSizePolicy(sizePolicy6);
         imageChoser->setMinimumSize(QSize(10, 0));
 
         horizontalLayout_10->addWidget(imageChoser);
 
+        imagePlusViewButton = new QPushButton(groupBox_2);
+        imagePlusViewButton->setObjectName(QStringLiteral("imagePlusViewButton"));
+        sizePolicy6.setHeightForWidth(imagePlusViewButton->sizePolicy().hasHeightForWidth());
+        imagePlusViewButton->setSizePolicy(sizePolicy6);
+        imagePlusViewButton->setMinimumSize(QSize(10, 0));
 
-        gridLayout_2->addLayout(horizontalLayout_10, 1, 1, 1, 1);
+        horizontalLayout_10->addWidget(imagePlusViewButton);
 
 
-        verticalLayout_5->addLayout(gridLayout_2);
+        gridLayout_2->addLayout(horizontalLayout_10, 0, 1, 1, 1);
+
+        stuffProductTime = new QDateTimeEdit(groupBox_2);
+        stuffProductTime->setObjectName(QStringLiteral("stuffProductTime"));
+
+        gridLayout_2->addWidget(stuffProductTime, 5, 1, 1, 1);
 
         horizontalLayout_9 = new QHBoxLayout();
         horizontalLayout_9->setSpacing(6);
@@ -450,7 +481,10 @@ public:
         horizontalLayout_9->addWidget(pushButton_2);
 
 
-        verticalLayout_5->addLayout(horizontalLayout_9);
+        gridLayout_2->addLayout(horizontalLayout_9, 7, 1, 1, 1);
+
+
+        verticalLayout_5->addLayout(gridLayout_2);
 
 
         verticalLayout_3->addWidget(groupBox_2);
@@ -521,7 +555,7 @@ public:
         tabWidget->setWhatsThis(QString());
 #endif // QT_NO_WHATSTHIS
         tabWidget->setTabText(tabWidget->indexOf(formTab), QApplication::translate("DataWindow", "\346\225\270\346\223\232\350\241\250\345\226\256", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(chartTab), QApplication::translate("DataWindow", "\346\225\270\346\223\232\345\234\226", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(chartTab), QApplication::translate("DataWindow", "\347\265\261\350\250\210\345\234\226", nullptr));
         groupBox->setTitle(QApplication::translate("DataWindow", "\347\257\204\345\234\215\350\250\255\345\256\232", nullptr));
         label_4->setText(QApplication::translate("DataWindow", "<html><head/><body><p>\347\217\276\345\234\250\346\231\202\351\226\223:</p></body></html>", nullptr));
         currentTimeEdit->setDisplayFormat(QApplication::translate("DataWindow", "yyyy/M/d hh:mm:ss", nullptr));
@@ -535,18 +569,21 @@ public:
         goodRadioButton->setText(QApplication::translate("DataWindow", "Good", nullptr));
         defectRadioButton->setText(QApplication::translate("DataWindow", "Defect", nullptr));
         groupBox_2->setTitle(QApplication::translate("DataWindow", "\347\224\237\347\224\242\346\225\270\346\223\232", nullptr));
-        productName->setText(QApplication::translate("DataWindow", "\347\224\242\345\223\201\345\220\215\347\250\261:", nullptr));
-        statusPushButton->setText(QString());
         label->setText(QApplication::translate("DataWindow", "\347\224\237\347\224\242\346\231\202\351\226\223:", nullptr));
-        pictureView->setText(QString());
-        imageNameLabel->setText(QApplication::translate("DataWindow", "\345\234\226\347\211\207:", nullptr));
-        stuffProductTime->setDisplayFormat(QApplication::translate("DataWindow", "yyyy/M/d hh:mm:ss.zzz", nullptr));
-        pidLabel->setText(QApplication::translate("DataWindow", "PID:", nullptr));
+        productName->setText(QApplication::translate("DataWindow", "\347\224\242\345\223\201\345\220\215\347\250\261:", nullptr));
+        detectedImageChoser->setText(QApplication::translate("DataWindow", "...", nullptr));
+        detectImagePlusViewButton->setText(QApplication::translate("DataWindow", "+", nullptr));
         sidLabel->setText(QApplication::translate("DataWindow", "SID:", nullptr));
+        statusPushButton->setText(QString());
         statusLabel->setText(QApplication::translate("DataWindow", "\347\213\200\346\205\213:", nullptr));
+        imageNameLabel->setText(QApplication::translate("DataWindow", "\345\234\226\347\211\207:", nullptr));
+        label_5->setText(QApplication::translate("DataWindow", "\350\276\250\350\255\230\345\234\226\347\211\207:", nullptr));
+        pidLabel->setText(QApplication::translate("DataWindow", "PID:", nullptr));
         imageChoser->setText(QApplication::translate("DataWindow", "...", nullptr));
-        pushButton->setText(QApplication::translate("DataWindow", "Submit", nullptr));
-        pushButton_2->setText(QApplication::translate("DataWindow", "Cancel", nullptr));
+        imagePlusViewButton->setText(QApplication::translate("DataWindow", "+", nullptr));
+        stuffProductTime->setDisplayFormat(QApplication::translate("DataWindow", "yyyy/M/d hh:mm:ss.zzz", nullptr));
+        pushButton->setText(QApplication::translate("DataWindow", "\347\242\272\345\256\232", nullptr));
+        pushButton_2->setText(QApplication::translate("DataWindow", "\345\217\226\346\266\210", nullptr));
         menuEdit->setTitle(QApplication::translate("DataWindow", "\347\267\250\350\274\257", nullptr));
         menuAbout->setTitle(QApplication::translate("DataWindow", "\351\227\234\346\226\274", nullptr));
     } // retranslateUi

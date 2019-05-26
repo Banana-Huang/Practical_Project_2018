@@ -1,10 +1,11 @@
 #include "database.h"
+#include <QSpinBox>
+#include <QTableWidgetItem>
 
 Database::Database(QObject *parent) : QObject(parent)
 {
     productDB = QSqlDatabase::addDatabase("QMYSQL");
     stuffDataModel = new dataTableModel( this, productDB );
-    productErrorModel = new QSqlRelationalTableModel( this, productDB );
 }
 
 bool Database::connectDB(QMap<QString, QString> &config)
@@ -22,15 +23,8 @@ bool Database::connectDB(QMap<QString, QString> &config)
         stuffDataModel->setHeaderData(1, Qt::Horizontal, "product id");
         stuffDataModel->setHeaderData(2, Qt::Horizontal, "product time");
         stuffDataModel->setHeaderData(3, Qt::Horizontal, "image");
-        stuffDataModel->setHeaderData(4, Qt::Horizontal, "status");
-
-        //productErrorModel->setJoinMode(QSqlRelationalTableModel::LeftJoin);
-        productErrorModel->setHeaderData(0, Qt::Horizontal, "eid");
-        productErrorModel->setHeaderData(1, Qt::Horizontal, "name");
-        productErrorModel->setHeaderData(2, Qt::Horizontal, "describe");
-        productErrorModel->setHeaderData(3, Qt::Horizontal, "image");
-        productErrorModel->setHeaderData(4, Qt::Horizontal, "number");
-        productErrorModel->setHeaderData(5, Qt::Horizontal, "checked");
+        stuffDataModel->setHeaderData(4, Qt::Horizontal, "detected_image");
+        stuffDataModel->setHeaderData(5, Qt::Horizontal, "status");
         return true;
     } else
         return false;
@@ -113,30 +107,147 @@ QString Database::getProductName( QString pid )
     }
 }
 
-QMap<QString, int> Database::getStuffErrors( QString sid )
+QMap<QString,ErrorInfo> Database::getProductError( QString pid )
 {
-    QSqlQuery query("select eid, number from stuff_have_error where sid = '"+ sid +"';",productDB);
-    QMap<QString, int> error;
-    if(query.exec())
+    QMap<QString, ErrorInfo> errorInfo;
+    if( productDB.isOpen() )
     {
-        while( query.next() )
-        {
-            error.insert( query.value(0).toString(), query.value(1).toInt() );
+        QSqlQuery query("select error.eid as eid, error.name as name, error.describe as describle from error, product_have_component, component_have_defect where error.eid = component_have_defect.eid and product_have_component.cid = component_have_defect.cid and product_have_component.pid = '"+ pid +"';",productDB);
+        if(query.exec()) {
+            while(query.next())
+            {
+                ErrorInfo temp(query.value(0).toString(),query.value(1).toString(),query.value(2).toString());
+                errorInfo.insert(query.value(0).toString(),temp);
+            }
         }
-        return error;
+    }
+    return errorInfo;
+}
+
+QMap<QString,int> Database::getStuffError( QString sid )
+{
+    QMap<QString, int> errors;
+    if( productDB.isOpen() )
+    {
+        QSqlQuery query("select eid, number from stuff_have_error where sid = '"+ sid +"';",productDB);
+        if(query.exec()) {
+            while(query.next())
+            {
+                errors.insert(query.value(0).toString(),query.value(1).toInt());
+            }
+        }
+    }
+    return errors;
+}
+
+bool Database::modifyRecord( int row,QSqlRecord& record, QMap<QString,int> errors,QString preSid )
+{
+    if(stuffDataModel->setRecord(row, record)) {
+        QSqlQuery query("delete from stuff_have_error where sid = '"+ preSid +"';",productDB);
+        query.exec();
+        query.prepare("INSERT INTO stuff_have_error (sid, eid, number) "
+                          "VALUES (:sid, :eid, :number)");
+        QMap<QString,int>::iterator it;
+        for( it = errors.begin(); it!=errors.end();it++) {
+            query.bindValue(0, record.value(0).toString());
+            query.bindValue(1, it.key());
+            query.bindValue(2, it.value());
+            if(!query.exec()) {
+                QSqlQuery query2("delete from stuff_have_error where sid = '"+ record.value(0).toString() +"';",productDB);
+                query2.exec();
+                stuffDataModel->revertAll();
+                return false;
+            }
+        }
+        stuffDataModel->submitAll();
+        stuffDataModel->select();
+        return true;
     } else {
-        return error;
+        stuffDataModel->revertAll();
+        return false;
     }
 }
 
-QSqlQueryModel* Database::getProductError( QString pid )
+bool Database::createRecord( QSqlRecord& record, QMap<QString,int> errors )
 {
-    if( productDB.isOpen() )
-    {
-        QString query("select error.eid as eid, name,describle,image from product_have_error, error where product_have_error.eid = error.eid and pid ='" + pid + "'");
-        productErrorModel->setQuery( query, productDB );
-        return productErrorModel;
+    if(stuffDataModel->insertRecord(-1, record)) {
+        stuffDataModel->submitAll();
+        QSqlQuery query(productDB);
+        query.prepare("INSERT INTO stuff_have_error (sid, eid, number) "
+                          "VALUES (:sid, :eid, :number)");
+        QMap<QString,int>::iterator it;
+        for( it = errors.begin(); it!=errors.end();it++) {
+            query.bindValue(0, record.value(0).toString());
+            query.bindValue(1, it.key());
+            query.bindValue(2, it.value());
+            if(!query.exec()) {
+                QSqlQuery query2("delete from stuff_have_error where sid = '"+ record.value(0).toString() +"';",productDB);
+                query2.exec();
+                stuffDataModel->revertAll();
+                return false;
+            }
+        }
+        stuffDataModel->select();
+        return true;
     } else {
-        return nullptr;
+        stuffDataModel->revertAll();
+        return false;
     }
+}
+
+bool Database::deleteRecords( QModelIndexList list )
+{
+    QSqlQuery query(productDB);
+    query.prepare("delete from stuff_have_error where sid = ?");
+    QMap<QString,int>::iterator it;
+    for( int i = 0; i < list.count(); i++ ) {
+        QSqlRecord record = getRecord(list[i]);
+        QFile image1("assembly_line/" + record.value("pid").toString() + "/"  + record.value("image").toString());
+        image1.remove();
+        QFile image2("assembly_line/" + record.value("pid").toString() + "/"  + record.value("detected_image").toString());
+        image2.remove();
+        query.addBindValue(record.value("sid").toString());
+        if( !query.exec() ) {
+            stuffDataModel->revertAll();
+            return false;
+        }
+
+        if( !stuffDataModel->removeRow(list[i].row())) {
+            stuffDataModel->revertAll();
+            return false;
+        }
+    }
+    stuffDataModel->submitAll();
+    stuffDataModel->select();
+    return true;
+}
+
+QMap<QString,int> Database::getSingleDayData( QDate date  )
+{
+    QMap<QString,int> data;
+    QSqlQuery query("select status,count(status) from stuff where date(product_time) = date('" + date.toString("yyyy-MM-dd") + "')  group by status;",productDB);
+    if( query.exec() ) {
+        while( query.next() ) {
+            data.insert(query.value(0).toString(), query.value(1).toInt());
+        }
+    }
+    return data;
+}
+
+QMap<QString ,QMap<QString,int>> Database::getSingleDayEachHourData( QDate date )
+{
+    QMap<QString,QMap<QString,int>> datas;
+    QSqlQuery query("select hour(product_time), status, count(status) from stuff where date(product_time) = date('"+ date.toString("yyyy-MM-dd") +  "') group by status, hour(product_time);",productDB);
+    if( query.exec() ) {
+        while( query.next() ) {
+            QMap<QString,int> data;
+            if( datas.contains(query.value(0).toString()) ) {
+                data = datas[query.value(0).toString()];
+            }
+            data.insert(query.value(1).toString(),query.value(2).toInt());
+            datas.insert(query.value(0).toString(), data );
+        }
+    }
+
+    return datas;
 }

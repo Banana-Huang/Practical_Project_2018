@@ -4,6 +4,7 @@
 #include "database.h"
 #include "databasesetdialog.h"
 #include "defectwindow.h"
+#include "imageviewer.h"
 #include <QMainWindow>
 #include <QMessageBox>
 #include <QDate>
@@ -14,7 +15,12 @@
 #include <QStringListModel>
 #include <QMap>
 #include <QFileDialog>
+#include <QChartView>
+#include <QChart>
+#include <QGridLayout>
+#include <QBarCategoryAxis>
 
+QT_CHARTS_USE_NAMESPACE
 
 namespace Ui {
 class DataWindow;
@@ -30,6 +36,11 @@ public:
     void resizeEvent(QResizeEvent *event );
 public slots:
     void setStuffData( QModelIndex );
+    void clearStuffData();
+    void updateDefect();
+    void setStatusButton();
+    void setPieChart(QMap<QString,int>);
+    void setBarChart(QMap<QString,QMap<QString,int>>);
 private:
     void initDBConfig();
     void storeDBConfig();
@@ -38,11 +49,20 @@ private:
     Ui::DataWindow *ui;
     QTimer *updateTimer;
     QMap<QString, QString> config;
+    QMap<QString, int> errors;
     QStringListModel *product;
     DatabaseSetDialog* setDialog;
     Database *database;
     DefectWindow *defectWindow;
+    ImageViewer *imageViewer;
     QSqlQuery sqlQuery;
+    QModelIndex index;
+    QChartView *barChartView;
+    QBarCategoryAxis *axisX;
+    QChartView *pieChartView;
+    QChart *barChart;
+    QChart *pieChart;
+    int mode = 0; // create mode
 private slots:
     void setDBconfig();
     void updateCurrentTime();
@@ -55,6 +75,15 @@ private slots:
     void on_defectRadioButton_clicked();
     void on_imageChoser_clicked();
     void on_statusPushButton_clicked();
+    void on_imagePlusViewButton_clicked();
+    void on_detectImagePlusViewButton_clicked();
+    void on_detectedImageChoser_clicked();
+    void on_actionadd_triggered();
+    void on_pushButton_clicked();
+    void on_pushButton_2_clicked();
+    void on_pidComboBox_currentIndexChanged(const QString &arg1);
+    void on_actionminus_triggered();
+    void on_tabWidget_currentChanged(int index);
 };
 
 #endif // DATAWINDOW_H

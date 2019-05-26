@@ -16,7 +16,7 @@ class DatabaseSetDialog: public QDialog
     Q_OBJECT
 public:
     explicit DatabaseSetDialog( QWidget* parent = nullptr );
-    ~DatabaseSetDialog(){};
+    ~DatabaseSetDialog(){}
     bool event( QEvent* e );
     QMap<QString, QString> getConfig(); // 回傳當前設定
     void setConfig( QMap<QString,QString>& configRef ); // 獲取從xml讀取的設定
