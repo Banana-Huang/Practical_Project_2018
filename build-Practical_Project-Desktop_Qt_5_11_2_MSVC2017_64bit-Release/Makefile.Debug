@@ -11,13 +11,13 @@ MAKEFILE      = Makefile.Debug
 
 CC            = cl
 CXX           = cl
-DEFINES       = -DUNICODE -D_UNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DQT_DEPRECATED_WARNINGS -DOPENCV -DCUDNN -D_TIMESPEC_DEFINED -D_SCL_SECURE_NO_WARNINGS -D_CRT_SECURE_NO_WARNINGS -D_CRT_RAND_S -DGPU -DWIN32 -DNDEBUG -D_CONSOLE -D_LIB -DQT_MULTIMEDIA_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_SQL_LIB -DQT_XML_LIB -DQT_CORE_LIB
+DEFINES       = -DUNICODE -D_UNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DQT_DEPRECATED_WARNINGS -DOPENCV -DCUDNN -D_TIMESPEC_DEFINED -D_SCL_SECURE_NO_WARNINGS -D_CRT_SECURE_NO_WARNINGS -D_CRT_RAND_S -DGPU -DWIN32 -DNDEBUG -D_CONSOLE -D_LIB -DQT_MULTIMEDIA_LIB -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_SQL_LIB -DQT_XML_LIB -DQT_CORE_LIB
 CFLAGS        = -nologo -Zc:wchar_t -FS -Zc:strictStrings -Zi -MDd -W3 -w44456 -w44457 -w44458 /Fddebug\Practical_Project.vc.pdb $(DEFINES)
 CXXFLAGS      = -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -Zi -MDd -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -EHsc /Fddebug\Practical_Project.vc.pdb $(DEFINES)
-INCPATH       = -I..\Practical_Project -I. -I..\Practical_Project\3rdparty\include -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\include" -I..\Practical_Project\yolo_src -IC:\opencv_3.0\opencv\build\include -ID:\Qt\5.11.2\msvc2017_64\include -ID:\Qt\5.11.2\msvc2017_64\include\QtMultimedia -ID:\Qt\5.11.2\msvc2017_64\include\QtWidgets -ID:\Qt\5.11.2\msvc2017_64\include\QtGui -ID:\Qt\5.11.2\msvc2017_64\include\QtANGLE -ID:\Qt\5.11.2\msvc2017_64\include\QtNetwork -ID:\Qt\5.11.2\msvc2017_64\include\QtSql -ID:\Qt\5.11.2\msvc2017_64\include\QtXml -ID:\Qt\5.11.2\msvc2017_64\include\QtCore -Idebug -I. -I\include -ID:\Qt\5.11.2\msvc2017_64\mkspecs\win32-msvc 
+INCPATH       = -I..\Practical_Project -I. -I..\Practical_Project\3rdparty\include -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\include" -I..\Practical_Project\yolo_src -IC:\opencv_3.0\opencv\build\include -ID:\Qt\5.11.2\msvc2017_64\include -ID:\Qt\5.11.2\msvc2017_64\include\QtMultimedia -ID:\Qt\5.11.2\msvc2017_64\include\QtCharts -ID:\Qt\5.11.2\msvc2017_64\include\QtWidgets -ID:\Qt\5.11.2\msvc2017_64\include\QtGui -ID:\Qt\5.11.2\msvc2017_64\include\QtANGLE -ID:\Qt\5.11.2\msvc2017_64\include\QtNetwork -ID:\Qt\5.11.2\msvc2017_64\include\QtSql -ID:\Qt\5.11.2\msvc2017_64\include\QtXml -ID:\Qt\5.11.2\msvc2017_64\include\QtCore -Idebug -I. -I\include -ID:\Qt\5.11.2\msvc2017_64\mkspecs\win32-msvc 
 LINKER        = link
 LFLAGS        = /NOLOGO /DYNAMICBASE /NXCOMPAT /DEBUG /SUBSYSTEM:WINDOWS "/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'"
-LIBS          = /LIBPATH:D:\Qt\5.11.2\msvc2017_64\lib D:\Qt\5.11.2\msvc2017_64\lib\qtmaind.lib /LIBPATH:C:\openssl\lib /LIBPATH:C:\Utils\my_sql\mysql-5.6.11-winx64\lib /LIBPATH:C:\Utils\postgresql\pgsql\lib /LIBPATH:E:\College\Junior\Practical_Project\Practical_Project_2018\Practical_Project\3rdparty\lib\x64 /LIBPATH:C:\opencv_3.0\opencv\build\x64\vc15\lib E:\College\Junior\Practical_Project\Practical_Project_2018\Practical_Project\3rdparty\lib\x64\pthreadVC2.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib C:\opencv_3.0\opencv\build\x64\vc15\lib\opencv_world340d.lib /LIBPATH:"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\lib\x64" "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\lib\x64\cublas.lib" "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\lib\x64\curand.lib" "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\lib\x64\cudart.lib" E:\College\Junior\Practical_Project\Practical_Project_2018\Practical_Project\cuda\activation_kernels.cu.obj E:\College\Junior\Practical_Project\Practical_Project_2018\Practical_Project\cuda\avgpool_layer_kernels.cu.obj E:\College\Junior\Practical_Project\Practical_Project_2018\Practical_Project\cuda\blas_kernels.cu.obj E:\College\Junior\Practical_Project\Practical_Project_2018\Practical_Project\cuda\col2im_kernels.cu.obj E:\College\Junior\Practical_Project\Practical_Project_2018\Practical_Project\cuda\convolutional_kernels.cu.obj E:\College\Junior\Practical_Project\Practical_Project_2018\Practical_Project\cuda\crop_layer_kernels.cu.obj E:\College\Junior\Practical_Project\Practical_Project_2018\Practical_Project\cuda\deconvolutional_kernels.cu.obj E:\College\Junior\Practical_Project\Practical_Project_2018\Practical_Project\cuda\dropout_layer_kernels.cu.obj E:\College\Junior\Practical_Project\Practical_Project_2018\Practical_Project\cuda\im2col_kernels.cu.obj E:\College\Junior\Practical_Project\Practical_Project_2018\Practical_Project\cuda\maxpool_layer_kernels.cu.obj E:\College\Junior\Practical_Project\Practical_Project_2018\Practical_Project\cuda\network_kernels.cu.obj D:\Qt\5.11.2\msvc2017_64\lib\Qt5Multimediad.lib D:\Qt\5.11.2\msvc2017_64\lib\Qt5Widgetsd.lib D:\Qt\5.11.2\msvc2017_64\lib\Qt5Guid.lib D:\Qt\5.11.2\msvc2017_64\lib\Qt5Networkd.lib D:\Qt\5.11.2\msvc2017_64\lib\Qt5Sqld.lib D:\Qt\5.11.2\msvc2017_64\lib\Qt5Xmld.lib D:\Qt\5.11.2\msvc2017_64\lib\Qt5Cored.lib 
+LIBS          = /LIBPATH:D:\Qt\5.11.2\msvc2017_64\lib D:\Qt\5.11.2\msvc2017_64\lib\qtmaind.lib /LIBPATH:C:\openssl\lib /LIBPATH:C:\Utils\my_sql\mysql-5.6.11-winx64\lib /LIBPATH:C:\Utils\postgresql\pgsql\lib /LIBPATH:E:\College\Junior\Practical_Project\Practical_Project_2018\Practical_Project\3rdparty\lib\x64 /LIBPATH:C:\opencv_3.0\opencv\build\x64\vc15\lib E:\College\Junior\Practical_Project\Practical_Project_2018\Practical_Project\3rdparty\lib\x64\pthreadVC2.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib C:\opencv_3.0\opencv\build\x64\vc15\lib\opencv_world340d.lib /LIBPATH:"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\lib\x64" "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\lib\x64\cublas.lib" "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\lib\x64\curand.lib" "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\lib\x64\cudart.lib" E:\College\Junior\Practical_Project\Practical_Project_2018\Practical_Project\cuda\activation_kernels.cu.obj E:\College\Junior\Practical_Project\Practical_Project_2018\Practical_Project\cuda\avgpool_layer_kernels.cu.obj E:\College\Junior\Practical_Project\Practical_Project_2018\Practical_Project\cuda\blas_kernels.cu.obj E:\College\Junior\Practical_Project\Practical_Project_2018\Practical_Project\cuda\col2im_kernels.cu.obj E:\College\Junior\Practical_Project\Practical_Project_2018\Practical_Project\cuda\convolutional_kernels.cu.obj E:\College\Junior\Practical_Project\Practical_Project_2018\Practical_Project\cuda\crop_layer_kernels.cu.obj E:\College\Junior\Practical_Project\Practical_Project_2018\Practical_Project\cuda\deconvolutional_kernels.cu.obj E:\College\Junior\Practical_Project\Practical_Project_2018\Practical_Project\cuda\dropout_layer_kernels.cu.obj E:\College\Junior\Practical_Project\Practical_Project_2018\Practical_Project\cuda\im2col_kernels.cu.obj E:\College\Junior\Practical_Project\Practical_Project_2018\Practical_Project\cuda\maxpool_layer_kernels.cu.obj E:\College\Junior\Practical_Project\Practical_Project_2018\Practical_Project\cuda\network_kernels.cu.obj D:\Qt\5.11.2\msvc2017_64\lib\Qt5Multimediad.lib D:\Qt\5.11.2\msvc2017_64\lib\Qt5Chartsd.lib D:\Qt\5.11.2\msvc2017_64\lib\Qt5Widgetsd.lib D:\Qt\5.11.2\msvc2017_64\lib\Qt5Guid.lib D:\Qt\5.11.2\msvc2017_64\lib\Qt5Networkd.lib D:\Qt\5.11.2\msvc2017_64\lib\Qt5Sqld.lib D:\Qt\5.11.2\msvc2017_64\lib\Qt5Xmld.lib D:\Qt\5.11.2\msvc2017_64\lib\Qt5Cored.lib 
 QMAKE         = D:\Qt\5.11.2\msvc2017_64\bin\qmake.exe
 IDC           = idc
 IDL           = midl /NOLOGO
@@ -54,6 +54,8 @@ SOURCES       = ..\Practical_Project\dataWindow\database.cpp \
 		..\Practical_Project\detect.cpp \
 		..\Practical_Project\main.cpp \
 		..\Practical_Project\mainwindow.cpp \
+		..\Practical_Project\scaledchart.cpp \
+		..\Practical_Project\scaledchartview.cpp \
 		..\Practical_Project\settingdialog.cpp \
 		..\Practical_Project\yolo_src\activation_layer.c \
 		..\Practical_Project\yolo_src\activations.c \
@@ -137,6 +139,8 @@ OBJECTS       = debug\database.obj \
 		debug\detect.obj \
 		debug\main.obj \
 		debug\mainwindow.obj \
+		debug\scaledchart.obj \
+		debug\scaledchartview.obj \
 		debug\settingdialog.obj \
 		debug\activation_layer.obj \
 		debug\activations.obj \
@@ -225,6 +229,8 @@ DIST          =  ..\Practical_Project\3rdparty\include\pthread.h \
 		..\Practical_Project\detect.h \
 		..\Practical_Project\mainwindow.h \
 		..\Practical_Project\product.h \
+		..\Practical_Project\scaledchart.h \
+		..\Practical_Project\scaledchartview.h \
 		..\Practical_Project\settingdialog.h \
 		..\Practical_Project\yolo_src\activation_layer.h \
 		..\Practical_Project\yolo_src\activations.h \
@@ -284,6 +290,8 @@ DIST          =  ..\Practical_Project\3rdparty\include\pthread.h \
 		..\Practical_Project\detect.cpp \
 		..\Practical_Project\main.cpp \
 		..\Practical_Project\mainwindow.cpp \
+		..\Practical_Project\scaledchart.cpp \
+		..\Practical_Project\scaledchartview.cpp \
 		..\Practical_Project\settingdialog.cpp \
 		..\Practical_Project\yolo_src\activation_layer.c \
 		..\Practical_Project\yolo_src\activations.c \
@@ -466,8 +474,8 @@ all: Makefile.Debug  $(DESTDIR_TARGET)
 
 $(DESTDIR_TARGET): ui_datawindow.h ui_mainwindow.h ui_settingdialog.h $(OBJECTS) 
 	$(LINKER) $(LFLAGS) /MANIFEST:embed /OUT:$(DESTDIR_TARGET) @<<
-debug\database.obj debug\databasesetdialog.obj debug\datatablemodel.obj debug\datawindow.obj debug\defectwindow.obj debug\imageviewer.obj debug\detect.obj debug\main.obj debug\mainwindow.obj debug\settingdialog.obj debug\activation_layer.obj debug\activations.obj debug\art.obj debug\avgpool_layer.obj debug\batchnorm_layer.obj debug\blas.obj debug\box.obj debug\captcha.obj debug\cifar.obj debug\classifier.obj debug\coco.obj debug\col2im.obj debug\compare.obj debug\connected_layer.obj debug\convolutional_layer.obj debug\cost_layer.obj debug\cpu_gemm.obj debug\crnn_layer.obj debug\crop_layer.obj debug\cuda.obj debug\data.obj debug\deconvolutional_layer.obj debug\demo.obj debug\detection_layer.obj debug\detector.obj debug\dice.obj debug\dropout_layer.obj debug\gemm.obj debug\getopt.obj debug\gettimeofday.obj debug\go.obj debug\gru_layer.obj debug\http_stream.obj debug\im2col.obj debug\image.obj debug\layer.obj debug\list.obj debug\local_layer.obj debug\matrix.obj debug\maxpool_layer.obj
-debug\network.obj debug\nightmare.obj debug\normalization_layer.obj debug\option_list.obj debug\parser.obj debug\region_layer.obj debug\reorg_layer.obj debug\reorg_old_layer.obj debug\rnn.obj debug\rnn_layer.obj debug\rnn_vid.obj debug\route_layer.obj debug\shortcut_layer.obj debug\softmax_layer.obj debug\super.obj debug\swag.obj debug\tag.obj debug\tree.obj debug\upsample_layer.obj debug\utils.obj debug\voxel.obj debug\writing.obj debug\yolo.obj debug\yolo_layer.obj debug\yolo_v2_class.obj debug\qrc_resource.obj debug\moc_database.obj debug\moc_databasesetdialog.obj debug\moc_datawindow.obj debug\moc_defectwindow.obj debug\moc_imageviewer.obj debug\moc_detect.obj debug\moc_mainwindow.obj debug\moc_settingdialog.obj
+debug\database.obj debug\databasesetdialog.obj debug\datatablemodel.obj debug\datawindow.obj debug\defectwindow.obj debug\imageviewer.obj debug\detect.obj debug\main.obj debug\mainwindow.obj debug\scaledchart.obj debug\scaledchartview.obj debug\settingdialog.obj debug\activation_layer.obj debug\activations.obj debug\art.obj debug\avgpool_layer.obj debug\batchnorm_layer.obj debug\blas.obj debug\box.obj debug\captcha.obj debug\cifar.obj debug\classifier.obj debug\coco.obj debug\col2im.obj debug\compare.obj debug\connected_layer.obj debug\convolutional_layer.obj debug\cost_layer.obj debug\cpu_gemm.obj debug\crnn_layer.obj debug\crop_layer.obj debug\cuda.obj debug\data.obj debug\deconvolutional_layer.obj debug\demo.obj debug\detection_layer.obj debug\detector.obj debug\dice.obj debug\dropout_layer.obj debug\gemm.obj debug\getopt.obj debug\gettimeofday.obj debug\go.obj debug\gru_layer.obj debug\http_stream.obj debug\im2col.obj debug\image.obj debug\layer.obj debug\list.obj
+debug\local_layer.obj debug\matrix.obj debug\maxpool_layer.obj debug\network.obj debug\nightmare.obj debug\normalization_layer.obj debug\option_list.obj debug\parser.obj debug\region_layer.obj debug\reorg_layer.obj debug\reorg_old_layer.obj debug\rnn.obj debug\rnn_layer.obj debug\rnn_vid.obj debug\route_layer.obj debug\shortcut_layer.obj debug\softmax_layer.obj debug\super.obj debug\swag.obj debug\tag.obj debug\tree.obj debug\upsample_layer.obj debug\utils.obj debug\voxel.obj debug\writing.obj debug\yolo.obj debug\yolo_layer.obj debug\yolo_v2_class.obj debug\qrc_resource.obj debug\moc_database.obj debug\moc_databasesetdialog.obj debug\moc_datawindow.obj debug\moc_defectwindow.obj debug\moc_imageviewer.obj debug\moc_detect.obj debug\moc_mainwindow.obj debug\moc_settingdialog.obj
 $(LIBS)
 <<
 
@@ -477,10 +485,10 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) Practical_Project.zip $(SOURCES) $(DIST) ..\Practical_Project\Practical_Project.pro D:\Qt\5.11.2\msvc2017_64\mkspecs\features\spec_pre.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\common\angle.conf D:\Qt\5.11.2\msvc2017_64\mkspecs\common\windows-vulkan.conf D:\Qt\5.11.2\msvc2017_64\mkspecs\common\msvc-desktop.conf D:\Qt\5.11.2\msvc2017_64\mkspecs\qconfig.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3danimation.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3danimation_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dcore.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dcore_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dextras.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dextras_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dinput.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dinput_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dlogic.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dlogic_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dquick.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dquick_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dquickanimation.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dquickanimation_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dquickextras.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dquickextras_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dquickinput.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dquickinput_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dquickrender.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dquickrender_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dquickscene2d.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dquickscene2d_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3drender.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3drender_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_accessibility_support_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_axbase.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_axbase_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_axcontainer.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_axcontainer_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_axserver.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_axserver_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_bluetooth.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_bluetooth_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_bootstrap_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_charts.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_charts_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_concurrent.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_concurrent_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_core.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_core_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_datavisualization.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_datavisualization_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_dbus.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_dbus_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_designer.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_designer_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_designercomponents_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_edid_support_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_egl_support_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_fb_support_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_fontdatabase_support_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_gamepad.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_gamepad_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_gui.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_gui_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_help.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_help_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_location.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_location_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_multimedia.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_multimedia_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_multimediawidgets.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_network.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_network_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_networkauth.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_networkauth_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_nfc.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_nfc_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_opengl.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_opengl_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_openglextensions.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_openglextensions_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_packetprotocol_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_platformcompositor_support_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_positioning.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_positioning_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_positioningquick.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_positioningquick_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_printsupport.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_printsupport_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_purchasing.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_purchasing_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_qml.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_qml_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_qmldebug_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_qmldevtools_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_qmltest.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_qmltest_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_quick.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_quick_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_quickcontrols2.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_quickparticles_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_quickwidgets.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_quickwidgets_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_remoteobjects.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_remoteobjects_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_repparser.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_repparser_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_script.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_script_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_scripttools.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_scripttools_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_scxml.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_scxml_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_sensors.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_sensors_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_serialbus.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_serialbus_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_serialport.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_serialport_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_sql.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_sql_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_svg.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_svg_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_testlib.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_testlib_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_texttospeech.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_texttospeech_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_theme_support_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_uiplugin.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_uitools.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_uitools_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_vulkan_support_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_webchannel.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_webchannel_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_webengine.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_webengine_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_webenginecore.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_webenginecore_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_webenginecoreheaders_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_webenginewidgets.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_webenginewidgets_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_websockets.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_websockets_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_webview.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_webview_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_widgets.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_widgets_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_winextras.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_winextras_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_xml.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_xml_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_xmlpatterns.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_xmlpatterns_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_zlib_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\features\qt_functions.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\qt_config.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\win32-msvc\qmake.conf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\spec_post.prf .qmake.stash D:\Qt\5.11.2\msvc2017_64\mkspecs\features\exclusive_builds.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\common\msvc-version.conf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\toolchain.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\default_pre.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\win32\default_pre.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\resolve_config.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\exclusive_builds_post.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\default_post.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\build_pass.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\resources.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\qtquickcompiler.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\precompile_header.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\warn_on.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\qt.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\moc.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\win32\opengl.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\uic.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\qmake_use.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\file_copies.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\win32\windows.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\testcase_targets.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\exceptions.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\yacc.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\lex.prf ..\Practical_Project\Practical_Project.pro ..\Practical_Project\dataWindow\resource.qrc D:\Qt\5.11.2\msvc2017_64\lib\qtmaind.prl D:\Qt\5.11.2\msvc2017_64\lib\Qt5Multimediad.prl D:\Qt\5.11.2\msvc2017_64\lib\Qt5Widgetsd.prl D:\Qt\5.11.2\msvc2017_64\lib\Qt5Guid.prl D:\Qt\5.11.2\msvc2017_64\lib\Qt5Networkd.prl D:\Qt\5.11.2\msvc2017_64\lib\Qt5Sqld.prl D:\Qt\5.11.2\msvc2017_64\lib\Qt5Xmld.prl D:\Qt\5.11.2\msvc2017_64\lib\Qt5Cored.prl  ..\Practical_Project\dataWindow\resource.qrc    D:\Qt\5.11.2\msvc2017_64\mkspecs\features\data\dummy.cpp ..\Practical_Project\3rdparty\include\pthread.h ..\Practical_Project\3rdparty\include\sched.h ..\Practical_Project\3rdparty\include\semaphore.h ..\Practical_Project\dataWindow\database.h ..\Practical_Project\dataWindow\databasesetdialog.h ..\Practical_Project\dataWindow\datatablemodel.h ..\Practical_Project\dataWindow\datawindow.h ..\Practical_Project\dataWindow\defectwindow.h ..\Practical_Project\dataWindow\imageviewer.h ..\Practical_Project\detect.h ..\Practical_Project\mainwindow.h ..\Practical_Project\product.h ..\Practical_Project\settingdialog.h ..\Practical_Project\yolo_src\activation_layer.h ..\Practical_Project\yolo_src\activations.h ..\Practical_Project\yolo_src\avgpool_layer.h ..\Practical_Project\yolo_src\batchnorm_layer.h ..\Practical_Project\yolo_src\blas.h ..\Practical_Project\yolo_src\box.h ..\Practical_Project\yolo_src\classifier.h ..\Practical_Project\yolo_src\col2im.h ..\Practical_Project\yolo_src\connected_layer.h ..\Practical_Project\yolo_src\convolutional_layer.h ..\Practical_Project\yolo_src\cost_layer.h ..\Practical_Project\yolo_src\crnn_layer.h ..\Practical_Project\yolo_src\crop_layer.h ..\Practical_Project\yolo_src\cuda.h ..\Practical_Project\yolo_src\data.h ..\Practical_Project\yolo_src\deconvolutional_layer.h ..\Practical_Project\yolo_src\demo.h ..\Practical_Project\yolo_src\detection_layer.h ..\Practical_Project\yolo_src\dropout_layer.h ..\Practical_Project\yolo_src\gemm.h ..\Practical_Project\yolo_src\getopt.h ..\Practical_Project\yolo_src\gettimeofday.h ..\Practical_Project\yolo_src\gru_layer.h ..\Practical_Project\yolo_src\http_stream.h ..\Practical_Project\yolo_src\im2col.h ..\Practical_Project\yolo_src\image.h ..\Practical_Project\yolo_src\layer.h ..\Practical_Project\yolo_src\list.h ..\Practical_Project\yolo_src\local_layer.h ..\Practical_Project\yolo_src\matrix.h ..\Practical_Project\yolo_src\maxpool_layer.h ..\Practical_Project\yolo_src\network.h ..\Practical_Project\yolo_src\normalization_layer.h ..\Practical_Project\yolo_src\option_list.h ..\Practical_Project\yolo_src\parser.h ..\Practical_Project\yolo_src\region_layer.h ..\Practical_Project\yolo_src\reorg_layer.h ..\Practical_Project\yolo_src\reorg_old_layer.h ..\Practical_Project\yolo_src\rnn_layer.h ..\Practical_Project\yolo_src\route_layer.h ..\Practical_Project\yolo_src\shortcut_layer.h ..\Practical_Project\yolo_src\softmax_layer.h ..\Practical_Project\yolo_src\stb_image.h ..\Practical_Project\yolo_src\stb_image_write.h ..\Practical_Project\yolo_src\tree.h ..\Practical_Project\yolo_src\unistd.h ..\Practical_Project\yolo_src\upsample_layer.h ..\Practical_Project\yolo_src\utils.h ..\Practical_Project\yolo_src\yolo_layer.h ..\Practical_Project\yolo_src\yolo_v2_class.hpp  ..\Practical_Project\dataWindow\database.cpp ..\Practical_Project\dataWindow\databasesetdialog.cpp ..\Practical_Project\dataWindow\datatablemodel.cpp ..\Practical_Project\dataWindow\datawindow.cpp ..\Practical_Project\dataWindow\defectwindow.cpp ..\Practical_Project\dataWindow\imageviewer.cpp ..\Practical_Project\detect.cpp ..\Practical_Project\main.cpp ..\Practical_Project\mainwindow.cpp ..\Practical_Project\settingdialog.cpp ..\Practical_Project\yolo_src\activation_layer.c ..\Practical_Project\yolo_src\activations.c ..\Practical_Project\yolo_src\art.c ..\Practical_Project\yolo_src\avgpool_layer.c ..\Practical_Project\yolo_src\batchnorm_layer.c ..\Practical_Project\yolo_src\blas.c ..\Practical_Project\yolo_src\box.c ..\Practical_Project\yolo_src\captcha.c ..\Practical_Project\yolo_src\cifar.c ..\Practical_Project\yolo_src\classifier.c ..\Practical_Project\yolo_src\coco.c ..\Practical_Project\yolo_src\col2im.c ..\Practical_Project\yolo_src\compare.c ..\Practical_Project\yolo_src\connected_layer.c ..\Practical_Project\yolo_src\convolutional_layer.c ..\Practical_Project\yolo_src\cost_layer.c ..\Practical_Project\yolo_src\cpu_gemm.c ..\Practical_Project\yolo_src\crnn_layer.c ..\Practical_Project\yolo_src\crop_layer.c ..\Practical_Project\yolo_src\cuda.c ..\Practical_Project\yolo_src\data.c ..\Practical_Project\yolo_src\deconvolutional_layer.c ..\Practical_Project\yolo_src\demo.c ..\Practical_Project\yolo_src\detection_layer.c ..\Practical_Project\yolo_src\detector.c ..\Practical_Project\yolo_src\dice.c ..\Practical_Project\yolo_src\dropout_layer.c ..\Practical_Project\yolo_src\gemm.c ..\Practical_Project\yolo_src\getopt.c ..\Practical_Project\yolo_src\gettimeofday.c ..\Practical_Project\yolo_src\go.c ..\Practical_Project\yolo_src\gru_layer.c ..\Practical_Project\yolo_src\http_stream.cpp ..\Practical_Project\yolo_src\im2col.c ..\Practical_Project\yolo_src\image.c ..\Practical_Project\yolo_src\layer.c ..\Practical_Project\yolo_src\list.c ..\Practical_Project\yolo_src\local_layer.c ..\Practical_Project\yolo_src\matrix.c ..\Practical_Project\yolo_src\maxpool_layer.c ..\Practical_Project\yolo_src\network.c ..\Practical_Project\yolo_src\nightmare.c ..\Practical_Project\yolo_src\normalization_layer.c ..\Practical_Project\yolo_src\option_list.c ..\Practical_Project\yolo_src\parser.c ..\Practical_Project\yolo_src\region_layer.c ..\Practical_Project\yolo_src\reorg_layer.c ..\Practical_Project\yolo_src\reorg_old_layer.c ..\Practical_Project\yolo_src\rnn.c ..\Practical_Project\yolo_src\rnn_layer.c ..\Practical_Project\yolo_src\rnn_vid.c ..\Practical_Project\yolo_src\route_layer.c ..\Practical_Project\yolo_src\shortcut_layer.c ..\Practical_Project\yolo_src\softmax_layer.c ..\Practical_Project\yolo_src\super.c ..\Practical_Project\yolo_src\swag.c ..\Practical_Project\yolo_src\tag.c ..\Practical_Project\yolo_src\tree.c ..\Practical_Project\yolo_src\upsample_layer.c ..\Practical_Project\yolo_src\utils.c ..\Practical_Project\yolo_src\voxel.c ..\Practical_Project\yolo_src\writing.c ..\Practical_Project\yolo_src\yolo.c ..\Practical_Project\yolo_src\yolo_layer.c ..\Practical_Project\yolo_src\yolo_v2_class.cpp ..\Practical_Project\dataWindow\datawindow.ui ..\Practical_Project\mainwindow.ui ..\Practical_Project\settingdialog.ui    
+	$(ZIP) Practical_Project.zip $(SOURCES) $(DIST) ..\Practical_Project\Practical_Project.pro D:\Qt\5.11.2\msvc2017_64\mkspecs\features\spec_pre.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\common\angle.conf D:\Qt\5.11.2\msvc2017_64\mkspecs\common\windows-vulkan.conf D:\Qt\5.11.2\msvc2017_64\mkspecs\common\msvc-desktop.conf D:\Qt\5.11.2\msvc2017_64\mkspecs\qconfig.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3danimation.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3danimation_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dcore.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dcore_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dextras.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dextras_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dinput.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dinput_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dlogic.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dlogic_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dquick.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dquick_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dquickanimation.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dquickanimation_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dquickextras.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dquickextras_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dquickinput.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dquickinput_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dquickrender.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dquickrender_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dquickscene2d.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3dquickscene2d_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3drender.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_3drender_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_accessibility_support_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_axbase.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_axbase_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_axcontainer.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_axcontainer_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_axserver.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_axserver_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_bluetooth.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_bluetooth_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_bootstrap_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_charts.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_charts_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_concurrent.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_concurrent_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_core.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_core_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_datavisualization.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_datavisualization_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_dbus.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_dbus_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_designer.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_designer_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_designercomponents_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_edid_support_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_egl_support_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_fb_support_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_fontdatabase_support_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_gamepad.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_gamepad_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_gui.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_gui_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_help.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_help_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_location.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_location_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_multimedia.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_multimedia_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_multimediawidgets.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_multimediawidgets_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_network.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_network_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_networkauth.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_networkauth_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_nfc.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_nfc_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_opengl.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_opengl_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_openglextensions.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_openglextensions_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_packetprotocol_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_platformcompositor_support_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_positioning.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_positioning_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_positioningquick.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_positioningquick_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_printsupport.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_printsupport_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_purchasing.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_purchasing_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_qml.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_qml_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_qmldebug_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_qmldevtools_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_qmltest.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_qmltest_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_quick.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_quick_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_quickcontrols2.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_quickparticles_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_quickwidgets.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_quickwidgets_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_remoteobjects.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_remoteobjects_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_repparser.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_repparser_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_script.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_script_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_scripttools.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_scripttools_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_scxml.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_scxml_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_sensors.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_sensors_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_serialbus.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_serialbus_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_serialport.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_serialport_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_sql.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_sql_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_svg.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_svg_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_testlib.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_testlib_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_texttospeech.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_texttospeech_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_theme_support_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_uiplugin.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_uitools.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_uitools_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_vulkan_support_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_webchannel.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_webchannel_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_webengine.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_webengine_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_webenginecore.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_webenginecore_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_webenginecoreheaders_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_webenginewidgets.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_webenginewidgets_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_websockets.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_websockets_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_webview.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_webview_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_widgets.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_widgets_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_winextras.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_winextras_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_xml.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_xml_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_xmlpatterns.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_xmlpatterns_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\modules\qt_lib_zlib_private.pri D:\Qt\5.11.2\msvc2017_64\mkspecs\features\qt_functions.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\qt_config.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\win32-msvc\qmake.conf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\spec_post.prf .qmake.stash D:\Qt\5.11.2\msvc2017_64\mkspecs\features\exclusive_builds.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\common\msvc-version.conf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\toolchain.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\default_pre.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\win32\default_pre.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\resolve_config.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\exclusive_builds_post.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\default_post.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\build_pass.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\resources.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\qtquickcompiler.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\precompile_header.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\warn_on.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\qt.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\moc.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\win32\opengl.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\uic.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\qmake_use.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\file_copies.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\win32\windows.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\testcase_targets.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\exceptions.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\yacc.prf D:\Qt\5.11.2\msvc2017_64\mkspecs\features\lex.prf ..\Practical_Project\Practical_Project.pro ..\Practical_Project\dataWindow\resource.qrc D:\Qt\5.11.2\msvc2017_64\lib\qtmaind.prl D:\Qt\5.11.2\msvc2017_64\lib\Qt5Multimediad.prl D:\Qt\5.11.2\msvc2017_64\lib\Qt5Chartsd.prl D:\Qt\5.11.2\msvc2017_64\lib\Qt5Widgetsd.prl D:\Qt\5.11.2\msvc2017_64\lib\Qt5Guid.prl D:\Qt\5.11.2\msvc2017_64\lib\Qt5Networkd.prl D:\Qt\5.11.2\msvc2017_64\lib\Qt5Sqld.prl D:\Qt\5.11.2\msvc2017_64\lib\Qt5Xmld.prl D:\Qt\5.11.2\msvc2017_64\lib\Qt5Cored.prl  ..\Practical_Project\dataWindow\resource.qrc    D:\Qt\5.11.2\msvc2017_64\mkspecs\features\data\dummy.cpp ..\Practical_Project\3rdparty\include\pthread.h ..\Practical_Project\3rdparty\include\sched.h ..\Practical_Project\3rdparty\include\semaphore.h ..\Practical_Project\dataWindow\database.h ..\Practical_Project\dataWindow\databasesetdialog.h ..\Practical_Project\dataWindow\datatablemodel.h ..\Practical_Project\dataWindow\datawindow.h ..\Practical_Project\dataWindow\defectwindow.h ..\Practical_Project\dataWindow\imageviewer.h ..\Practical_Project\detect.h ..\Practical_Project\mainwindow.h ..\Practical_Project\product.h ..\Practical_Project\scaledchart.h ..\Practical_Project\scaledchartview.h ..\Practical_Project\settingdialog.h ..\Practical_Project\yolo_src\activation_layer.h ..\Practical_Project\yolo_src\activations.h ..\Practical_Project\yolo_src\avgpool_layer.h ..\Practical_Project\yolo_src\batchnorm_layer.h ..\Practical_Project\yolo_src\blas.h ..\Practical_Project\yolo_src\box.h ..\Practical_Project\yolo_src\classifier.h ..\Practical_Project\yolo_src\col2im.h ..\Practical_Project\yolo_src\connected_layer.h ..\Practical_Project\yolo_src\convolutional_layer.h ..\Practical_Project\yolo_src\cost_layer.h ..\Practical_Project\yolo_src\crnn_layer.h ..\Practical_Project\yolo_src\crop_layer.h ..\Practical_Project\yolo_src\cuda.h ..\Practical_Project\yolo_src\data.h ..\Practical_Project\yolo_src\deconvolutional_layer.h ..\Practical_Project\yolo_src\demo.h ..\Practical_Project\yolo_src\detection_layer.h ..\Practical_Project\yolo_src\dropout_layer.h ..\Practical_Project\yolo_src\gemm.h ..\Practical_Project\yolo_src\getopt.h ..\Practical_Project\yolo_src\gettimeofday.h ..\Practical_Project\yolo_src\gru_layer.h ..\Practical_Project\yolo_src\http_stream.h ..\Practical_Project\yolo_src\im2col.h ..\Practical_Project\yolo_src\image.h ..\Practical_Project\yolo_src\layer.h ..\Practical_Project\yolo_src\list.h ..\Practical_Project\yolo_src\local_layer.h ..\Practical_Project\yolo_src\matrix.h ..\Practical_Project\yolo_src\maxpool_layer.h ..\Practical_Project\yolo_src\network.h ..\Practical_Project\yolo_src\normalization_layer.h ..\Practical_Project\yolo_src\option_list.h ..\Practical_Project\yolo_src\parser.h ..\Practical_Project\yolo_src\region_layer.h ..\Practical_Project\yolo_src\reorg_layer.h ..\Practical_Project\yolo_src\reorg_old_layer.h ..\Practical_Project\yolo_src\rnn_layer.h ..\Practical_Project\yolo_src\route_layer.h ..\Practical_Project\yolo_src\shortcut_layer.h ..\Practical_Project\yolo_src\softmax_layer.h ..\Practical_Project\yolo_src\stb_image.h ..\Practical_Project\yolo_src\stb_image_write.h ..\Practical_Project\yolo_src\tree.h ..\Practical_Project\yolo_src\unistd.h ..\Practical_Project\yolo_src\upsample_layer.h ..\Practical_Project\yolo_src\utils.h ..\Practical_Project\yolo_src\yolo_layer.h ..\Practical_Project\yolo_src\yolo_v2_class.hpp  ..\Practical_Project\dataWindow\database.cpp ..\Practical_Project\dataWindow\databasesetdialog.cpp ..\Practical_Project\dataWindow\datatablemodel.cpp ..\Practical_Project\dataWindow\datawindow.cpp ..\Practical_Project\dataWindow\defectwindow.cpp ..\Practical_Project\dataWindow\imageviewer.cpp ..\Practical_Project\detect.cpp ..\Practical_Project\main.cpp ..\Practical_Project\mainwindow.cpp ..\Practical_Project\scaledchart.cpp ..\Practical_Project\scaledchartview.cpp ..\Practical_Project\settingdialog.cpp ..\Practical_Project\yolo_src\activation_layer.c ..\Practical_Project\yolo_src\activations.c ..\Practical_Project\yolo_src\art.c ..\Practical_Project\yolo_src\avgpool_layer.c ..\Practical_Project\yolo_src\batchnorm_layer.c ..\Practical_Project\yolo_src\blas.c ..\Practical_Project\yolo_src\box.c ..\Practical_Project\yolo_src\captcha.c ..\Practical_Project\yolo_src\cifar.c ..\Practical_Project\yolo_src\classifier.c ..\Practical_Project\yolo_src\coco.c ..\Practical_Project\yolo_src\col2im.c ..\Practical_Project\yolo_src\compare.c ..\Practical_Project\yolo_src\connected_layer.c ..\Practical_Project\yolo_src\convolutional_layer.c ..\Practical_Project\yolo_src\cost_layer.c ..\Practical_Project\yolo_src\cpu_gemm.c ..\Practical_Project\yolo_src\crnn_layer.c ..\Practical_Project\yolo_src\crop_layer.c ..\Practical_Project\yolo_src\cuda.c ..\Practical_Project\yolo_src\data.c ..\Practical_Project\yolo_src\deconvolutional_layer.c ..\Practical_Project\yolo_src\demo.c ..\Practical_Project\yolo_src\detection_layer.c ..\Practical_Project\yolo_src\detector.c ..\Practical_Project\yolo_src\dice.c ..\Practical_Project\yolo_src\dropout_layer.c ..\Practical_Project\yolo_src\gemm.c ..\Practical_Project\yolo_src\getopt.c ..\Practical_Project\yolo_src\gettimeofday.c ..\Practical_Project\yolo_src\go.c ..\Practical_Project\yolo_src\gru_layer.c ..\Practical_Project\yolo_src\http_stream.cpp ..\Practical_Project\yolo_src\im2col.c ..\Practical_Project\yolo_src\image.c ..\Practical_Project\yolo_src\layer.c ..\Practical_Project\yolo_src\list.c ..\Practical_Project\yolo_src\local_layer.c ..\Practical_Project\yolo_src\matrix.c ..\Practical_Project\yolo_src\maxpool_layer.c ..\Practical_Project\yolo_src\network.c ..\Practical_Project\yolo_src\nightmare.c ..\Practical_Project\yolo_src\normalization_layer.c ..\Practical_Project\yolo_src\option_list.c ..\Practical_Project\yolo_src\parser.c ..\Practical_Project\yolo_src\region_layer.c ..\Practical_Project\yolo_src\reorg_layer.c ..\Practical_Project\yolo_src\reorg_old_layer.c ..\Practical_Project\yolo_src\rnn.c ..\Practical_Project\yolo_src\rnn_layer.c ..\Practical_Project\yolo_src\rnn_vid.c ..\Practical_Project\yolo_src\route_layer.c ..\Practical_Project\yolo_src\shortcut_layer.c ..\Practical_Project\yolo_src\softmax_layer.c ..\Practical_Project\yolo_src\super.c ..\Practical_Project\yolo_src\swag.c ..\Practical_Project\yolo_src\tag.c ..\Practical_Project\yolo_src\tree.c ..\Practical_Project\yolo_src\upsample_layer.c ..\Practical_Project\yolo_src\utils.c ..\Practical_Project\yolo_src\voxel.c ..\Practical_Project\yolo_src\writing.c ..\Practical_Project\yolo_src\yolo.c ..\Practical_Project\yolo_src\yolo_layer.c ..\Practical_Project\yolo_src\yolo_v2_class.cpp ..\Practical_Project\dataWindow\datawindow.ui ..\Practical_Project\mainwindow.ui ..\Practical_Project\settingdialog.ui    
 
 clean: compiler_clean 
-	-$(DEL_FILE) debug\database.obj debug\databasesetdialog.obj debug\datatablemodel.obj debug\datawindow.obj debug\defectwindow.obj debug\imageviewer.obj debug\detect.obj debug\main.obj debug\mainwindow.obj debug\settingdialog.obj debug\activation_layer.obj debug\activations.obj debug\art.obj debug\avgpool_layer.obj debug\batchnorm_layer.obj debug\blas.obj debug\box.obj debug\captcha.obj debug\cifar.obj debug\classifier.obj debug\coco.obj debug\col2im.obj debug\compare.obj debug\connected_layer.obj debug\convolutional_layer.obj debug\cost_layer.obj debug\cpu_gemm.obj debug\crnn_layer.obj debug\crop_layer.obj debug\cuda.obj debug\data.obj debug\deconvolutional_layer.obj debug\demo.obj debug\detection_layer.obj debug\detector.obj debug\dice.obj debug\dropout_layer.obj debug\gemm.obj debug\getopt.obj debug\gettimeofday.obj debug\go.obj debug\gru_layer.obj debug\http_stream.obj debug\im2col.obj debug\image.obj debug\layer.obj debug\list.obj debug\local_layer.obj debug\matrix.obj debug\maxpool_layer.obj debug\network.obj debug\nightmare.obj debug\normalization_layer.obj debug\option_list.obj debug\parser.obj debug\region_layer.obj debug\reorg_layer.obj debug\reorg_old_layer.obj debug\rnn.obj debug\rnn_layer.obj debug\rnn_vid.obj debug\route_layer.obj debug\shortcut_layer.obj debug\softmax_layer.obj debug\super.obj debug\swag.obj debug\tag.obj debug\tree.obj debug\upsample_layer.obj debug\utils.obj debug\voxel.obj debug\writing.obj debug\yolo.obj debug\yolo_layer.obj debug\yolo_v2_class.obj debug\qrc_resource.obj debug\moc_database.obj debug\moc_databasesetdialog.obj debug\moc_datawindow.obj debug\moc_defectwindow.obj debug\moc_imageviewer.obj debug\moc_detect.obj debug\moc_mainwindow.obj debug\moc_settingdialog.obj
+	-$(DEL_FILE) debug\database.obj debug\databasesetdialog.obj debug\datatablemodel.obj debug\datawindow.obj debug\defectwindow.obj debug\imageviewer.obj debug\detect.obj debug\main.obj debug\mainwindow.obj debug\scaledchart.obj debug\scaledchartview.obj debug\settingdialog.obj debug\activation_layer.obj debug\activations.obj debug\art.obj debug\avgpool_layer.obj debug\batchnorm_layer.obj debug\blas.obj debug\box.obj debug\captcha.obj debug\cifar.obj debug\classifier.obj debug\coco.obj debug\col2im.obj debug\compare.obj debug\connected_layer.obj debug\convolutional_layer.obj debug\cost_layer.obj debug\cpu_gemm.obj debug\crnn_layer.obj debug\crop_layer.obj debug\cuda.obj debug\data.obj debug\deconvolutional_layer.obj debug\demo.obj debug\detection_layer.obj debug\detector.obj debug\dice.obj debug\dropout_layer.obj debug\gemm.obj debug\getopt.obj debug\gettimeofday.obj debug\go.obj debug\gru_layer.obj debug\http_stream.obj debug\im2col.obj debug\image.obj debug\layer.obj debug\list.obj debug\local_layer.obj debug\matrix.obj debug\maxpool_layer.obj debug\network.obj debug\nightmare.obj debug\normalization_layer.obj debug\option_list.obj debug\parser.obj debug\region_layer.obj debug\reorg_layer.obj debug\reorg_old_layer.obj debug\rnn.obj debug\rnn_layer.obj debug\rnn_vid.obj debug\route_layer.obj debug\shortcut_layer.obj debug\softmax_layer.obj debug\super.obj debug\swag.obj debug\tag.obj debug\tree.obj debug\upsample_layer.obj debug\utils.obj debug\voxel.obj debug\writing.obj debug\yolo.obj debug\yolo_layer.obj debug\yolo_v2_class.obj debug\qrc_resource.obj debug\moc_database.obj debug\moc_databasesetdialog.obj debug\moc_datawindow.obj debug\moc_defectwindow.obj debug\moc_imageviewer.obj debug\moc_detect.obj debug\moc_mainwindow.obj debug\moc_settingdialog.obj
 	-$(DEL_FILE) debug\Practical_Project.exp debug\Practical_Project.vc.pdb debug\Practical_Project.ilk debug\Practical_Project.idb
 
 distclean: clean 
@@ -796,7 +804,7 @@ debug\moc_database.cpp: D:\Qt\5.11.2\msvc2017_64\include\QtCore\QObject \
 		..\Practical_Project\dataWindow\database.h \
 		debug\moc_predefs.h \
 		D:\Qt\5.11.2\msvc2017_64\bin\moc.exe
-	D:\Qt\5.11.2\msvc2017_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include E:/College/Junior/Practical_Project/Practical_Project_2018/build-Practical_Project-Desktop_Qt_5_11_2_MSVC2017_64bit-Release/debug/moc_predefs.h -ID:/Qt/5.11.2/msvc2017_64/mkspecs/win32-msvc -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project/3rdparty/include -I"C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v9.0/include" -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project/yolo_src -IC:/opencv_3.0/opencv/build/include -ID:/Qt/5.11.2/msvc2017_64/include -ID:/Qt/5.11.2/msvc2017_64/include/QtMultimedia -ID:/Qt/5.11.2/msvc2017_64/include/QtWidgets -ID:/Qt/5.11.2/msvc2017_64/include/QtGui -ID:/Qt/5.11.2/msvc2017_64/include/QtANGLE -ID:/Qt/5.11.2/msvc2017_64/include/QtNetwork -ID:/Qt/5.11.2/msvc2017_64/include/QtSql -ID:/Qt/5.11.2/msvc2017_64/include/QtXml -ID:/Qt/5.11.2/msvc2017_64/include/QtCore -I. -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\ATLMFC\include" -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\winrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\cppwinrt" ..\Practical_Project\dataWindow\database.h -o debug\moc_database.cpp
+	D:\Qt\5.11.2\msvc2017_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include E:/College/Junior/Practical_Project/Practical_Project_2018/build-Practical_Project-Desktop_Qt_5_11_2_MSVC2017_64bit-Release/debug/moc_predefs.h -ID:/Qt/5.11.2/msvc2017_64/mkspecs/win32-msvc -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project/3rdparty/include -I"C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v9.0/include" -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project/yolo_src -IC:/opencv_3.0/opencv/build/include -ID:/Qt/5.11.2/msvc2017_64/include -ID:/Qt/5.11.2/msvc2017_64/include/QtMultimedia -ID:/Qt/5.11.2/msvc2017_64/include/QtCharts -ID:/Qt/5.11.2/msvc2017_64/include/QtWidgets -ID:/Qt/5.11.2/msvc2017_64/include/QtGui -ID:/Qt/5.11.2/msvc2017_64/include/QtANGLE -ID:/Qt/5.11.2/msvc2017_64/include/QtNetwork -ID:/Qt/5.11.2/msvc2017_64/include/QtSql -ID:/Qt/5.11.2/msvc2017_64/include/QtXml -ID:/Qt/5.11.2/msvc2017_64/include/QtCore -I. -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\ATLMFC\include" -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\winrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\cppwinrt" ..\Practical_Project\dataWindow\database.h -o debug\moc_database.cpp
 
 debug\moc_databasesetdialog.cpp: D:\Qt\5.11.2\msvc2017_64\include\QtCore\QObject \
 		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qobject.h \
@@ -931,7 +939,7 @@ debug\moc_databasesetdialog.cpp: D:\Qt\5.11.2\msvc2017_64\include\QtCore\QObject
 		..\Practical_Project\dataWindow\databasesetdialog.h \
 		debug\moc_predefs.h \
 		D:\Qt\5.11.2\msvc2017_64\bin\moc.exe
-	D:\Qt\5.11.2\msvc2017_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include E:/College/Junior/Practical_Project/Practical_Project_2018/build-Practical_Project-Desktop_Qt_5_11_2_MSVC2017_64bit-Release/debug/moc_predefs.h -ID:/Qt/5.11.2/msvc2017_64/mkspecs/win32-msvc -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project/3rdparty/include -I"C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v9.0/include" -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project/yolo_src -IC:/opencv_3.0/opencv/build/include -ID:/Qt/5.11.2/msvc2017_64/include -ID:/Qt/5.11.2/msvc2017_64/include/QtMultimedia -ID:/Qt/5.11.2/msvc2017_64/include/QtWidgets -ID:/Qt/5.11.2/msvc2017_64/include/QtGui -ID:/Qt/5.11.2/msvc2017_64/include/QtANGLE -ID:/Qt/5.11.2/msvc2017_64/include/QtNetwork -ID:/Qt/5.11.2/msvc2017_64/include/QtSql -ID:/Qt/5.11.2/msvc2017_64/include/QtXml -ID:/Qt/5.11.2/msvc2017_64/include/QtCore -I. -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\ATLMFC\include" -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\winrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\cppwinrt" ..\Practical_Project\dataWindow\databasesetdialog.h -o debug\moc_databasesetdialog.cpp
+	D:\Qt\5.11.2\msvc2017_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include E:/College/Junior/Practical_Project/Practical_Project_2018/build-Practical_Project-Desktop_Qt_5_11_2_MSVC2017_64bit-Release/debug/moc_predefs.h -ID:/Qt/5.11.2/msvc2017_64/mkspecs/win32-msvc -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project/3rdparty/include -I"C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v9.0/include" -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project/yolo_src -IC:/opencv_3.0/opencv/build/include -ID:/Qt/5.11.2/msvc2017_64/include -ID:/Qt/5.11.2/msvc2017_64/include/QtMultimedia -ID:/Qt/5.11.2/msvc2017_64/include/QtCharts -ID:/Qt/5.11.2/msvc2017_64/include/QtWidgets -ID:/Qt/5.11.2/msvc2017_64/include/QtGui -ID:/Qt/5.11.2/msvc2017_64/include/QtANGLE -ID:/Qt/5.11.2/msvc2017_64/include/QtNetwork -ID:/Qt/5.11.2/msvc2017_64/include/QtSql -ID:/Qt/5.11.2/msvc2017_64/include/QtXml -ID:/Qt/5.11.2/msvc2017_64/include/QtCore -I. -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\ATLMFC\include" -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\winrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\cppwinrt" ..\Practical_Project\dataWindow\databasesetdialog.h -o debug\moc_databasesetdialog.cpp
 
 debug\moc_datawindow.cpp: ..\Practical_Project\dataWindow\database.h \
 		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QObject \
@@ -1250,10 +1258,44 @@ debug\moc_datawindow.cpp: ..\Practical_Project\dataWindow\database.h \
 		D:\Qt\5.11.2\msvc2017_64\include\QtXml\qtxmlversion.h \
 		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QFileDialog \
 		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qfiledialog.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QChartView \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qchartview.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QAbstractAxis \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qabstractaxis.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QChartGlobal \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qchartglobal.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QtGlobal \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\QPen \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\QFont \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QVariant \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QAbstractSeries \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qabstractseries.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QChart \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qchart.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QLegend \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qlegend.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QGraphicsWidget \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicswidget.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicslayoutitem.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicsitem.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\QBrush \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QMargins \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QGraphicsView \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicsview.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qpainter.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qscrollarea.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicsscene.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QBarCategoryAxis \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qbarcategoryaxis.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QValueAxis \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qvalueaxis.h \
+		..\Practical_Project\scaledchart.h \
+		..\Practical_Project\scaledchartview.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QRubberBand \
 		..\Practical_Project\dataWindow\datawindow.h \
 		debug\moc_predefs.h \
 		D:\Qt\5.11.2\msvc2017_64\bin\moc.exe
-	D:\Qt\5.11.2\msvc2017_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include E:/College/Junior/Practical_Project/Practical_Project_2018/build-Practical_Project-Desktop_Qt_5_11_2_MSVC2017_64bit-Release/debug/moc_predefs.h -ID:/Qt/5.11.2/msvc2017_64/mkspecs/win32-msvc -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project/3rdparty/include -I"C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v9.0/include" -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project/yolo_src -IC:/opencv_3.0/opencv/build/include -ID:/Qt/5.11.2/msvc2017_64/include -ID:/Qt/5.11.2/msvc2017_64/include/QtMultimedia -ID:/Qt/5.11.2/msvc2017_64/include/QtWidgets -ID:/Qt/5.11.2/msvc2017_64/include/QtGui -ID:/Qt/5.11.2/msvc2017_64/include/QtANGLE -ID:/Qt/5.11.2/msvc2017_64/include/QtNetwork -ID:/Qt/5.11.2/msvc2017_64/include/QtSql -ID:/Qt/5.11.2/msvc2017_64/include/QtXml -ID:/Qt/5.11.2/msvc2017_64/include/QtCore -I. -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\ATLMFC\include" -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\winrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\cppwinrt" ..\Practical_Project\dataWindow\datawindow.h -o debug\moc_datawindow.cpp
+	D:\Qt\5.11.2\msvc2017_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include E:/College/Junior/Practical_Project/Practical_Project_2018/build-Practical_Project-Desktop_Qt_5_11_2_MSVC2017_64bit-Release/debug/moc_predefs.h -ID:/Qt/5.11.2/msvc2017_64/mkspecs/win32-msvc -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project/3rdparty/include -I"C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v9.0/include" -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project/yolo_src -IC:/opencv_3.0/opencv/build/include -ID:/Qt/5.11.2/msvc2017_64/include -ID:/Qt/5.11.2/msvc2017_64/include/QtMultimedia -ID:/Qt/5.11.2/msvc2017_64/include/QtCharts -ID:/Qt/5.11.2/msvc2017_64/include/QtWidgets -ID:/Qt/5.11.2/msvc2017_64/include/QtGui -ID:/Qt/5.11.2/msvc2017_64/include/QtANGLE -ID:/Qt/5.11.2/msvc2017_64/include/QtNetwork -ID:/Qt/5.11.2/msvc2017_64/include/QtSql -ID:/Qt/5.11.2/msvc2017_64/include/QtXml -ID:/Qt/5.11.2/msvc2017_64/include/QtCore -I. -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\ATLMFC\include" -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\winrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\cppwinrt" ..\Practical_Project\dataWindow\datawindow.h -o debug\moc_datawindow.cpp
 
 debug\moc_defectwindow.cpp: D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QDialog \
 		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qdialog.h \
@@ -1538,7 +1580,7 @@ debug\moc_defectwindow.cpp: D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QDialog \
 		..\Practical_Project\dataWindow\defectwindow.h \
 		debug\moc_predefs.h \
 		D:\Qt\5.11.2\msvc2017_64\bin\moc.exe
-	D:\Qt\5.11.2\msvc2017_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include E:/College/Junior/Practical_Project/Practical_Project_2018/build-Practical_Project-Desktop_Qt_5_11_2_MSVC2017_64bit-Release/debug/moc_predefs.h -ID:/Qt/5.11.2/msvc2017_64/mkspecs/win32-msvc -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project/3rdparty/include -I"C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v9.0/include" -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project/yolo_src -IC:/opencv_3.0/opencv/build/include -ID:/Qt/5.11.2/msvc2017_64/include -ID:/Qt/5.11.2/msvc2017_64/include/QtMultimedia -ID:/Qt/5.11.2/msvc2017_64/include/QtWidgets -ID:/Qt/5.11.2/msvc2017_64/include/QtGui -ID:/Qt/5.11.2/msvc2017_64/include/QtANGLE -ID:/Qt/5.11.2/msvc2017_64/include/QtNetwork -ID:/Qt/5.11.2/msvc2017_64/include/QtSql -ID:/Qt/5.11.2/msvc2017_64/include/QtXml -ID:/Qt/5.11.2/msvc2017_64/include/QtCore -I. -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\ATLMFC\include" -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\winrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\cppwinrt" ..\Practical_Project\dataWindow\defectwindow.h -o debug\moc_defectwindow.cpp
+	D:\Qt\5.11.2\msvc2017_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include E:/College/Junior/Practical_Project/Practical_Project_2018/build-Practical_Project-Desktop_Qt_5_11_2_MSVC2017_64bit-Release/debug/moc_predefs.h -ID:/Qt/5.11.2/msvc2017_64/mkspecs/win32-msvc -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project/3rdparty/include -I"C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v9.0/include" -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project/yolo_src -IC:/opencv_3.0/opencv/build/include -ID:/Qt/5.11.2/msvc2017_64/include -ID:/Qt/5.11.2/msvc2017_64/include/QtMultimedia -ID:/Qt/5.11.2/msvc2017_64/include/QtCharts -ID:/Qt/5.11.2/msvc2017_64/include/QtWidgets -ID:/Qt/5.11.2/msvc2017_64/include/QtGui -ID:/Qt/5.11.2/msvc2017_64/include/QtANGLE -ID:/Qt/5.11.2/msvc2017_64/include/QtNetwork -ID:/Qt/5.11.2/msvc2017_64/include/QtSql -ID:/Qt/5.11.2/msvc2017_64/include/QtXml -ID:/Qt/5.11.2/msvc2017_64/include/QtCore -I. -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\ATLMFC\include" -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\winrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\cppwinrt" ..\Practical_Project\dataWindow\defectwindow.h -o debug\moc_defectwindow.cpp
 
 debug\moc_imageviewer.cpp: D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QMainWindow \
 		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qmainwindow.h \
@@ -1650,7 +1692,7 @@ debug\moc_imageviewer.cpp: D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QMainWindo
 		..\Practical_Project\dataWindow\imageviewer.h \
 		debug\moc_predefs.h \
 		D:\Qt\5.11.2\msvc2017_64\bin\moc.exe
-	D:\Qt\5.11.2\msvc2017_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include E:/College/Junior/Practical_Project/Practical_Project_2018/build-Practical_Project-Desktop_Qt_5_11_2_MSVC2017_64bit-Release/debug/moc_predefs.h -ID:/Qt/5.11.2/msvc2017_64/mkspecs/win32-msvc -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project/3rdparty/include -I"C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v9.0/include" -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project/yolo_src -IC:/opencv_3.0/opencv/build/include -ID:/Qt/5.11.2/msvc2017_64/include -ID:/Qt/5.11.2/msvc2017_64/include/QtMultimedia -ID:/Qt/5.11.2/msvc2017_64/include/QtWidgets -ID:/Qt/5.11.2/msvc2017_64/include/QtGui -ID:/Qt/5.11.2/msvc2017_64/include/QtANGLE -ID:/Qt/5.11.2/msvc2017_64/include/QtNetwork -ID:/Qt/5.11.2/msvc2017_64/include/QtSql -ID:/Qt/5.11.2/msvc2017_64/include/QtXml -ID:/Qt/5.11.2/msvc2017_64/include/QtCore -I. -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\ATLMFC\include" -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\winrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\cppwinrt" ..\Practical_Project\dataWindow\imageviewer.h -o debug\moc_imageviewer.cpp
+	D:\Qt\5.11.2\msvc2017_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include E:/College/Junior/Practical_Project/Practical_Project_2018/build-Practical_Project-Desktop_Qt_5_11_2_MSVC2017_64bit-Release/debug/moc_predefs.h -ID:/Qt/5.11.2/msvc2017_64/mkspecs/win32-msvc -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project/3rdparty/include -I"C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v9.0/include" -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project/yolo_src -IC:/opencv_3.0/opencv/build/include -ID:/Qt/5.11.2/msvc2017_64/include -ID:/Qt/5.11.2/msvc2017_64/include/QtMultimedia -ID:/Qt/5.11.2/msvc2017_64/include/QtCharts -ID:/Qt/5.11.2/msvc2017_64/include/QtWidgets -ID:/Qt/5.11.2/msvc2017_64/include/QtGui -ID:/Qt/5.11.2/msvc2017_64/include/QtANGLE -ID:/Qt/5.11.2/msvc2017_64/include/QtNetwork -ID:/Qt/5.11.2/msvc2017_64/include/QtSql -ID:/Qt/5.11.2/msvc2017_64/include/QtXml -ID:/Qt/5.11.2/msvc2017_64/include/QtCore -I. -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\ATLMFC\include" -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\winrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\cppwinrt" ..\Practical_Project\dataWindow\imageviewer.h -o debug\moc_imageviewer.cpp
 
 debug\moc_detect.cpp: D:\Qt\5.11.2\msvc2017_64\include\QtCore\QObject \
 		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qobject.h \
@@ -1764,12 +1806,12 @@ debug\moc_detect.cpp: D:\Qt\5.11.2\msvc2017_64\include\QtCore\QObject \
 		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qtouchdevice.h \
 		D:\Qt\5.11.2\msvc2017_64\include\QtGui\QImage \
 		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QSet \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QQueue \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qqueue.h \
 		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QMessageBox \
 		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qmessagebox.h \
 		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qdialog.h \
 		D:\Qt\5.11.2\msvc2017_64\include\QtGui\QList \
-		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QQueue \
-		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qqueue.h \
 		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QString \
 		..\Practical_Project\product.h \
 		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QCheckBox \
@@ -1988,7 +2030,7 @@ debug\moc_detect.cpp: D:\Qt\5.11.2\msvc2017_64\include\QtCore\QObject \
 		..\Practical_Project\detect.h \
 		debug\moc_predefs.h \
 		D:\Qt\5.11.2\msvc2017_64\bin\moc.exe
-	D:\Qt\5.11.2\msvc2017_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include E:/College/Junior/Practical_Project/Practical_Project_2018/build-Practical_Project-Desktop_Qt_5_11_2_MSVC2017_64bit-Release/debug/moc_predefs.h -ID:/Qt/5.11.2/msvc2017_64/mkspecs/win32-msvc -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project/3rdparty/include -I"C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v9.0/include" -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project/yolo_src -IC:/opencv_3.0/opencv/build/include -ID:/Qt/5.11.2/msvc2017_64/include -ID:/Qt/5.11.2/msvc2017_64/include/QtMultimedia -ID:/Qt/5.11.2/msvc2017_64/include/QtWidgets -ID:/Qt/5.11.2/msvc2017_64/include/QtGui -ID:/Qt/5.11.2/msvc2017_64/include/QtANGLE -ID:/Qt/5.11.2/msvc2017_64/include/QtNetwork -ID:/Qt/5.11.2/msvc2017_64/include/QtSql -ID:/Qt/5.11.2/msvc2017_64/include/QtXml -ID:/Qt/5.11.2/msvc2017_64/include/QtCore -I. -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\ATLMFC\include" -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\winrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\cppwinrt" ..\Practical_Project\detect.h -o debug\moc_detect.cpp
+	D:\Qt\5.11.2\msvc2017_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include E:/College/Junior/Practical_Project/Practical_Project_2018/build-Practical_Project-Desktop_Qt_5_11_2_MSVC2017_64bit-Release/debug/moc_predefs.h -ID:/Qt/5.11.2/msvc2017_64/mkspecs/win32-msvc -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project/3rdparty/include -I"C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v9.0/include" -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project/yolo_src -IC:/opencv_3.0/opencv/build/include -ID:/Qt/5.11.2/msvc2017_64/include -ID:/Qt/5.11.2/msvc2017_64/include/QtMultimedia -ID:/Qt/5.11.2/msvc2017_64/include/QtCharts -ID:/Qt/5.11.2/msvc2017_64/include/QtWidgets -ID:/Qt/5.11.2/msvc2017_64/include/QtGui -ID:/Qt/5.11.2/msvc2017_64/include/QtANGLE -ID:/Qt/5.11.2/msvc2017_64/include/QtNetwork -ID:/Qt/5.11.2/msvc2017_64/include/QtSql -ID:/Qt/5.11.2/msvc2017_64/include/QtXml -ID:/Qt/5.11.2/msvc2017_64/include/QtCore -I. -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\ATLMFC\include" -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\winrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\cppwinrt" ..\Practical_Project\detect.h -o debug\moc_detect.cpp
 
 debug\moc_mainwindow.cpp: D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QMainWindow \
 		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qmainwindow.h \
@@ -2308,6 +2350,40 @@ debug\moc_mainwindow.cpp: D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QMainWindow
 		D:\Qt\5.11.2\msvc2017_64\include\QtXml\qtxmlversion.h \
 		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QFileDialog \
 		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qfiledialog.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QChartView \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qchartview.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QAbstractAxis \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qabstractaxis.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QChartGlobal \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qchartglobal.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QtGlobal \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\QPen \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\QFont \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QVariant \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QAbstractSeries \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qabstractseries.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QChart \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qchart.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QLegend \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qlegend.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QGraphicsWidget \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicswidget.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicslayoutitem.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicsitem.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\QBrush \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QMargins \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QGraphicsView \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicsview.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qpainter.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qscrollarea.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicsscene.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QBarCategoryAxis \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qbarcategoryaxis.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QValueAxis \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qvalueaxis.h \
+		..\Practical_Project\scaledchart.h \
+		..\Practical_Project\scaledchartview.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QRubberBand \
 		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QThread \
 		D:\Qt\5.11.2\msvc2017_64\include\QtGui\QList \
 		..\Practical_Project\detect.h \
@@ -2536,7 +2612,7 @@ debug\moc_mainwindow.cpp: D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QMainWindow
 		..\Practical_Project\mainwindow.h \
 		debug\moc_predefs.h \
 		D:\Qt\5.11.2\msvc2017_64\bin\moc.exe
-	D:\Qt\5.11.2\msvc2017_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include E:/College/Junior/Practical_Project/Practical_Project_2018/build-Practical_Project-Desktop_Qt_5_11_2_MSVC2017_64bit-Release/debug/moc_predefs.h -ID:/Qt/5.11.2/msvc2017_64/mkspecs/win32-msvc -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project/3rdparty/include -I"C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v9.0/include" -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project/yolo_src -IC:/opencv_3.0/opencv/build/include -ID:/Qt/5.11.2/msvc2017_64/include -ID:/Qt/5.11.2/msvc2017_64/include/QtMultimedia -ID:/Qt/5.11.2/msvc2017_64/include/QtWidgets -ID:/Qt/5.11.2/msvc2017_64/include/QtGui -ID:/Qt/5.11.2/msvc2017_64/include/QtANGLE -ID:/Qt/5.11.2/msvc2017_64/include/QtNetwork -ID:/Qt/5.11.2/msvc2017_64/include/QtSql -ID:/Qt/5.11.2/msvc2017_64/include/QtXml -ID:/Qt/5.11.2/msvc2017_64/include/QtCore -I. -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\ATLMFC\include" -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\winrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\cppwinrt" ..\Practical_Project\mainwindow.h -o debug\moc_mainwindow.cpp
+	D:\Qt\5.11.2\msvc2017_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include E:/College/Junior/Practical_Project/Practical_Project_2018/build-Practical_Project-Desktop_Qt_5_11_2_MSVC2017_64bit-Release/debug/moc_predefs.h -ID:/Qt/5.11.2/msvc2017_64/mkspecs/win32-msvc -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project/3rdparty/include -I"C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v9.0/include" -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project/yolo_src -IC:/opencv_3.0/opencv/build/include -ID:/Qt/5.11.2/msvc2017_64/include -ID:/Qt/5.11.2/msvc2017_64/include/QtMultimedia -ID:/Qt/5.11.2/msvc2017_64/include/QtCharts -ID:/Qt/5.11.2/msvc2017_64/include/QtWidgets -ID:/Qt/5.11.2/msvc2017_64/include/QtGui -ID:/Qt/5.11.2/msvc2017_64/include/QtANGLE -ID:/Qt/5.11.2/msvc2017_64/include/QtNetwork -ID:/Qt/5.11.2/msvc2017_64/include/QtSql -ID:/Qt/5.11.2/msvc2017_64/include/QtXml -ID:/Qt/5.11.2/msvc2017_64/include/QtCore -I. -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\ATLMFC\include" -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\winrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\cppwinrt" ..\Practical_Project\mainwindow.h -o debug\moc_mainwindow.cpp
 
 debug\moc_settingdialog.cpp: D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QDialog \
 		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qdialog.h \
@@ -2666,7 +2742,7 @@ debug\moc_settingdialog.cpp: D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QDialog 
 		..\Practical_Project\settingdialog.h \
 		debug\moc_predefs.h \
 		D:\Qt\5.11.2\msvc2017_64\bin\moc.exe
-	D:\Qt\5.11.2\msvc2017_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include E:/College/Junior/Practical_Project/Practical_Project_2018/build-Practical_Project-Desktop_Qt_5_11_2_MSVC2017_64bit-Release/debug/moc_predefs.h -ID:/Qt/5.11.2/msvc2017_64/mkspecs/win32-msvc -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project/3rdparty/include -I"C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v9.0/include" -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project/yolo_src -IC:/opencv_3.0/opencv/build/include -ID:/Qt/5.11.2/msvc2017_64/include -ID:/Qt/5.11.2/msvc2017_64/include/QtMultimedia -ID:/Qt/5.11.2/msvc2017_64/include/QtWidgets -ID:/Qt/5.11.2/msvc2017_64/include/QtGui -ID:/Qt/5.11.2/msvc2017_64/include/QtANGLE -ID:/Qt/5.11.2/msvc2017_64/include/QtNetwork -ID:/Qt/5.11.2/msvc2017_64/include/QtSql -ID:/Qt/5.11.2/msvc2017_64/include/QtXml -ID:/Qt/5.11.2/msvc2017_64/include/QtCore -I. -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\ATLMFC\include" -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\winrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\cppwinrt" ..\Practical_Project\settingdialog.h -o debug\moc_settingdialog.cpp
+	D:\Qt\5.11.2\msvc2017_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include E:/College/Junior/Practical_Project/Practical_Project_2018/build-Practical_Project-Desktop_Qt_5_11_2_MSVC2017_64bit-Release/debug/moc_predefs.h -ID:/Qt/5.11.2/msvc2017_64/mkspecs/win32-msvc -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project/3rdparty/include -I"C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v9.0/include" -IE:/College/Junior/Practical_Project/Practical_Project_2018/Practical_Project/yolo_src -IC:/opencv_3.0/opencv/build/include -ID:/Qt/5.11.2/msvc2017_64/include -ID:/Qt/5.11.2/msvc2017_64/include/QtMultimedia -ID:/Qt/5.11.2/msvc2017_64/include/QtCharts -ID:/Qt/5.11.2/msvc2017_64/include/QtWidgets -ID:/Qt/5.11.2/msvc2017_64/include/QtGui -ID:/Qt/5.11.2/msvc2017_64/include/QtANGLE -ID:/Qt/5.11.2/msvc2017_64/include/QtNetwork -ID:/Qt/5.11.2/msvc2017_64/include/QtSql -ID:/Qt/5.11.2/msvc2017_64/include/QtXml -ID:/Qt/5.11.2/msvc2017_64/include/QtCore -I. -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\ATLMFC\include" -I"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\winrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.17134.0\cppwinrt" ..\Practical_Project\settingdialog.h -o debug\moc_settingdialog.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -2967,6 +3043,7 @@ debug\database.obj: ..\Practical_Project\dataWindow\database.cpp ..\Practical_Pr
 		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qabstractbutton.h \
 		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QSpinBox \
 		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qspinbox.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QDir \
 		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QTableWidgetItem \
 		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qtablewidget.h \
 		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qtableview.h
@@ -3519,8 +3596,52 @@ debug\datawindow.obj: ..\Practical_Project\dataWindow\datawindow.cpp ..\Practica
 		D:\Qt\5.11.2\msvc2017_64\include\QtXml\qtxmlversion.h \
 		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QFileDialog \
 		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qfiledialog.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QChartView \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qchartview.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QAbstractAxis \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qabstractaxis.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QChartGlobal \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qchartglobal.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QtGlobal \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\QPen \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\QFont \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QVariant \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QAbstractSeries \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qabstractseries.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QChart \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qchart.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QLegend \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qlegend.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QGraphicsWidget \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicswidget.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicslayoutitem.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicsitem.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\QBrush \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QMargins \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QGraphicsView \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicsview.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qpainter.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qscrollarea.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicsscene.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QBarCategoryAxis \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qbarcategoryaxis.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QValueAxis \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qvalueaxis.h \
+		..\Practical_Project\scaledchart.h \
+		..\Practical_Project\scaledchartview.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QRubberBand \
 		ui_datawindow.h \
-		D:\Qt\5.11.2\msvc2017_64\include\QtGui\QPixmap
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\QPixmap \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QPieSeries \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qpieseries.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QPieSlice \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qpieslice.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QBarSet \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qbarset.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QBarSeries \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qbarseries.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QAbstractBarSeries \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qabstractbarseries.h
 
 debug\defectwindow.obj: ..\Practical_Project\dataWindow\defectwindow.cpp ..\Practical_Project\dataWindow\defectwindow.h \
 		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QDialog \
@@ -4381,12 +4502,12 @@ debug\detect.obj: ..\Practical_Project\detect.cpp ..\Practical_Project\detect.h 
 		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qtouchdevice.h \
 		D:\Qt\5.11.2\msvc2017_64\include\QtGui\QImage \
 		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QSet \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QQueue \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qqueue.h \
 		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QMessageBox \
 		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qmessagebox.h \
 		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qdialog.h \
 		D:\Qt\5.11.2\msvc2017_64\include\QtGui\QList \
-		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QQueue \
-		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qqueue.h \
 		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QString \
 		..\Practical_Project\product.h \
 		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QCheckBox \
@@ -4922,6 +5043,40 @@ debug\main.obj: ..\Practical_Project\main.cpp ..\Practical_Project\mainwindow.h 
 		D:\Qt\5.11.2\msvc2017_64\include\QtXml\qtxmlversion.h \
 		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QFileDialog \
 		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qfiledialog.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QChartView \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qchartview.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QAbstractAxis \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qabstractaxis.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QChartGlobal \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qchartglobal.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QtGlobal \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\QPen \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\QFont \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QVariant \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QAbstractSeries \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qabstractseries.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QChart \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qchart.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QLegend \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qlegend.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QGraphicsWidget \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicswidget.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicslayoutitem.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicsitem.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\QBrush \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QMargins \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QGraphicsView \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicsview.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qpainter.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qscrollarea.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicsscene.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QBarCategoryAxis \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qbarcategoryaxis.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QValueAxis \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qvalueaxis.h \
+		..\Practical_Project\scaledchart.h \
+		..\Practical_Project\scaledchartview.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QRubberBand \
 		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QThread \
 		D:\Qt\5.11.2\msvc2017_64\include\QtGui\QList \
 		..\Practical_Project\detect.h \
@@ -5472,6 +5627,40 @@ debug\mainwindow.obj: ..\Practical_Project\mainwindow.cpp ..\Practical_Project\m
 		D:\Qt\5.11.2\msvc2017_64\include\QtXml\qtxmlversion.h \
 		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QFileDialog \
 		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qfiledialog.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QChartView \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qchartview.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QAbstractAxis \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qabstractaxis.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QChartGlobal \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qchartglobal.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QtGlobal \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\QPen \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\QFont \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QVariant \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QAbstractSeries \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qabstractseries.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QChart \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qchart.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QLegend \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qlegend.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QGraphicsWidget \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicswidget.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicslayoutitem.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicsitem.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\QBrush \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QMargins \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QGraphicsView \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicsview.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qpainter.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qscrollarea.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicsscene.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QBarCategoryAxis \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qbarcategoryaxis.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QValueAxis \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qvalueaxis.h \
+		..\Practical_Project\scaledchart.h \
+		..\Practical_Project\scaledchartview.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QRubberBand \
 		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QThread \
 		D:\Qt\5.11.2\msvc2017_64\include\QtGui\QList \
 		..\Practical_Project\detect.h \
@@ -5698,6 +5887,283 @@ debug\mainwindow.obj: ..\Practical_Project\mainwindow.cpp ..\Practical_Project\m
 		D:\Qt\5.11.2\msvc2017_64\include\QtMultimedia\qvideoframe.h \
 		D:\Qt\5.11.2\msvc2017_64\include\QtMultimedia\qabstractvideobuffer.h \
 		ui_mainwindow.h
+
+debug\scaledchart.obj: ..\Practical_Project\scaledchart.cpp ..\Practical_Project\scaledchart.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QChart \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qchart.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QAbstractSeries \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qabstractseries.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QChartGlobal \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qchartglobal.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QtGlobal \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qglobal.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qconfig-bootstrapped.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qconfig.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qtcore-config.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qsystemdetection.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qprocessordetection.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qcompilerdetection.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qtypeinfo.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qsysinfo.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qlogging.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qflags.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qatomic.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qbasicatomic.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qatomic_bootstrap.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qgenericatomic.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qatomic_cxx11.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qatomic_msvc.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qglobalstatic.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qmutex.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qnumeric.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qversiontagging.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QAbstractAxis \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qabstractaxis.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\QPen \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qpen.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qtguiglobal.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qtgui-config.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qcolor.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qrgb.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qnamespace.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qstringlist.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qlist.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qalgorithms.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qiterator.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qrefcount.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qarraydata.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qhashfunctions.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qstring.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qchar.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qbytearray.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qstringliteral.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qstringalgorithms.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qstringview.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qstringbuilder.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qpair.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qbytearraylist.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qregexp.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qstringmatcher.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qrgba64.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qbrush.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qpoint.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qvector.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qscopedpointer.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qmatrix.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qpolygon.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qrect.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qmargins.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qsize.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qregion.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qwindowdefs.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qobjectdefs.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qobjectdefs_impl.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qwindowdefs_win.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qdatastream.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qiodevice.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qobject.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qcoreevent.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qmetatype.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qvarlengtharray.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qcontainerfwd.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qobject_impl.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qline.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qtransform.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qpainterpath.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qimage.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qpaintdevice.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qpixelformat.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qpixmap.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qsharedpointer.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qshareddata.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qhash.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qsharedpointer_impl.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\QFont \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qfont.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QVariant \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qvariant.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qmap.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qdebug.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qtextstream.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qlocale.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qset.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qcontiguouscache.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QObject \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QLegend \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qlegend.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QGraphicsWidget \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicswidget.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qtwidgetsglobal.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qtwidgets-config.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicslayoutitem.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qsizepolicy.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qevent.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qkeysequence.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qurl.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qurlquery.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qfile.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qfiledevice.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qvector2d.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qtouchdevice.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicsitem.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qpalette.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\QBrush \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QMargins \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QGesture \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgesture.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qdatetime.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QGraphicsScene \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicsscene.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QGraphicsView \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicsview.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qpainter.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qtextoption.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qfontinfo.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qfontmetrics.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qscrollarea.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qabstractscrollarea.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qframe.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qwidget.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qcursor.h
+
+debug\scaledchartview.obj: ..\Practical_Project\scaledchartview.cpp ..\Practical_Project\scaledchartview.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QChartView \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qchartview.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QAbstractAxis \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qabstractaxis.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QChartGlobal \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qchartglobal.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QtGlobal \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qglobal.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qconfig-bootstrapped.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qconfig.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qtcore-config.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qsystemdetection.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qprocessordetection.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qcompilerdetection.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qtypeinfo.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qsysinfo.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qlogging.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qflags.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qatomic.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qbasicatomic.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qatomic_bootstrap.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qgenericatomic.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qatomic_cxx11.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qatomic_msvc.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qglobalstatic.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qmutex.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qnumeric.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qversiontagging.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\QPen \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qpen.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qtguiglobal.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qtgui-config.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qcolor.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qrgb.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qnamespace.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qstringlist.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qlist.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qalgorithms.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qiterator.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qrefcount.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qarraydata.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qhashfunctions.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qstring.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qchar.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qbytearray.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qstringliteral.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qstringalgorithms.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qstringview.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qstringbuilder.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qpair.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qbytearraylist.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qregexp.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qstringmatcher.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qrgba64.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qbrush.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qpoint.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qvector.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qscopedpointer.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qmatrix.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qpolygon.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qrect.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qmargins.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qsize.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qregion.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qwindowdefs.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qobjectdefs.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qobjectdefs_impl.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qwindowdefs_win.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qdatastream.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qiodevice.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qobject.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qcoreevent.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qmetatype.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qvarlengtharray.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qcontainerfwd.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qobject_impl.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qline.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qtransform.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qpainterpath.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qimage.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qpaintdevice.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qpixelformat.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qpixmap.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qsharedpointer.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qshareddata.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qhash.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qsharedpointer_impl.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\QFont \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qfont.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QVariant \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qvariant.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qmap.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qdebug.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qtextstream.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qlocale.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qset.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qcontiguouscache.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QAbstractSeries \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qabstractseries.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QObject \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QChart \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qchart.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\QLegend \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCharts\qlegend.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QGraphicsWidget \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicswidget.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qtwidgetsglobal.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qtwidgets-config.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicslayoutitem.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qsizepolicy.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qevent.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qkeysequence.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qurl.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qurlquery.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qfile.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\qfiledevice.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qvector2d.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qtouchdevice.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicsitem.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qpalette.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\QBrush \
+		D:\Qt\5.11.2\msvc2017_64\include\QtCore\QMargins \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QGraphicsView \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicsview.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qpainter.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qtextoption.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qfontinfo.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qfontmetrics.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qscrollarea.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qabstractscrollarea.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qframe.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qwidget.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\qcursor.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qgraphicsscene.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QRubberBand \
+		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\qrubberband.h \
+		D:\Qt\5.11.2\msvc2017_64\include\QtGui\QMouseEvent
 
 debug\settingdialog.obj: ..\Practical_Project\settingdialog.cpp ..\Practical_Project\settingdialog.h \
 		D:\Qt\5.11.2\msvc2017_64\include\QtWidgets\QDialog \

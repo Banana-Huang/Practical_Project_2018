@@ -1,8 +1,14 @@
 ﻿#include "datawindow.h"
 #include "ui_datawindow.h"
 #include <QPixmap>
+#include <QPieSeries>
+#include <QPieSlice>
+#include <QBarSet>
+#include <QBarSeries>
 
-DataWindow::DataWindow(QWidget *parent,Database *db ) :
+
+
+DataWindow::DataWindow(QWidget *parent, Database *db) :
     QMainWindow(parent),
     ui(new Ui::DataWindow)
 {
@@ -14,26 +20,44 @@ DataWindow::DataWindow(QWidget *parent,Database *db ) :
     ui->statusBar->showMessage("Not connect to database!");
     ui->statusBar->setStyleSheet("background-color: rgb(255, 0, 0);");
     setDialog = new DatabaseSetDialog(this);
-    if( db == nullptr)
-            database = new Database(this);
-        else
-            database = db;
+    database = db;
     product = new QStringListModel(this);
 
     imageViewer = new ImageViewer();
 
+    axisX = new QBarCategoryAxis();
+    axisY = new QValueAxis();
+    axisY->setMin(0);
+    barChart = new ScaledChart();
+    pieChart = new QChart();
+    barChartView = new ScaledChartView( barChart, this );
+    barChart->setAxisX(axisX);
+    barChart->setAxisY(axisY);
+
+    pieChartView = new QChartView( pieChart, this );
+
+
+    ui->produceGridLayout->addWidget(barChartView,0,0);
+    ui->dataGridLayout->addWidget(pieChartView,0,0);
+    ui->tabWidget->setCurrentIndex(0);
+
+
     initDBConfig();
     connectDB();
+
+
+    ui->dateEdit->setDate(QDate::currentDate());
+    setDayPieChart(database->getSingleDayData(QDate::currentDate(),ui->comboBox->currentText()));
+    setDayBarChart(database->getSingleDayEachHourData(QDate::currentDate(),ui->comboBox->currentText()));
 
     defectWindow = new DefectWindow(this);
     defectWindow->setDefect(database->getProductError(ui->comboBox->currentText()));
     defectWindow->setTableWidget();
     defectWindow->setGoodChecked();
 
-
     ui->startDateTimeEdit->setDate(QDate::currentDate());
-    ui->endDateTimeEdit->setDate(QDate::currentDate());
     ui->startDateTimeEdit->setTime(QTime(0,0,0));
+    ui->endDateTimeEdit->setDate(QDate::currentDate());
     ui->endDateTimeEdit->setTime(QTime(23,59,59));
     updateTimer = new QTimer();
     ui->tableView->verticalHeader()->setVisible(false);
@@ -64,16 +88,6 @@ void DataWindow::resizeEvent(QResizeEvent *event)
     ui->tableView->setColumnWidth(4, 15 * ui->tableView->width()/100);
     ui->tableView->setColumnWidth(5, 5 * ui->tableView->width()/100);
     QMainWindow::resizeEvent(event);
-}
-
-QStringListModel* DataWindow::getProductIds()
-{
-    return product;
-}
-
-QString DataWindow::getProductName( QString pid )
-{
-    return database->getProductName(pid);
 }
 
 void DataWindow::updateCurrentTime() {
@@ -332,12 +346,13 @@ void DataWindow::on_actionadd_triggered()
     clearStuffData();
     ui->groupBox_2->setTitle(QStringLiteral("新增數據"));
     ui->pushButton->setText(QStringLiteral("新增"));
-    defectWindow->initTableWidget();
+    defectWindow->setGoodChecked();
 }
 
 void DataWindow::clearStuffData()
 {
     ui->imageLineEdit->clear();
+    ui->detectedImageLineEdit->clear();
     ui->sidLineEdit->clear();
     ui->pidComboBox->setModel(product);
     ui->stuffProductTime->setDateTime(QDateTime::currentDateTime());
@@ -466,5 +481,123 @@ void DataWindow::on_actionminus_triggered()
         }
     } else {
         return;
+    }
+}
+
+void DataWindow::on_tabWidget_currentChanged(int index)
+{
+    if( index ) {
+        ui->stackedWidget->setCurrentIndex(1);
+        ui->stackedWidget_2->setCurrentIndex(1);
+   } else {
+        ui->stackedWidget->setCurrentIndex(0);
+        ui->stackedWidget_2->setCurrentIndex(0);
+    }
+}
+
+void DataWindow::setDayPieChart(QMap<QString,int> pieData)
+{
+    pieChart->removeAllSeries();
+    pieChart->setTheme(QChart::ChartThemeLight);
+    pieChart->setAnimationOptions(QChart::SeriesAnimations);
+    QPieSeries* series = new QPieSeries();
+    QList<QString> keys = pieData.keys();
+
+    if( pieData.contains( "1" )) {
+        QPieSlice* slice = series->append(QStringLiteral("Good"), pieData["1"]);
+        slice->setColor(Qt::green);
+        slice->setLabel("Good: " + QString::number(100*pieData["1"] /(pieData["1"]+ pieData["0"])) + "%");
+
+    }
+
+    if( pieData.contains( "0" )) {
+        QPieSlice* slice = series->append(QStringLiteral("Defect"), pieData["0"]);
+        slice->setColor(Qt::red);
+        slice->setLabel("Defect: " + QString::number(100-100*pieData["1"] /(pieData["1"]+ pieData["0"])) + "%");
+    }
+    series->setHoleSize(0.35);
+    pieChart->addSeries(series);
+    pieChart->setTitle(ui->dateEdit->date().toString("yyyy/MM/dd") + QStringLiteral(" 良好數量: ") + QString::number(pieData["1"]) + QStringLiteral(" 缺陷數量: ") + QString::number(pieData["0"]));
+}
+
+void DataWindow::setDayBarChart(QMap<QString,QMap<QString,int>> barData)
+{
+    int large_number = 0;
+    barChart->removeAllSeries();
+    axisX->clear();
+    QMap<QString,QBarSet*> barSets;
+    QBarSeries* series = new QBarSeries();
+    barSets.insert("Defect", new QBarSet("Defect"));
+    barSets.insert("Good", new QBarSet("Good"));
+    QStringList error = database->getProductError(ui->comboBox->currentText()).keys();
+    for( QString& s: error ) {
+        barSets.insert(s, new QBarSet(s));
+    }
+    QStringList category;
+    for ( int i = 0; i < 24; i++ ) {
+        category.append(QString::number(i));
+        if( barData.contains(QString::number(i))) {
+            if( barData[QString::number(i)].contains("1") )
+                barSets["Good"]->append(barData[QString::number(i)]["1"]);
+            else
+                barSets["Good"]->append(0);
+
+            if( barData[QString::number(i)].contains("0") )
+                barSets["Defect"]->append(barData[QString::number(i)]["0"]);
+            else
+                barSets["Defect"]->append(0);
+
+            for( QString& s: error ) {
+                if(barData[QString::number(i)].contains(s))
+                    barSets[s]->append(barData[QString::number(i)][s]);
+                else {
+                    barSets[s]->append(0);
+                }
+            }
+        } else {
+            barSets["Good"]->append(0);
+            barSets["Defect"]->append(0);
+            for( QString& s: error ) {
+                 barSets[s]->append(0);
+            }
+        }
+
+        if( barData[QString::number(i)]["1"] > large_number )
+            large_number =  barData[QString::number(i)]["1"];
+
+        if( barData[QString::number(i)]["0"] > large_number )
+            large_number =  barData[QString::number(i)]["0"];
+    }
+    axisX->setCategories(category);
+    axisY->setMax(large_number);
+    barChart->setAnimationOptions(QChart::SeriesAnimations);
+    barSets["Defect"]->setColor(Qt::red);
+    barSets["Good"]->setColor(Qt::green);
+    series->append(barSets["Good"]);
+    series->append(barSets["Defect"]);
+
+    for( QString& s: error ) {
+         series->append(barSets[s]);
+    }
+    barChart->addSeries(series);
+    //barChart->createDefaultAxes();
+    // barChart->setAxisX(axisX);
+    //series->attachAxis(axisY);
+    series->attachAxis(axisX);
+    barChart->legend()->setVisible(true);
+    barChart->legend()->setAlignment(Qt::AlignBottom);
+    barChartView->setRenderHint(QPainter::Antialiasing);
+    barChart->setTitle(ui->dateEdit->date().toString("yyyy/MM/dd") );
+}
+
+void DataWindow::on_pushButton_3_clicked()
+{
+    switch(ui->comboBox_2->currentIndex()) {
+        case 0:
+            setDayPieChart(database->getSingleDayData(ui->dateEdit->date(), ui->comboBox->currentText()));
+            setDayBarChart(database->getSingleDayEachHourData(ui->dateEdit->date(), ui->comboBox->currentText() ));
+            break;
+        default:
+            break;
     }
 }

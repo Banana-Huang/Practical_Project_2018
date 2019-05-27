@@ -1,6 +1,7 @@
 ﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QTextCodec>
+#include <QApplication>
 
 MainWindow::MainWindow(QMap<QString,QString> config,QWidget *parent) :
     QMainWindow(parent),
@@ -29,11 +30,12 @@ MainWindow::MainWindow(QMap<QString,QString> config,QWidget *parent) :
     /*initNetworkConfig();
     sDialog->update_camera();
     sDialog->setProductComboBox(dataWindow->getProductIds());
-    updateConfig(sDialog->getConfig());*/
+    updateConfig(sDialog->getCo+nfig());*/
     errorTable = database->getErrorTable(config["pid"]);
-     ui->productLineEdit->setText(database->getProductName(config["pid"]));
+    ui->productLineEdit->setText(database->getProductName(config["pid"]));
+
     QList<int> count = database->getCounting( QDate::currentDate() ,config["pid"]);
-    setAmount(count[0],count[1]);
+    setAmount(count[1]+count[0],count[0]);
 
     componentInfo = database->getComponentSetting(config["pid"]);
     setTableWidget();
@@ -119,7 +121,7 @@ void MainWindow::on_checkingPushButton_clicked()
 void MainWindow::updateConfig( QMap<QString,QString> config )
 {
     this->config = config;
-    ui->productLineEdit->setText(dataWindow->getProductName(config["pid"]));
+    ui->productLineEdit->setText(database->getProductName(config["pid"]));
 }
 
 /*void MainWindow::initNetworkConfig()
@@ -258,9 +260,8 @@ void MainWindow::dataProcessing( QList<Component> components )
 void MainWindow::updateData() {
     // detectedImg = detector->getDetectedImage();
     // Img = detector->getImage();
-    productQuantity++;
-    if( error )
-        NGQuantity++;
+    QList<int> count = database->getCounting( QDate::currentDate() ,config["pid"]);
+    setAmount(count[1]+count[0],count[0]);
     dataProcessing( detector->getComponents() );
     setTableWidget();
     insertDatabase();
@@ -290,6 +291,7 @@ void MainWindow::insertDatabase() {
         ui->renderLabel->setText(QStringLiteral("生產序號:")+ sid + QStringLiteral(" 狀態: 缺陷 生產時間: ") + currentTime.toString("yyyy-MM-dd HH:mm:ss.zzz")  );
         ui->renderLabel->setStyleSheet("QLabel {font-weight:bold; font-size: 20px;background-color : red; color : black; }");
         record.setValue("status",0);
+        QApplication::beep();
     } else {
         ui->renderLabel->setText(QStringLiteral("生產序號:")+ sid + QStringLiteral(" 狀態: 良好 生產時間: ") + currentTime.toString("yyyy-MM-dd HH:mm:ss.zzz") );
         ui->renderLabel->setStyleSheet("QLabel {font-weight:bold; font-size: 20px;background-color : #00FF00; color : black; }");

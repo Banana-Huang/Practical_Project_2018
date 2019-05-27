@@ -29,6 +29,8 @@ public:
     QList<int> getCounting( QDate, QString );
     QString getSid( QString, QDateTime );
     QMap<QString, QString> getErrorTable( QString );
+    QMap<QString,int> getSingleDayData( QDate, QString );
+    QMap<QString,QMap<QString,int>> getSingleDayEachHourData( QDate, QString );
 public slots:
     bool deleteRecords( QModelIndexList );
     bool modifyRecord( int row,QSqlRecord& record, QMap<QString,int> errors, QString preSid );

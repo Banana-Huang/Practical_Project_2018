@@ -15,7 +15,15 @@
 #include <QStringListModel>
 #include <QMap>
 #include <QFileDialog>
+#include <QChartView>
+#include <QChart>
+#include <QGridLayout>
+#include <QBarCategoryAxis>
+#include <QValueAxis>
+#include "scaledchart.h"
+#include "scaledchartview.h"
 
+QT_CHARTS_USE_NAMESPACE
 
 namespace Ui {
 class DataWindow;
@@ -26,16 +34,16 @@ class DataWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit DataWindow(QWidget *parent = nullptr, Database *db = nullptr );
+    explicit DataWindow(QWidget *parent = nullptr, Database* db = nullptr);
     ~DataWindow();
     void resizeEvent(QResizeEvent *event );
-    QStringListModel* getProductIds();
-    QString getProductName( QString );
 public slots:
     void setStuffData( QModelIndex );
     void clearStuffData();
     void updateDefect();
     void setStatusButton();
+    void setDayPieChart(QMap<QString,int>);
+    void setDayBarChart(QMap<QString,QMap<QString,int>>);
 private:
     void initDBConfig();
     void storeDBConfig();
@@ -52,6 +60,12 @@ private:
     ImageViewer *imageViewer;
     QSqlQuery sqlQuery;
     QModelIndex index;
+    ScaledChartView *barChartView;
+    QBarCategoryAxis *axisX;
+    QValueAxis *axisY;
+    QChartView *pieChartView;
+    ScaledChart *barChart;
+    QChart *pieChart;
     int mode = 0; // create mode
 private slots:
     void setDBconfig();
@@ -73,6 +87,8 @@ private slots:
     void on_pushButton_2_clicked();
     void on_pidComboBox_currentIndexChanged(const QString &arg1);
     void on_actionminus_triggered();
+    void on_tabWidget_currentChanged(int index);
+    void on_pushButton_3_clicked();
 };
 
 #endif // DATAWINDOW_H

@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui multimedia sql xml
+QT       += core gui multimedia sql xml charts
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -74,6 +74,8 @@ SOURCES += \
     detect.cpp \
         main.cpp \
         mainwindow.cpp \
+    scaledchart.cpp \
+    scaledchartview.cpp \
     settingdialog.cpp \
     yolo_src/activation_layer.c \
     yolo_src/activations.c \
@@ -154,6 +156,8 @@ HEADERS += \
     detect.h \
         mainwindow.h \
     product.h \
+    scaledchart.h \
+    scaledchartview.h \
     settingdialog.h \
     yolo_src/activation_layer.h \
     yolo_src/activations.h \

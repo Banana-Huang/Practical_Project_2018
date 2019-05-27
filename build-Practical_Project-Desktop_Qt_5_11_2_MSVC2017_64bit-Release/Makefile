@@ -263,6 +263,7 @@ Makefile: ..\Practical_Project\Practical_Project.pro D:\Qt\5.11.2\msvc2017_64\mk
 		..\Practical_Project\Practical_Project.pro \
 		D:\Qt\5.11.2\msvc2017_64\lib\qtmain.prl \
 		D:\Qt\5.11.2\msvc2017_64\lib\Qt5Multimedia.prl \
+		D:\Qt\5.11.2\msvc2017_64\lib\Qt5Charts.prl \
 		D:\Qt\5.11.2\msvc2017_64\lib\Qt5Widgets.prl \
 		D:\Qt\5.11.2\msvc2017_64\lib\Qt5Gui.prl \
 		D:\Qt\5.11.2\msvc2017_64\lib\Qt5Network.prl \
@@ -458,6 +459,7 @@ D:\Qt\5.11.2\msvc2017_64\mkspecs\features\lex.prf:
 ..\Practical_Project\Practical_Project.pro:
 D:\Qt\5.11.2\msvc2017_64\lib\qtmain.prl:
 D:\Qt\5.11.2\msvc2017_64\lib\Qt5Multimedia.prl:
+D:\Qt\5.11.2\msvc2017_64\lib\Qt5Charts.prl:
 D:\Qt\5.11.2\msvc2017_64\lib\Qt5Widgets.prl:
 D:\Qt\5.11.2\msvc2017_64\lib\Qt5Gui.prl:
 D:\Qt\5.11.2\msvc2017_64\lib\Qt5Network.prl:

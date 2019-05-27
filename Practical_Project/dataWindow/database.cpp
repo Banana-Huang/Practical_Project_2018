@@ -267,15 +267,13 @@ QList<int> Database::getCounting( QDate currentDate, QString pid )
     int i = 0;
     QList<int> count;
     count << 0 << 0;
-    QString str("select status,COUNT(status) from stuff where date(product_time) = curdate()  and pid = '%1' group by status");
-    str.arg(pid);
+    QString str("select status,COUNT(status) from stuff where date(product_time) = curdate()  and pid = '" + pid + "' group by status");
     QSqlQuery query(str,productDB);
     if(query.exec())
     {
         while( query.next() )
         {
-            count[i] =  query.value(1).toInt();
-            i++;
+            count[query.value(0).toInt()] =  query.value(1).toInt();
         }
         return count;
     } else {
@@ -332,4 +330,46 @@ bool Database::insertErrors( QString sid, QMap<QString, int> errors )
         }
     }
     return true;
+}
+
+QMap<QString,int> Database::getSingleDayData( QDate date, QString pid  )
+{
+    QMap<QString,int> data;
+    QSqlQuery query("select status,count(status) from stuff where stuff.pid = '" + pid + "' and date(product_time) = date('" + date.toString("yyyy-MM-dd") + "')  group by status;",productDB);
+    if( query.exec() ) {
+        while( query.next() ) {
+            data.insert(query.value(0).toString(), query.value(1).toInt());
+        }
+    }
+    return data;
+}
+
+QMap<QString ,QMap<QString,int>> Database::getSingleDayEachHourData( QDate date, QString pid )
+{
+    QMap<QString,QMap<QString,int>> datas;
+    QSqlQuery query("select hour(product_time), status, count(status) from stuff where pid = '" + pid + "' and date(product_time) = date('"+ date.toString("yyyy-MM-dd") +  "') group by status, hour(product_time);",productDB);
+    if( query.exec() ) {
+        while( query.next() ) {
+            QMap<QString,int> data;
+            if( datas.contains(query.value(0).toString()) ) {
+                data = datas[query.value(0).toString()];
+            }
+            data.insert(query.value(1).toString(),query.value(2).toInt());
+            datas.insert(query.value(0).toString(), data );
+        }
+    }
+
+    QSqlQuery query2("select hour(stuff.product_time), stuff_have_error.eid, count(stuff_have_error.eid) from stuff, stuff_have_error where stuff.sid = stuff_have_error.sid and stuff.pid = '" + pid + "' and date(stuff.product_time) = date('"+ date.toString("yyyy-MM-dd") +  "') group by hour(stuff.product_time), stuff_have_error.eid ;",productDB);
+    if( query2.exec() ) {
+        while( query2.next() ) {
+            QMap<QString,int> data;
+            if( datas.contains(query2.value(0).toString()) ) {
+                data = datas[query2.value(0).toString()];
+            }
+            data.insert(query2.value(1).toString(),query2.value(2).toInt());
+            datas.insert(query2.value(0).toString(), data );
+        }
+    }
+
+    return datas;
 }
