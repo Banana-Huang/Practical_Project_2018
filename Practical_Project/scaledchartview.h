@@ -16,10 +16,10 @@ public:
 
 //![2]
 protected:
-    bool viewportEvent(QEvent *event);
+    /*bool viewportEvent(QEvent *event);
     void mousePressEvent(QMouseEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
-    void mouseReleaseEvent(QMouseEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event);*/
     void wheelEvent(QWheelEvent *event);
     void keyPressEvent(QKeyEvent *event);
 //![2]

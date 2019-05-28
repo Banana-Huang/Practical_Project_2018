@@ -6,10 +6,10 @@ ScaledChartView::ScaledChartView(QChart *chart, QWidget *parent) :
     QChartView(chart, parent),
     m_isTouching(false)
 {
-    setRubberBand(QChartView::RectangleRubberBand);
+    //setRubberBand(QChartView::RectangleRubberBand);
 }
 
-bool ScaledChartView::viewportEvent(QEvent *event)
+/*bool ScaledChartView::viewportEvent(QEvent *event)
 {
     if (event->type() == QEvent::TouchBegin) {
         // By default touch events are converted to mouse events. So
@@ -49,7 +49,7 @@ void ScaledChartView::mouseReleaseEvent(QMouseEvent *event)
     chart()->setAnimationOptions(QChart::SeriesAnimations);
 
     QChartView::mouseReleaseEvent(event);
-}
+}*/
 
 
 void ScaledChartView::wheelEvent(QWheelEvent *event)

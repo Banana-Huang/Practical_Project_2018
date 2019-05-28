@@ -3,7 +3,7 @@
 Detect::Detect( QLabel* view, QString datacfg, QString cfgfile, QString weightfile,
                float thresh, float hier_thresh, int cam_index, QObject *parent ): QObject(parent)
 {
-    stop = false;
+    //stop = false;
     frame = view;
 #ifndef GPU
     gpu_index = -1;
@@ -65,27 +65,6 @@ Detect::Detect( QLabel* view, QString datacfg, QString cfgfile, QString weightfi
        exit(0);
     }
     // flag_exit = 0;
-
-    fetch();
-    det_img = in_img;
-    det_s = in_s;
-
-    fetch();
-    detect();
-    det_img = in_img;
-    det_s = in_s;
-
-    for(j = 0; j < FRAMES/2; ++j){
-        fetch();
-        detect();
-        det_img = in_img;
-        det_s = in_s;
-    }
-
-    /* timer = new QTimer;
-    connect( timer,SIGNAL(timeout()),this,SLOT(process()));
-    timer->start(33); */
-    before = get_wall_time();
 }
 
 Detect::~Detect()
@@ -188,13 +167,13 @@ double Detect::get_wall_time()
 void Detect::updateView() {
     /*cv::Mat img = cv::cvarrToMat(show_img);
     cv::cvtColor(img, img, CV_BGR2RGB);
-    cv::resize(img,img,cv::Size(frame->width(),frame->height()),0,0,cv::INTER_LINEAR);
-    frame->setPixmap(QPixmap::fromImage(QImage(img.data, img.cols, img.rows, img.step, QImage::Format_RGB888)));*/
-    cvCvtColor(show_img,show_img,CV_BGR2RGB);
-
-    uchar *imgData=(uchar *)show_img->imageData;
-    frame->setPixmap(QPixmap::fromImage(QImage(imgData,show_img->width,show_img->height,QImage::Format_RGB888)).scaled(frame->width(),frame->height()));
-
+    imgQueue.enqueue(QImage(img.data, img.cols, img.rows, img.step, QImage::Format_RGB888));
+    img = cv::cvarrToMat(det_img);
+    cv::cvtColor(img, img, CV_BGR2RGB);
+    detectedImgQueue.enqueue(QImage(img.data, img.cols, img.rows, img.step, QImage::Format_RGB888));*/
+    cvCvtColor(det_img,det_img,CV_BGR2RGB);
+    QImage det_qimg((uchar *)det_img->imageData,det_img->width,det_img->height,QImage::Format_RGB888);
+    frame->setPixmap(QPixmap::fromImage(det_qimg).scaled(frame->width(),frame->height()));
 }
 
 QImage Detect::getDetectedImage() {
@@ -206,17 +185,40 @@ QImage Detect::getImage() {
 }
 
 void Detect::process() {
+    fetch();
+    det_img = in_img;
+    det_s = in_s;
+
+    fetch();
+    detect();
+    det_img = in_img;
+    det_s = in_s;
+
+    for(int j = 0; j < FRAMES/2; ++j){
+        fetch();
+        detect();
+        det_img = in_img;
+        det_s = in_s;
+    }
+
+    /* timer = new QTimer;
+    connect( timer,SIGNAL(timeout()),this,SLOT(process()));
+    timer->start(33); */
+    before = get_wall_time();
     while( true ) {
             if( !stop ) {
             fetch();
             detect();
-            //updateView();
+            updateView();
+            if(!Group.isEmpty())
+                emit detectionSignal();
             cvReleaseImage(&show_img);
             if( delay == 0 )
                 show_img = det_img;
+
             det_img = in_img;
             det_s = in_s;
-            updateView();
+            //updateView();
             --delay;
             if(delay < 0){
                 delay = frame_skip;
@@ -251,8 +253,12 @@ void Detect::getDetections( IplImage* show_img, detection *dets, int num, float 
         for (j = 0; j < classes; ++j) {
             if (dets[i].prob[j] > thresh) {
                 if (class_id < 0) {
+                    strcat(labelstr, names[j]);
                     class_id = j;
-                }
+                 } else {
+                    strcat(labelstr, ", ");
+                    strcat(labelstr, names[j]);
+                 }
             }
         }
         if (class_id >= 0) {
@@ -361,7 +367,6 @@ void Detect::getDetections( IplImage* show_img, detection *dets, int num, float 
                 cvLine(show_img,cvPoint(show_img->width/2,0),cvPoint(show_img->width/2,show_img->height),CV_RGB(0,255,0),3,8,0);
         }
     }
-
     if( !Group.isEmpty() )
     {
         while( !component.isEmpty() )
@@ -370,13 +375,6 @@ void Detect::getDetections( IplImage* show_img, detection *dets, int num, float 
             if(Group.front().isBelongto(temp))
                 Group.append(temp);
         }
-        /*cv::Mat img = cv::cvarrToMat(show_img);
-        cv::cvtColor(img, img, CV_BGR2RGB);
-        imgQueue.enqueue(QImage(img.data, img.cols, img.rows, img.step, QImage::Format_RGB888));
-        img = cv::cvarrToMat(det_img);
-        cv::cvtColor(img, img, CV_BGR2RGB);
-        detectedImgQueue.enqueue(QImage(img.data, img.cols, img.rows, img.step, QImage::Format_RGB888));*/
-        emit detectionSignal();
     }
 }
 
