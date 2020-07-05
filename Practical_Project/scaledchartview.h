@@ -16,10 +16,10 @@ public:
 
 //![2]
 protected:
-    /*bool viewportEvent(QEvent *event);
+    bool viewportEvent(QEvent *event);
     void mousePressEvent(QMouseEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
-    void mouseReleaseEvent(QMouseEvent *event);*/
+    void mouseReleaseEvent(QMouseEvent *event);
     void wheelEvent(QWheelEvent *event);
     void keyPressEvent(QKeyEvent *event);
 //![2]
@@ -27,6 +27,7 @@ protected:
 private:
     bool m_isTouching;
     qreal mFactor=1.0;
+    int shift;
 };
 
 #endif // SCALEDCHARTVIEW_H

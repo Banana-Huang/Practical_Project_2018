@@ -10,7 +10,7 @@ settingDialog::settingDialog(QWidget *parent) :
 
     //set lineEdit readOnly
     ui->weightLineEdit->setReadOnly(1);
-    ui->weightLineEdit->setText("E:/dataset/Project/weights/yolov3-tiny_127100.weights");
+    ui->weightLineEdit->setText("E:/dataset/Project/weights/yolov3-tiny_139900.weights");
     ui->settingLineEdit->setReadOnly(1);
     ui->settingLineEdit->setText("E:/dataset/Project/cfg/yolov3-tiny.cfg");
     ui->dataLineEdit->setReadOnly(1);

@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<dbcfg>
-    <database>assembly_line</database>
-    <host>localhost</host>
-    <password>12345</password>
-    <user>terry</user>
-</dbcfg>

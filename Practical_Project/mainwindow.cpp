@@ -10,6 +10,7 @@ MainWindow::MainWindow(QMap<QString,QString> config,QWidget *parent) :
     ui->setupUi(this);
     ui->stackedWidget->setCurrentIndex(1);
     database = new Database(this);
+    //dataWindow = nullptr;
     dataWindow = new DataWindow(this, database );
     // sDialog = new settingDialog(this);
     timer = new QTimer(this);
@@ -260,12 +261,12 @@ void MainWindow::dataProcessing( QList<Component> components )
 void MainWindow::updateData() {
     // detectedImg = detector->getDetectedImage();
     // Img = detector->getImage();
-    QList<int> count = database->getCounting( QDate::currentDate() ,config["pid"]);
-    setAmount(count[1]+count[0],count[0]);
     dataProcessing( detector->getComponents() );
     setTableWidget();
     insertDatabase();
     updateAmount();
+    QList<int> count = database->getCounting( QDate::currentDate() ,config["pid"]);
+    setAmount(count[1]+count[0],count[0]);
 }
 
 void MainWindow::insertDatabase() {
